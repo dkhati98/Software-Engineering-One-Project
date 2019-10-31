@@ -5,44 +5,41 @@
     tools:context="com.example.finaleatright.MainActivity"
     style="@style/background_color">
 
-    <!-- Logo -->
+
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/imageview_logo"
         app:srcCompat="@drawable/launcherLogo" />
 
-    <!-- Enter Username -->
     <EditText
         android:id="@+id/edittext_username"
-        android:layout_width="175dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/text_background"
-        android:hint="@string/username"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:textColor="@color/text_color" />
+        android:hint="@string/edittext_username"
+        style="@style/input_style"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:importantForAutofill="no"/>
 
-    <!-- Enter Password -->
     <EditText
         android:id="@+id/edittext_password"
         android:layout_width="175dp"
         android:layout_height="35dp"
         android:layout_marginTop="20dp"
         android:background="@color/text_background"
-        android:hint="@string/password"
+        android:hint="@string/edittext_password"
         android:textColor="@color/text_color"
         android:importantForAutofill="no"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"/>
 
-    <!-- Login Button -->
     <Button
         android:id="@+id/button_login"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginTop="20dp"
-        android:text="@string/login"
+        android:text="@string/button_login"
         android:textColor="@color/text_color" />
 
     <LinearLayout
@@ -50,12 +47,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- Not register yet -->
         <TextView
             android:id="@+id/textview_register"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:text="@string/not_registered_yet"/>
+            android:text="@string/textview_not_registered_yet"/>
     </LinearLayout>
 
-</LinearLayout>
+</Lin
