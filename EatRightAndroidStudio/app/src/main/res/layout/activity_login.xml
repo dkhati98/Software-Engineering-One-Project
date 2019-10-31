@@ -5,13 +5,14 @@
     tools:context="com.example.finaleatright.MainActivity"
     style="@style/background_color">
 
-
+    <!-- Logo -->
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/launcherLogo" />
 
+    <!-- Enter Username -->
     <EditText
         android:id="@+id/edittext_username"
         android:layout_width="175dp"
@@ -23,6 +24,7 @@
         android:inputType="text"
         android:textColor="@color/text_color" />
 
+    <!-- Enter Password -->
     <EditText
         android:id="@+id/edittext_password"
         android:layout_width="175dp"
@@ -34,6 +36,7 @@
         android:importantForAutofill="no"
         android:inputType="textPassword"/>
 
+    <!-- Login Button -->
     <Button
         android:id="@+id/button_login"
         android:layout_width="wrap_content"
@@ -47,6 +50,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <!-- Not register yet -->
         <TextView
             android:id="@+id/textview_register"
             android:layout_width="wrap_content"
