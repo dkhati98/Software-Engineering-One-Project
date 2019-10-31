@@ -1,11 +1,39 @@
 <resources>
-    <string name="app_name">EatRight</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="logo">logo</string>
-    <string name="login">Login</string>
-    <string name="not_registered_yet">Not registered yet?</string>
-    <string name="name">Name</string>
-    <string name="email">Email</string>
-    <string name="create_account">Create Account</string>
+    <string name="app_name">FinalEatRight</string>
+    <string name="edittext_username">Username</string>
+    <string name="edittext_password">Password</string>
+    <string name="imageview_logo">logo</string>
+    <string name="button_login">Login</string>
+    <string name="textview_not_registered_yet">Not registered yet?</string>
+    <string name="edittext_name">Name</string>
+    <string name="edittext_email">Email</string>
+    <string name="button_create_account">Create Account</string>
+
+    <!-- Fragment enter_base_info -->
+    <string name="textview_initial_prompt">First, we need to get some general information about you.</string>
+    <string name="button_next">Next</string>
+
+    <!-- Fragment base_info -->
+    <string name="radiobutton_female">Female</string>
+    <string name="radiobutton_male">Male</string>
+    <string name="radiobutton_gender_other">Prefer not to say</string>
+    <string name="textview_select_gender">Please select your gender.</string>
+    <string name="textview_select_birthdate">Select your date of birth.</string>
+    <string name="textview_enter_height">Enter your height.</string>
+    <string name="edittext_height_feet">Feet</string>
+    <string name="edittext_height_inches">Inches</string>
+    <string name="textview_enter_weight">Enter your weight.</string>
+    <string name="edittext_weight_in_pounds">Lbs</string>
+
+    <!-- Placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Fragment prompt goals -->
+    <string name="textview_goals_prompt">Next, we want to learn how to help you. What is your goal?</string>
+    <string name="radiobutton_lose_weight">Lose Weight</string>
+    <string name="radiobutton_maintain_weight">Maintain Weight</string>
+    <string name="radiobutton_gain_weight">Gain Weight</string>
+
+
+
 </resources>
