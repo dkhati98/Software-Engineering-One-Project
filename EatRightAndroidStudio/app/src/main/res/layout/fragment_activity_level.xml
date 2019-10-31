@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:layout_gravity="center_horizontal">
+
+
+
+
+    <!-- Calculate goal calories -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="289dp"
+        android:layout_height="275dp"
+        android:contentDescription="@string/imageview_logo"
+        app:srcCompat="@drawable/launcherLogo"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview_activity_level"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="25dp">
+
+        <RadioButton
+            android:id="@+id/radio_not_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobutton_not_active"
+            android:textSize="18sp"/>
+
+        <RadioButton
+            android:id="@+id/radio_slightly_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobutton_slightly_active"
+            android:textSize="18sp"/>
+
+        <RadioButton
+            android:id="@+id/radio_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobutton_active"
+            android:textSize="18sp"/>
+
+        <RadioButton
+            android:id="@+id/radio_very_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobutton_very_active"
+            android:textSize="18sp"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_calculate"
+        android:layout_gravity="end"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="200dp"/>
+
+</LinearLayout>
