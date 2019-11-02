@@ -26,6 +26,7 @@
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"/>
 
+    <!-- Options for activity levels -->
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,6 +63,7 @@
 
     </RadioGroup>
 
+    <!-- Calculate button -->
     <Button
         android:id="@+id/button_calculate"
         android:layout_width="wrap_content"
