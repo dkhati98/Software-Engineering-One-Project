@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    tools:context=".base_info">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/imageView"
+        style="@style/logo_style"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/imageview_logo"
+        android:src="@drawable/launcherlogo" />
+
+    <!-- Tells User to choose a gender -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/textview_select_gender"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Choose Gender -->
+    <RadioGroup
+        android:id="@+id/radioGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <RadioButton
+            android:id="@+id/radioMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/radiobutton_male"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobutton_female"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioGenderOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobutton_gender_other"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <!-- Uses DatePicker class -->
+    <TextView
+        android:id="@+id/enter_birthdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/textview_select_birthdate"
+        android:layout_marginTop="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
+
+    <!-- Enter numerical height -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview_enter_height"
+        android:layout_marginTop="20sp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/height_feet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140dp"
+            android:hint="@string/edittext_height_feet"
+            android:importantForAutofill="no"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/height_inches"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/edittext_height_inches"
+            android:layout_marginStart="45dp"
+            android:importantForAutofill="no"
+            android:inputType="number"/>
+
+    </LinearLayout>
+
+    <!-- Prompts user to enter weight -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview_enter_weight"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edittext_weight_in_pounds"
+        android:importantForAutofill="no"
+        android:layout_gravity="center_horizontal"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_next"
+        android:layout_gravity="end"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
