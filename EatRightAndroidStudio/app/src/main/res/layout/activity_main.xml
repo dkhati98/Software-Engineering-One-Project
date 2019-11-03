@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@string/imageview_logo"
-        app:srcCompat="@drawable/launcherLogo" />
+        app:srcCompat="@drawable/launcherlogo" />
 
     <EditText
         android:id="@+id/edittext_username"
@@ -53,5 +53,12 @@
             android:layout_height="35dp"
             android:text="@string/textview_not_registered_yet"/>
     </LinearLayout>
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/button_register"
+        android:textColor="@color/text_color" />
 
 </LinearLayout>

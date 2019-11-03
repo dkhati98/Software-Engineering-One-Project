@@ -15,7 +15,7 @@
             android:id="@+id/imageView3"
             android:layout_width="289dp"
             android:layout_height="275dp"
-            app:srcCompat="@drawable/launcherLogo"
+            app:srcCompat="@drawable/launcherlogo"
             android:contentDescription="@string/logo"/>
 
         <!-- Name Entry -->
