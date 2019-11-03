@@ -54,4 +54,4 @@
             android:text="@string/textview_not_registered_yet"/>
     </LinearLayout>
 
-</Lin
+</LinearLayout>
