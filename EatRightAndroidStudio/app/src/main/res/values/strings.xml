@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">EatRight</string>
     <string name="edittext_username">Username</string>
-    <string name ="logo">Logo</string>
+    <string name="logo">Logo</string>
     <string name="name">Your Name</string>
     <string name="button_register">Sign Up</string>
     <string name="email">Your email</string>
@@ -41,7 +41,7 @@
     <string name="radiobutton_gain_weight">Gain Weight</string>
 
     <!-- Fragment Calculate Goals -->
-    <string name ="textview_enter_goal_weight">Enter your goal weight.</string>
+    <string name="textview_enter_goal_weight">Enter your goal weight.</string>
     <string name="textview_goal_time">How fast would you like to lose the weight?</string>
     <string name="radiobutton_2week">2 lbs. per week</string>
     <string name="radiobutton_1week">1 lbs. per week (recommended)</string>
