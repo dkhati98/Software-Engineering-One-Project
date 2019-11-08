@@ -9,12 +9,12 @@ public class Meals implements FoodAdding{
     private List<OurFood> ourFoodList = new ArrayList<>();
     private OurFood ourFood;
 
-    public void setOverAllNutrient(Nutrient overAllNutrient) {
+    private void setOverAllNutrient(Nutrient overAllNutrient) {
 
 
         this.overAllNutrient = overAllNutrient;
     }
-    public void setOverAllCalories(int overAllCalories) {
+    private void setOverAllCalories(int overAllCalories) {
 
 
         this.overAllCalories = overAllCalories;

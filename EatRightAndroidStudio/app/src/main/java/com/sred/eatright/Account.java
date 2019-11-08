@@ -18,7 +18,11 @@ public class Account {
 	private void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
 	public String getUserName() {
 		return userName;
 	}

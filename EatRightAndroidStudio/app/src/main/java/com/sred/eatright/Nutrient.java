@@ -3,23 +3,23 @@ package com.sred.eatright;
 public class Nutrient {
     //unit in grams
     private double protein;
-    private double carbonHydrates;
+    private double carbohydrates;
     private double fat;
 
     private Nutrient(NutrientBuilder builder) {
         this.protein = builder.protein;
-        this.carbonHydrates = builder.carbonHydrates;
+        this.carbohydrates = builder.carbohydrates;
         this.fat = builder.fat;
     }
 
     //setter
-    public void setProtein(double protein) {
+    protected void setProtein(double protein) {
         this.protein = protein;
     }
-    public void setCarbonHydrates(double carbonHydrates) {
-        this.carbonHydrates = carbonHydrates;
+    protected void setCarbohydrates(double carbohydrates) {
+        this.carbohydrates = carbohydrates;
     }
-    public void setFat(double fat) {
+    protected void setFat(double fat) {
         this.fat = fat;
     }
 
@@ -27,8 +27,8 @@ public class Nutrient {
     public double getProtein() {
         return protein;
     }
-    public double getCarbonHydrates() {
-        return carbonHydrates;
+    public double getCarbohydrates() {
+        return carbohydrates;
     }
     public double getFat() {
         return fat;
@@ -37,23 +37,42 @@ public class Nutrient {
     //builder
     public static class NutrientBuilder {
         private double protein;
-        private double carbonHydrates;
+        private double carbohydrates;
         private double fat;
 
         public NutrientBuilder setProtein(double protein) {
             this.protein = protein;
             return this;
         }
-        public NutrientBuilder setCarbonHydrates(double carbonHydrates) {
-            this.carbonHydrates = carbonHydrates;
+        public NutrientBuilder setCarbohydrates(double carbohydrates) {
+            this.carbohydrates = carbohydrates;
             return this;
         }
         public NutrientBuilder setFat(double fat) {
             this.fat = fat;
             return this;
         }
-        public Nutrient build() {
+        public Nutrient buildNutrient() {
             return new Nutrient(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof OurFood)) {
+            return false;
+        }
+        Nutrient nutrient = (Nutrient) obj;
+        return this.getProtein() == nutrient.getProtein() &&
+                this.getCarbohydrates() == nutrient.getCarbohydrates() &&
+                this.getFat() == nutrient.getFat();
+    }
+
+    @Override
+    public int hashCode() {
+        return (int)Double.doubleToLongBits(protein) * 31 * 31 + (int)Double.doubleToLongBits(carbohydrates) * 31 + (int)Double.doubleToLongBits(fat);
     }
 }
