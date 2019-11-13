@@ -1,8 +1,9 @@
 package com.sred.eatright;
 
 public enum ActivityLevel {
-	NOTACTIVE,
+	SEDANTARY,
 	SLIGHTLYACTIVE,
-	ACTIVE,
+	MODERATELYACIVE,
+	EXTRAACTIVE,
 	VERYACTIVE
 }
