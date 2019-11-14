@@ -31,4 +31,7 @@ public class Calculator {
         return remaining;
     }
 
+    public Calculator() {
+
+    }
 }

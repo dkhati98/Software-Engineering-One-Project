@@ -6,7 +6,7 @@ public class Nutrient {
     private double carbohydrates;
     private double fat;
 
-    private Nutrient(NutrientBuilder builder) {
+    public Nutrient(NutrientBuilder builder) {
         this.protein = builder.protein;
         this.carbohydrates = builder.carbohydrates;
         this.fat = builder.fat;
@@ -34,7 +34,8 @@ public class Nutrient {
         return fat;
     }
 
-    //builder
+    //builder using builder pattern here, because we may introduce more fields in the future
+
     public static class NutrientBuilder {
         private double protein;
         private double carbohydrates;
