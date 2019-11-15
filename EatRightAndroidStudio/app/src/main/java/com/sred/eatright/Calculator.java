@@ -1,37 +1,25 @@
 package com.sred.eatright;
 
 public class Calculator {
-    private NutritionGoal nutritionGoal;
     private int goal;
     private int remaining;
-    private int foodCalorie;
+    private int foodCalories;
 
-    public Calculator(NutritionGoal nutritionGoal ){
-        this.nutritionGoal =nutritionGoal;
-        remaining = getGoal();
-
-
-
+    public Calculator(Profile profile, int overAllCalories){
+        goal = profile.getGoal().getNutrionGoal().getGoalCalories();
+        setFoodCalories(overAllCalories);
+        setRemaining();
     }
 
-    private int getfoodCalorie(int foodCalorie)
-    {
-        return foodCalorie;
+    public void setFoodCalories(int overAllCalories) {
+        foodCalories = overAllCalories;
     }
 
-    private int getGoal()
-    {
-        goal = nutritionGoal.getGoalCalories();
-        return goal;
+    public void setRemaining() {
+        remaining = goal -  foodCalories;
     }
 
-    public int getRemaining(int foodCalorie)
-    {
-        remaining-=foodCalorie;
+    public int getRemaining() {
         return remaining;
-    }
-
-    public Calculator() {
-
     }
 }

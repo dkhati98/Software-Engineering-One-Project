@@ -5,6 +5,7 @@ public class Account {
 	private String userName;
 	private String password;
 	private Profile profile;
+	private Log log;
 	
 	Account (String userName, String password) {
 		this.userName = userName;
@@ -21,6 +22,7 @@ public class Account {
 
 	public void setProfile(Profile profile) {
 		this.profile = profile;
+		log = new Log(profile);
 	}
 
 	public String getUserName() {
@@ -33,5 +35,9 @@ public class Account {
 	
 	public Profile getProfile() {
 		return profile;
+	}
+
+	public Log getLog() {
+		return log;
 	}
 }

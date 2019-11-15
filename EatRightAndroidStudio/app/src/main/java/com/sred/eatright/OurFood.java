@@ -22,6 +22,7 @@ public class OurFood {
         this.numOfServings = db_Food.get(number_of_units);
     }
     //constructor for user creation
+
     public OurFood(int ourFoodID, String ourFoodName, Nutrient nutrient, int calories, MetricServingUnit metricServingUnit, double numOfServings) {
         this.ourFoodID = ourFoodID;
         this.ourFoodName = ourFoodName;

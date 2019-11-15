@@ -1,24 +1,22 @@
 package com.sred.eatright;
 
-
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class FoodDiary {
-    private Date myDate;
+    //private Date myDate;
     private Nutrient overAllNutrients;
     private int overAllCalories;
     private List<Meals> mealsList;
     private Calculator calculator;
 
-    FoodDiary(Date date) {
-        this.myDate = date;
+    FoodDiary(Profile profile) {
+        //this.myDate = date;
         this.mealsList = new ArrayList<>();
-        this.calculator = new Calculator(NutritionGoal nutritionGoal);
         addMeals();
         calculateOverAllNutrients();
         calculateOverAllNutrients();
+        calculator = new Calculator(profile, overAllCalories);
     }
 
     private void addMeals() {
@@ -50,13 +48,16 @@ public class FoodDiary {
                 overAllFat = overAllFat + overAllCarbohydrates + mealsList.get(i).getOverAllNutrients().getFat();
             }
         }
-        this.overAllNutrients = new Nutrient.NutrientBuilder().setProtein(overAllProtein)
+        overAllNutrients = new Nutrient.NutrientBuilder().setProtein(overAllProtein)
                                                             .setCarbohydrates(overAllCarbohydrates)
                                                             .setFat(overAllFat)
                                                             .buildNutrient();
     }
     public int calculateOverAllCalories() {
-        return  this.overAllCalories = mealsList.get(1).getOverAllCalories() + mealsList.get(2).getOverAllCalories() + mealsList.get(3).getOverAllCalories();
+        overAllCalories = mealsList.get(1).getOverAllCalories() + mealsList.get(2).getOverAllCalories() + mealsList.get(3).getOverAllCalories();
+        calculator.setFoodCalories(overAllCalories);
+        calculator.setRemaining();
+        return  overAllCalories;
     }
 
 
@@ -64,5 +65,16 @@ public class FoodDiary {
     //When implement this function, you need to ovverride equals and hashchode in "Meals"
 //    public void removeMeals() {
 //
+//    }
+
+    //for future development, in the Class Log, we need to decide which FoodDiary needed to be passed to the calculator to pass the overAllCalories
+//    @Override
+//    public boolean equals(@Nullable Object obj) {
+//        return super.equals(obj);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return super.hashCode();
 //    }
 }

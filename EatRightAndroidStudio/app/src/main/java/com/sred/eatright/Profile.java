@@ -51,6 +51,7 @@ public class Profile {
 	}
 
 	//call this function when the user gives all the information to create an object of Goal
+	//well call this function again when the user finish filling data for NutritionGoal
 	public void setGoal(Goal goal) {
 		this.goal = goal;
 	}
