@@ -12,9 +12,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "eatright.db";
-    public static final String TABLE_USERS = "users";
-    public static final String COLUMN_USERNAME = "username";
-    public static final String COLUMN_PASSWORD = "password";
 
 
     public MyDBHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -23,54 +20,79 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String query = "CREATE TABLE " + TABLE_USERS + "(" +
-                COLUMN_USERNAME + "VARCHAR PRIMARY KEY,"+
-                COLUMN_PASSWORD + "VARCHAR"+
-                ");";
-        sqLiteDatabase.execSQL(query);
+        String queryCreateUsers = "CREATE TABLE Users (_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                                         "userName TEXT," +
+                                                         "password TEXT);";
+
+        String queryCreateProfile = "CREATE TABLE Profile (_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                                             "userName TEXT," +
+                                                             "password TEXT," +
+                                                             "timeZone TEXT," +
+                                                             "emailAddress TEXT," +
+                                                             "zip INTEGER," +
+                                                             "location TEXT," +
+                                                             "heightft INTEGER, " +
+                                                             "heightin INTEGER, " +
+                                                             "firstName TEXT," +
+                                                             "lastName TEXT," +
+                                                             "age INTEGER," +
+                                                             "gender TEXT," +
+                                                             "curWeight INTEGER," +
+                                                             "goalWeight INTEGER," +
+                                                             "fitnessGoal TEXT," +
+                                                             "activityLevel TEXT," +
+                                                             "goalCalories INTEGER," +
+                                                             "goalFat INTEGER," +
+                                                             "goalProtein INTEGER," +
+                                                             "goalCarbohydrates INTEGER);";
+
+        String queryCreateFoodDiary = "CREATE TABLE FoodDiary (_id INTEGER PRIMARY KEY," +
+                                                                "waterTracker INTEGER," +
+                                                                "Date TEXT PRIMARY KEY," +
+                                                                "CONSTRAINT fk_profile " +
+                                                                "FOREIGN KEY (_id)" +
+                                                                "REFERENCES Profile(_id));";
+
+        String queryCreateMeals = "CREATE TABLE Meals (_id INTEGER PRIMARY KEY," +
+                                                        "mealType TEXT PRIMARY KEY," +
+                                                        "Date Text PRIMARY KEY," +
+                                                        "overAllFat INTEGER," +
+                                                        "overAllProtein INTEGER," +
+                                                        "overAllCarbohydrates INTEGER," +
+                                                        "overAllCalories INTEGER," +
+                                                        "CONSTRAINT fk_FoodDiary " +
+                                                        "FOREIGN KEY (_id, Date)" +
+                                                        "REFERENCES Profile(_id, Date));";
+
+        String queryCreateFoods = "CREATE TABLE Foods (_Foodid INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                                        "calories INTEGER," +
+                                                        "carbohydrates INTEGER," +
+                                                        "protein INTEGER," +
+                                                        "fat INTEGER);";
+
+        String queryCreateMealFood = "CREATE TABLE MealFood(_id INTEGER PRIMARY KEY," +
+                                                            "mealType TEXT PRIMARY KEY," +
+                                                            "Date TEXT PRIMARY KEY," +
+                                                            "_Foodid INTEGER PRIMARY KEY," +
+                                                            "CONSTRAINT fk_Meals " +
+                                                            "FOREIGN KEY (_id, mealType, Date)" +
+                                                            "REFERENCES users(_id, mealType, Date)," +
+                                                            "CONSTRAINT fk_Foods " +
+                                                            "FOREIGN KEY (_Foodid)" +
+                                                            "REFERENCES Foods(_Foodid))";
+
+        sqLiteDatabase.execSQL(queryCreateUsers);
+        sqLiteDatabase.execSQL(queryCreateProfile);
+        sqLiteDatabase.execSQL(queryCreateFoodDiary);
+        sqLiteDatabase.execSQL(queryCreateMeals);
+        sqLiteDatabase.execSQL(queryCreateFoods);
+        sqLiteDatabase.execSQL(queryCreateMealFood);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
-        onCreate(sqLiteDatabase);
-    }
-
-    //Add a new row to database
-    public void addUser(User user) {
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME, user.get_username());
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        sqLiteDatabase.insert(TABLE_USERS, null, values);
-        sqLiteDatabase.close();
-    }
-
-    //Delete a user from database
-
-    public void deleteUser (String userName){
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        sqLiteDatabase.execSQL("DELETE FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME = "=\"" + userName + "\";")
-    }
-
-    public String databaseToString(){
-        String dbString = " ";
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_USERS + " WHERE 1";
-
-        Cursor c = sqLiteDatabase.rawQuery(query, null);
-        // Move to first row in your results
-        c.moveToFirst();
-
-        while(!c.isAfterLast()){
-            if (c.getString(c.getColumnIndex("userName")) != null){
-                dbString += c.getString(c.getColumnIndex("userName"));
-                dbString += "\n";
-            }
-        }
-        sqLiteDatabase.close();
-        return dbString;
+    public void onUpgrade (SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
-
-
 }
+
+
