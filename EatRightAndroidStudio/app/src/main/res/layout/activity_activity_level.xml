@@ -7,8 +7,6 @@
     android:layout_gravity="center_horizontal">
 
 
-
-
     <!-- Calculate goal calories -->
     <ImageView
         android:id="@+id/imageView"
