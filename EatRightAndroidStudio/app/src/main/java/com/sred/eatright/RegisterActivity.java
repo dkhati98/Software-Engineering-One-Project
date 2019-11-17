@@ -35,10 +35,11 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String username = userName.getText().toString().trim();
-                final String useremail = userEmail.getText().toString().trim();
+                final String emailAddress = userEmail.getText().toString().trim();
                 final String password = userPassword.getText().toString().trim();
 
-                long val = db.addUser(username,useremail,password);
+                long val = db.addUser(username,emailAddress,password);
+
                 if (val>0) {
                     Toast.makeText(RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
                     Intent moveToLogin = new Intent(RegisterActivity.this, Main2Activity.class);
