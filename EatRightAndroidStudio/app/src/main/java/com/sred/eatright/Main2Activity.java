@@ -17,10 +17,9 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
         db = new DatabaseHelper(this);
-
 
 
         final EditText userName = (EditText) findViewById(R.id.edittext_username);
@@ -43,6 +42,8 @@ public class Main2Activity extends AppCompatActivity {
                 Boolean res = db.checkUser(username, password);
                 if (res == true) {
                     Toast.makeText(Main2Activity.this, "Succesfully authenticated", Toast.LENGTH_SHORT).show();
+                    Intent moveToWelcome = new Intent(Main2Activity.this, WelcomeActivity.class);
+                    startActivity(moveToWelcome);
                 } else {
                     Toast.makeText(Main2Activity.this, "Login Error", Toast.LENGTH_SHORT).show();
                 }
