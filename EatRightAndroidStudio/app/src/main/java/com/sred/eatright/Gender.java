@@ -27,18 +27,20 @@ public class Gender extends AppCompatActivity {
 
         int selectedGender = radioGender.getCheckedRadioButtonId();
         gender = (RadioButton) findViewById(selectedGender);
-
-		/* Add DB table code to save: gender, height (feet,inches), weight
-		long val = db.addUser(username,useremail,password);
-		 */
-
+        
 		nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // FILL IN NEXT LINE //
-                if () {
-                    Intent moveToGetgoal = new Intent(Gender.this, Birthday.class);
-                    startActivity(moveToGetgoal);
+
+                if (data > 0) {
+                    //fill in code to save to DB
+                    if(dataSuccesfullySavedtoDB) {
+                        Intent moveToGetgoal = new Intent(Gender.this, Birthday.class);
+                        startActivity(moveToGetgoal);
+                    }
+                    else {
+                        Toast.makeText(Gender.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
                     Toast.makeText(Gender.this, "Please enter your information", Toast.LENGTH_SHORT).show();
