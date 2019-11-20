@@ -28,8 +28,13 @@ public class Birthday extends AppCompatActivity {
             public void onClick(View v) {
                 if (data > 0) {
                     // Insert code to save to DB //
-                    Intent moveToGetgoal = new Intent(Birthday.this, GetGoal.class);
-                    startActivity(moveToGetgoal);
+                    if(dataSuccesfullySavedtoDB) {
+                        Intent moveToGetgoal = new Intent(Birthday.this, GetGoal.class);
+                        startActivity(moveToGetgoal);
+                    }
+                    else {
+                        Toast.makeText(Birthday.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
                     Toast.makeText(Birthday.this, "Select your birthday", Toast.LENGTH_SHORT).show();
