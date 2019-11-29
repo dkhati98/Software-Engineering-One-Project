@@ -82,5 +82,10 @@
     <string name="profile_email">Email:</string>
     <string name="goodnews">Good news!</string>
     <string name="calculated">Your calculated calories are:</string>
+    <string name="gender">Gender:</string>
+    <string name="birthdate">Birthdate:</string>
+    <string name="height">Height:</string>
+    <string name="weight">Weight:</string>
+    <string name="goal">Goal:</string>
 
 </resources>
