@@ -29,17 +29,12 @@ public class GetGoal extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (data > 0) {
+                if (realGoal != null) {
                     //Insert code to save to DB: goal
-                    if (dataSuccesfullySavedtoDB) {
-                        Intent moveToGoalsCalculated = new Intent(GetGoal.this, GoalsCalculated.class);
-                        startActivity(moveToGoalsCalculated);
-                    } else {
-                        Toast.makeText(GetGoal.this, "Unable to connect to Internet", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else {
-                    Toast.makeText(GetGoal.this, "Select a goal", Toast.LENGTH_SHORT).show();
+                    Intent moveToGoalsCalculated = new Intent(GetGoal.this, GoalsCalculated.class);
+                    startActivity(moveToGoalsCalculated);
+                } else {
+                    Toast.makeText(GetGoal.this, "Unable to connect to Internet", Toast.LENGTH_SHORT).show();
                 }
             }
         });

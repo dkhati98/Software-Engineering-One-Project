@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.widget.DatePicker;
 
-
 public class Birthday extends AppCompatActivity {
 
     @Override
@@ -18,26 +17,22 @@ public class Birthday extends AppCompatActivity {
 
         DatePicker datePicker = (DatePicker)findViewById(R.id.datepicker);
         datePicker.setSpinnersShown(false);
-        int day = datePicker.getDayOfMonth();
-        int month = datePicker.getMonth();
-        int year = datePicker.getYear();
+        final int day = datePicker.getDayOfMonth();
+        final int month = datePicker.getMonth();
+        final int year = datePicker.getYear();
         final Button nextButton = (Button) findViewById(R.id.button_next);
+
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (data > 0) {
+                if ((day > 0) && (month > 0) && (year > 0)) {
                     // Insert code to save to DB //
-                    if(dataSuccesfullySavedtoDB) {
-                        Intent moveToGetgoal = new Intent(Birthday.this, GetGoal.class);
-                        startActivity(moveToGetgoal);
-                    }
-                    else {
-                        Toast.makeText(Birthday.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
-                    }
+                    Intent moveToGetgoal = new Intent(Birthday.this, GetGoal.class);
+                    startActivity(moveToGetgoal);
                 }
                 else {
-                    Toast.makeText(Birthday.this, "Select your birthday", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Birthday.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
                 }
             }
         });

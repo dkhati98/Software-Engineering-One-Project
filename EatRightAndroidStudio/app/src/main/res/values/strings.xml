@@ -19,7 +19,7 @@
     <string name="textview_initial_prompt">First, we need to get some general information about you.</string>
     <string name="button_next">Next</string>
 
-     <!-- Fragment base_info -->
+    <!-- Fragment base_info -->
     <string name="radiobutton_female">Female</string>
     <string name="radiobutton_male">Male</string>
     <string name="radiobutton_gender_other">Prefer not to say</string>
@@ -64,5 +64,23 @@
     <string name="button_start_tracking">Start tracking!</string>
     <string name="button_recalculate">Recalculate</string>
     <string name="weightGainRate">How fast would you like to gain the weight?</string>
+
+    <!-- Activity_home -->
+    <string name="calories_remaining">Calories Remaining:</string>
+    <string name="calorie_breakdown">Goal - Consumed = Remaining</string>
+    <string name="Dummy_text">2000 - 534 = 1466</string>
+    <string name="button_home">Home</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="default_food">Enter food to be displayed here.</string>
+    <string name="add">+</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="snacks">Snacks</string>
+    <string name="profile_name">Name:</string>
+    <string name="profile_email">Email:</string>
+    <string name="goodnews">Good news!</string>
+    <string name="calculated">Your calculated calories are:</string>
 
 </resources>

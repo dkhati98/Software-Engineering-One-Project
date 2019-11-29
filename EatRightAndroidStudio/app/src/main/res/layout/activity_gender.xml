@@ -6,7 +6,7 @@
     android:layout_gravity="center_horizontal"
     android:background="@color/background_color"
     android:orientation="vertical"
-    tools:context="Gender">
+    tools:context="getGender">
 
     <!-- Logo -->
     <ImageView
