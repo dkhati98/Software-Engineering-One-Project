@@ -114,9 +114,25 @@
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"/>
 
-            <!-- Insert user DOB -->
+            <!-- Insert user DOB date-->
             <TextView
-                android:id="@+id/user_dob"
+                android:id="@+id/user_dob_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"/>
+            <!-- Insert user DOB month -->
+            <TextView
+                android:id="@+id/user_dob_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"/>
+            <!-- Insert user DOB year -->
+            <TextView
+                android:id="@+id/user_dob_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
@@ -173,7 +189,7 @@
                 android:paddingStart="20dp"
                 android:paddingEnd="5dp"/>
 
-            <!-- Insert user current weight -->
+            <!-- Insert user current goal (lose weight/gain ) -->
             <TextView
                 android:id="@+id/user_goal"
                 android:layout_width="wrap_content"
