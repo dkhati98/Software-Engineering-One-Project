@@ -19,7 +19,9 @@ public class WelcomeActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToGender = new Intent(WelcomeActivity.this, getGender.class);
+                Intent moveToGender = new Intent(WelcomeActivity.this, Gender.class);
+                int _id = (Integer)getIntent().getExtras().get("id");
+                moveToGender.putExtra("id",_id);
                 startActivity(moveToGender);
             }
         })

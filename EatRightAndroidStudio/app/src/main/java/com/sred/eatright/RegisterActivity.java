@@ -42,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (val>0) {
                     Toast.makeText(RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
+                    int _id = db.getid(username);
                     Intent moveToLogin = new Intent(RegisterActivity.this, Main2Activity.class);
                     startActivity(moveToLogin);
                 }
