@@ -12,10 +12,11 @@
 
     <ImageView
         android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:src="@drawable/launcherlogo"
         android:contentDescription="@string/imageview_logo"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -114,9 +115,25 @@
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"/>
 
-            <!-- Insert user DOB -->
+            <!-- Insert user DOB date-->
             <TextView
-                android:id="@+id/user_dob"
+                android:id="@+id/user_dob_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"/>
+            <!-- Insert user DOB month -->
+            <TextView
+                android:id="@+id/user_dob_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"/>
+            <!-- Insert user DOB year -->
+            <TextView
+                android:id="@+id/user_dob_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
