@@ -54,6 +54,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY (_id,userName, password, emailAddress)" +
                 "REFERENCES Users(_id,userName,password, emailAddress));";
 
+        String queryCreateFitnessProfile = "CREATE TABLE Profile (_id INTEGER PRIMARY KEY," +
+                "heightft INTEGER, " +
+                "heightin INTEGER, " +
+                "gender TEXT," +
+                "curWeight INTEGER," +
+                "CONSTRAINT fk_users " +
+                "FOREIGN KEY (_id)" +
+                "REFERENCES Users(_id));";
+
         String queryCreateFoodDiary = "CREATE TABLE FoodDiary (_id INTEGER ," +
                 "waterTracker INTEGER," +
                 "Date TEXT ," +
@@ -95,6 +104,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "REFERENCES Foods(_Foodid))";
 
         db.execSQL(queryCreateUsers);
+        db.execSQL(queryCreateFitnessProfile);
         db.execSQL(queryCreateProfile);
         db.execSQL(queryCreateFoodDiary);
         db.execSQL(queryCreateMeals);
@@ -108,21 +118,47 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
     public long addUser(String userName, String emailAddress,  String password)
-        {
-            SQLiteDatabase db = this.getWritableDatabase();
-            ContentValues contentValues =new ContentValues();
-            contentValues.put("userName",userName);
-            contentValues.put("emailAddress",emailAddress);
-            contentValues.put("password",password);
-            long res = db.insert("Users",null,contentValues);
-            db.close();
-            return res;
-        }
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues =new ContentValues();
+        contentValues.put("userName",userName);
+        contentValues.put("emailAddress",emailAddress);
+        contentValues.put("password",password);
+        long res = db.insert("Profile",null,contentValues);
+        db.close();
+        return res;
+    }
+
+    public  Long createFitnessProfile(String gender, int heightft, int heightin, int curWeight){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues fitnessProfileValues = new ContentValues();
+        fitnessProfileValues.put("gender", gender);
+        fitnessProfileValues.put("heightft", heightft);
+        fitnessProfileValues.put("heightin", heightin);
+        fitnessProfileValues.put("curWeight", curWeight);
+        Long res = db.insert("Profile", null, fitnessProfileValues);
+        db.close();
+        return res;
+    }
+
+    public void addAge(){}
+
+    public void addActivityLevel(){}
+
+    public void addGoal(){}
+
+    public void addLoseWeight(){}
+
+    public void addGainWeight(){}
+
+
+
+
 
     public static void createProfile(SQLiteDatabase db, String name, String password, String timeZone,
-                                     String emailAddress, int zip, String location, int heightft,
-                                     int heightin, String firstName, String lastName, int age, String gender,
-                                     int curWeight, int goalWeight, String fitnessGoal, String activityLevel,
+                                     String emailAddress, int zip, String location, String firstName, String lastName, int age,
+                                     int goalWeight, String fitnessGoal, String activityLevel,
                                      String goalCalories, String goalFat, String goalProtein, String goalCarbohydrates){
 
         ContentValues profileValues = new ContentValues();
@@ -132,13 +168,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         profileValues.put("emailAddress", emailAddress);
         profileValues.put("zip", zip);
         profileValues.put("location", location);
-        profileValues.put("heightft", heightft);
-        profileValues.put("heightin", heightin);
+
         profileValues.put("firstName", firstName);
         profileValues.put("lastName", lastName);
         profileValues.put("age", age);
-        profileValues.put("gender", gender);
-        profileValues.put("curWeight", curWeight);
+
         profileValues.put("goalWeight", goalWeight);
         profileValues.put("fitnessGoal", fitnessGoal);
         profileValues.put("goalFat", goalFat);
