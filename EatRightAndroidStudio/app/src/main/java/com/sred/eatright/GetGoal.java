@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -16,7 +17,8 @@ public class GetGoal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_getgoal);
-
+        final DatabaseHelper db;
+        db = new DatabaseHelper(this);
         final RadioGroup radioGoal = (RadioGroup) findViewById(R.id.radioGoals);
         final RadioButton goal;
         final Button next = (Button) findViewById(R.id.button_next);
@@ -29,24 +31,20 @@ public class GetGoal extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (data > 0) {
-//                    //Insert code to save to DB: goal
-//                    if (realGoal == "Lose Weight") {
-//                        Intent moveToLoseweight = new Intent(GetGoal.this, LoseWeight.class);
-//                        startActivity(moveToLoseweight);
-//                    } else if (realGoal == "Gain Weight") {
-//                        Intent moveToGainweight = new Intent(GetGoal.this, GainWeight.class);
-//                        startActivity(moveToGainweight);
-//                    } else if (realGoal == "Maintain Weight") {
-//                        Intent moveToMaintain = new Intent(GetGoal.this, ActivityLevel.class);
-//                        startActivity(moveToMaintain);
-//                    } else {
-//                        Toast.makeText(GetGoal.this, "Select a goal before continuing", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//                else {
-//                    Toast.makeText(GetGoal.this, "Unable to connect to Internet", Toast.LENGTH_SHORT).show();
-//                }
+                int _id = (Integer)getIntent().getExtras().get("id");
+                long val = db.updateUserGoal(_id, realGoal);
+                if (val > 0) {
+//                        Intent moveToGoalsCalculated = new Intent(GetGoal.this, GoalsCalculated.class);
+//                        startActivity(moveToGoalsCalculated);
+
+                        Intent moveToProfile = new Intent(GetGoal.this, DisplayUserProfile.class);
+                        startActivity(moveToProfile);
+                        Toast.makeText(GetGoal.this, "Select a goal", Toast.LENGTH_SHORT).show();
+
+                } else {
+                        Toast.makeText(GetGoal.this, "Unable to connect to Internet", Toast.LENGTH_SHORT).show();
+                    }
+
 
             }
         });
