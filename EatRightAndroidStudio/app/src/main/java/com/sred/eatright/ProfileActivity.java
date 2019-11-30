@@ -19,7 +19,9 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView usersName = (TextView) findViewById(R.id.user_name);
         final TextView userEmail = (TextView) findViewById(R.id.user_email);
         final TextView userGender = (TextView) findViewById(R.id.user_gender);
-        final TextView userDOB = (TextView) findViewById(R.id.user_dob);
+        final TextView userDOB_month = (TextView) findViewById(R.id.user_dob_month);
+        final TextView userDOB_day = (TextView) findViewById(R.id.user_dob_day);
+        final TextView userDOB_year = (TextView) findViewById(R.id.user_dob_year);
         final TextView userHeightFeet = (TextView) findViewById(R.id.user_heightFeet);
         final TextView userHeightInches = (TextView) findViewById(R.id.user_heightInches);
         final TextView userGoal = (TextView) findViewById(R.id.user_goal);

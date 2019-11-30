@@ -22,6 +22,42 @@ public class Home extends AppCompatActivity {
         final Button add_dinner = (Button) findViewById(R.id.button_add_dinner);
         final Button add_snacks = (Button) findViewById(R.id.button_add_snacks);
 
+        //search and add to breakfast button
+        add_breakfast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent moveToSearch = new Intent(Home.this, Search.class);
+                startActivity(moveToSearch);
+            }
+        });
+
+        //search and add to lunch button
+        add_lunch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent moveToSearch = new Intent(Home.this, Search.class);
+                startActivity(moveToSearch);
+            }
+        });
+
+        //search and add to dinner button
+        add_dinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent moveToSearch = new Intent(Home.this, Search.class);
+                startActivity(moveToSearch);
+            }
+        });
+
+        //search and add to snacks button
+        add_snacks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent moveToSearch = new Intent(Home.this, Search.class);
+                startActivity(moveToSearch);
+            }
+        });
+
         //help button
         button_help.setOnClickListener(new View.OnClickListener() {
             @Override

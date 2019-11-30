@@ -86,12 +86,27 @@
 
         <EditText
             android:id="@+id/search_bar"
-            android:layout_width="335dp"
+            android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_marginStart="25dp"
             android:paddingStart="30dp"
             android:hint="@string/search"/>
 
+        <Button
+            android:id="@+id/scan_food"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/scanner_icon" />
+
     </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/create_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/footer_menu"
+        android:layout_marginStart="250dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/custom_food"/>
 
 </RelativeLayout>

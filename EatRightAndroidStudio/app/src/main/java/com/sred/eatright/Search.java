@@ -19,8 +19,12 @@ public class Search extends AppCompatActivity {
         final Button button_home = (Button) findViewById(R.id.button_home);
         final Button button_profile = (Button) findViewById(R.id.button_profile);
         final EditText search_bar = (EditText) findViewById(R.id.search_bar);
+        final Button scanner = (Button) findViewById(R.id.scan_food);
+        final Button create_food = (Button) findViewById(R.id.create_food);
 
-        //Insert code for search bar
+        //Insert code for search bar (EditText name search_bar)
+
+        //Insert code for scanner (Button name scanner)
 
         //help button
         button_help.setOnClickListener(new View.OnClickListener() {
@@ -31,12 +35,21 @@ public class Search extends AppCompatActivity {
             }
         });
 
+        //create food button
+        create_food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent moveToCustomFood = new Intent(Search.this, customFood.class);
+                startActivity(moveToCustomFood);
+            }
+        });
+
         //home screen button
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Search.this, Home.class);
-                startActivity(moveToSearch);
+                Intent moveToHome = new Intent(Search.this, Home.class);
+                startActivity(moveToHome);
             }
         });
 
