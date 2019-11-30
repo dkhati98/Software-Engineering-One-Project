@@ -32,7 +32,7 @@
         android:layout_gravity="center"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
-        android:paddingBottom="15dp"/>
+        android:paddingTop="10dp"/>
 
     <Button
         android:id="@+id/button_next"
@@ -40,7 +40,6 @@
         android:layout_height="wrap_content"
         android:text="@string/button_next"
         android:layout_gravity="end"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginEnd="20dp" />
 
 </LinearLayout>
