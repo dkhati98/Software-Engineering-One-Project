@@ -24,7 +24,6 @@
     <string name="radiobutton_male">Male</string>
     <string name="radiobutton_gender_other">Prefer not to say</string>
     <string name="textview_select_gender">Please select your gender.</string>
-    <string name="textview_select_birthdate">Select your date of birth.</string>
     <string name="textview_enter_height">Enter your height.</string>
     <string name="edittext_height_feet">Feet</string>
     <string name="edittext_height_inches">Inches</string>
@@ -33,6 +32,9 @@
 
     <!-- Placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- activity_birthday -->
+    <string name="select_birthday">Select your birthday.</string>
 
     <!-- Fragment prompt goals -->
     <string name="textview_goals_prompt">Next, we want to learn how to help you. What is your goal?</string>
@@ -56,10 +58,48 @@
     <string name="button_calculate">Calculate</string>
 
     <!-- Fragment Goals Calculated -->
-    <string name="textview_goals_calculated">Good news! We have done the math for you and calculated a caloric amount to fit your goals.</string>
-    <string name="textview_placeholder">In order to lose 1 pound a week, for a total of 22 pounds, you can eat 1678 calories a day.</string>
-    <string name="textview_placeholder2">If you do this, you will reach your goal by February 23, 2020.</string>
     <string name="button_start_tracking">Start tracking!</string>
     <string name="button_recalculate">Recalculate</string>
+
+    <!-- Activity_home -->
+    <string name="calories_remaining">Calories Remaining:</string>
+    <string name="calorie_breakdown">Goal - Consumed = Remaining</string>
+    <string name="Dummy_text">2000 - 534 = 1466</string>
+    <string name="button_home">Home</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="default_food">Enter food to be displayed here.</string>
+    <string name="add">+</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="snacks">Snacks</string>
+    <string name="profile_name">Name:</string>
+    <string name="profile_email">Email:</string>
+    <string name="goodnews">Good news!</string>
+    <string name="calculated">Your calculated calories are:</string>
+
+    <!-- Profile Page -->
+    <string name="gender">Gender:</string>
+    <string name="birthdate">Birthdate:</string>
+    <string name="height">Height:</string>
+    <string name="weight">Weight:</string>
+    <string name="goal">Goal:</string>
+    <string name="update_weight">Update Weight</string>
+    <string name="save">Save</string>
+    <string name="note_update_weight">**Updating weight will change your goal calories**</string>
+
+    <!-- Help Page -->
+    <string name="question_mark">\?</string>
+    <string name="what_is_eatright">What is EatRight?</string>
+    <string name="about_eatRight">\t\tEatRight is a mobile application created by students of Troy University. It was created with the idea of making healthy eating fun and helping people just like you to accomplish their goals.</string>
+    <string name="help1">How can EatRight help me?</string>
+    <string name="help1_1">\t\tBy entering your gender, age, height, weight, and goal, EatRight calculates how many calories you should consume per day to meet your goal in the healthiest timeline possible.</string>
+    <string name="help2">How does EatRight calculate the calories I need?</string>
+    <string name="help2_2">\t\tEatRight uses the standard Basal Metabolic Rate formula to determine the recommended calories specific to your body.</string>
+    <string name="help3">Is EatRight safe?</string>
+    <string name="help3_3">\t\tAbsolutely! We only provide calorie goals that are proven to help you achieve your goal in a safe amount of time. The recommended weight loss or gain rate is 1 pound per week - this is what we follow.</string>
+    <string name="help4">How do I use EatRight?</string>
+    <string name="help4_4">\t\tAfter completing the profile building process, you are given a recommended daily caloric intake. You can then search or scan foods you consume to view their caloric and nutritional values. Once you have found the food you are looking for, you can add it to your daily log, which updates to show the rest of the calories you are able to consume in the day.</string>
 
 </resources>

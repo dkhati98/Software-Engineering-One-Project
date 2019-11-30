@@ -22,7 +22,6 @@ public class Main2Activity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
 
-
         final EditText userName = (EditText) findViewById(R.id.edittext_username);
         final EditText userPassword = (EditText) findViewById(R.id.edittext_password);
         final Button loginButton = (Button) findViewById(R.id.button_login);
@@ -42,7 +41,11 @@ public class Main2Activity extends AppCompatActivity {
                 String password = userPassword.getText().toString().trim();
                 Boolean res = db.checkUser(username, password);
                 if (res == true) {
+                    int _id = db.getid(username);
                     Toast.makeText(Main2Activity.this, "Succesfully authenticated", Toast.LENGTH_SHORT).show();
+                    Intent moveToWelcome = new Intent(Main2Activity.this, WelcomeActivity.class);
+                    moveToWelcome.putExtra("id",_id);
+                    startActivity(moveToWelcome);
                 } else {
                     Toast.makeText(Main2Activity.this, "Login Error", Toast.LENGTH_SHORT).show();
                 }
