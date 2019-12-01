@@ -1,5 +1,5 @@
 package com.sred.eatright;
 
-public class Log {
+public class Food {
 
 }
