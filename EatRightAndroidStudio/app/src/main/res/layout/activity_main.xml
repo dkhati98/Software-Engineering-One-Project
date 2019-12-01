@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.sred.eatright.MainActivity"
+    tools:context="com.sred.eatright.Main2Activity"
     style="@style/background_color">
 
 
@@ -15,11 +15,11 @@
 
     <EditText
         android:id="@+id/edittext_username"
-        android:hint="@string/edittext_username"
         style="@style/input_style"
+        android:hint="@string/edittext_username"
+        android:importantForAutofill="no"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:importantForAutofill="no"/>
+        android:paddingRight="15dp" />
 
     <EditText
         android:id="@+id/edittext_password"
@@ -53,12 +53,6 @@
             android:layout_height="35dp"
             android:text="@string/textview_not_registered_yet"/>
     </LinearLayout>
-    <Button
-        android:id="@+id/button_register"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/button_register"
-        android:textColor="@color/text_color" />
+
 
 </LinearLayout>
