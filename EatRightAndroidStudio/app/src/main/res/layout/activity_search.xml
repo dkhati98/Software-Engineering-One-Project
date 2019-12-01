@@ -1,9 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Search">
+    android:background="@color/background_color">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/home_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="-5dp"
+        android:background="#2A3C25">
+
+        <Button
+            android:id="@+id/button_help"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="11dp"
+            android:background="@drawable/rounded_button"
+            android:text="\?"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/footer_menu"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:background="#2A3C25">
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/search"
+            android:textColor="#FFFCFC"
+            android:textSize="20sp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"/>
+
+        <Button
+            android:id="@+id/button_home"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/button_home"
+            android:textColor="#FFFCFC"
+            android:textSize="20sp"
+            android:layout_marginStart="155dp"/>
+
+        <Button
+            android:id="@+id/button_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/profile"
+            android:textColor="#FFFCFC"
+            android:textSize="20sp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"/>
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/home_header">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/search_icon"/>
+
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="25dp"
+            android:paddingStart="30dp"
+            android:hint="@string/search"/>
+
+        <Button
+            android:id="@+id/scan_food"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/scanner_icon" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/create_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/footer_menu"
+        android:layout_marginStart="250dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/custom_food"/>
+
+</RelativeLayout>
