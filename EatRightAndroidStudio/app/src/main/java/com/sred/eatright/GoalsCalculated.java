@@ -20,15 +20,14 @@ public class GoalsCalculated extends AppCompatActivity {
         setContentView(R.layout.activity_goals_calculated);
         final int _id = (Integer)getIntent().getExtras().get("id");
         final Button next = (Button) findViewById(R.id.button_next);
-        //add setText
 
 
-        DatabaseGetter dbGetter = new DatabaseGetter();
+
+        DatabaseHelper dbGetter = new DatabaseHelper( this);
         Profile profile = dbGetter.GetDB(_id);
 
         String usersName= profile.getUsersName();
         String userEmail= profile.getUserEmail();
-
 
 
         next.setOnClickListener(new View.OnClickListener() {
