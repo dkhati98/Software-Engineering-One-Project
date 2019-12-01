@@ -9,6 +9,7 @@ import android.widget.Toast;
 import android.widget.DatePicker;
 
 public class Birthday extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,21 +23,22 @@ public class Birthday extends AppCompatActivity {
         final int year = datePicker.getYear();
         final Button nextButton = (Button) findViewById(R.id.button_next);
 
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int _id = (Integer)getIntent().getExtras().get("id");
                 long val = db.updateUserBirthday(_id, day, month, year);
                 if (val > 0) {
-                        Intent moveToGetgoal = new Intent(Birthday.this, GetGoal.class);
-                        moveToGetgoal.putExtra("id",_id);
-                        startActivity(moveToGetgoal);
-                     Toast.makeText(Birthday.this, "Select your birthday", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        Toast.makeText(Birthday.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
-                    }
+                    Intent moveToGetgoal = new Intent(Birthday.this, GetGoal.class);
+                    moveToGetgoal.putExtra("id",_id);
+                    startActivity(moveToGetgoal);
+                    Toast.makeText(Birthday.this, "Select your birthday", Toast.LENGTH_SHORT).show();
                 }
+                else {
+                    Toast.makeText(Birthday.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
     }
 }

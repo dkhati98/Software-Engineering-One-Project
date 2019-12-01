@@ -108,26 +108,26 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public long addUser(String userName, String emailAddress,  String password)
-        {
-            SQLiteDatabase db = this.getWritableDatabase();
-            ContentValues contentValues =new ContentValues();
-            contentValues.put("userName",userName);
-            contentValues.put("emailAddress",emailAddress);
-            contentValues.put("password",password);
-            long res = db.insert("Profile",null,contentValues);
-            db.close();
-            return res;
-        }
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues =new ContentValues();
+        contentValues.put("userName",userName);
+        contentValues.put("emailAddress",emailAddress);
+        contentValues.put("password",password);
+        long res = db.insert("Profile",null,contentValues);
+        db.close();
+        return res;
+    }
 
     public int getid(String userName) {
         int returnvalue = 0;
 //        try {
-            SQLiteDatabase db = this.getReadableDatabase();
-            Cursor getidcursor = db.query("Profile",
-                    new String[]{"_id, userName"}, "userName = ?", new String[]{userName}, null, null, null);
-            if (getidcursor.moveToFirst()) {
-                returnvalue= getidcursor.getInt(0);
-            }
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor getidcursor = db.query("Profile",
+                new String[]{"_id, userName"}, "userName = ?", new String[]{userName}, null, null, null);
+        if (getidcursor.moveToFirst()) {
+            returnvalue= getidcursor.getInt(0);
+        }
 //        } catch (SQLiteException e) {
 //            Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);
 //            toast.show();
@@ -136,18 +136,18 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public  long updateUserBirthday(int _id, int birthYear, int birthMonth, int birthDate){
-                SQLiteDatabase db = this.getWritableDatabase();
-                ContentValues args = new ContentValues();
-                args.put("birthYear", birthYear);
-                args.put("birthMonth", birthMonth);
-                args.put("birthDate", birthDate);
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues args = new ContentValues();
+        args.put("birthYear", birthYear);
+        args.put("birthMonth", birthMonth);
+        args.put("birthDate", birthDate);
 
-                long res = db.update("Profile",
-                          args,
-                        "_id = ?",
-                        new String[] {Integer.toString(_id)});
-                db.close();
-                return res;
+        long res = db.update("Profile",
+                args,
+                "_id = ?",
+                new String[] {Integer.toString(_id)});
+        db.close();
+        return res;
     }
 
     public  long updateUserInfo(int _id, String gender, int heightft, int heightin, int curWeight){

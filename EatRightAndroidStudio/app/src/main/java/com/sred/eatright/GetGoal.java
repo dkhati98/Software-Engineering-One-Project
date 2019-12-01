@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -31,21 +30,25 @@ public class GetGoal extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int _id = (Integer)getIntent().getExtras().get("id");
-                long val = db.updateUserGoal(_id, realGoal);
-                if (val > 0) {
+                if (realGoal != null) {
+                    int _id = (Integer)getIntent().getExtras().get("id");
+                    long val = db.updateUserGoal(_id, realGoal);
+                    if (val > 0) {
 //                        Intent moveToGoalsCalculated = new Intent(GetGoal.this, GoalsCalculated.class);
 //                        startActivity(moveToGoalsCalculated);
 
-                        Intent moveToProfile = new Intent(GetGoal.this, DisplayUserProfile.class);
-                        startActivity(moveToProfile);
+                        Intent moveToGoalsCalculated = new Intent(GetGoal.this, GoalsCalculated.class);
+                        moveToGoalsCalculated.putExtra("id",_id);
+                        startActivity(moveToGoalsCalculated);
+
                         Toast.makeText(GetGoal.this, "Select a goal", Toast.LENGTH_SHORT).show();
 
-                } else {
+                    } else {
                         Toast.makeText(GetGoal.this, "Unable to connect to Internet", Toast.LENGTH_SHORT).show();
                     }
-
-
+                } else {
+                    Toast.makeText(GetGoal.this, "Please Select an Option.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
