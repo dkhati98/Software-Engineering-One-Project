@@ -22,43 +22,15 @@ public class GoalsCalculated extends AppCompatActivity {
         final Button next = (Button) findViewById(R.id.button_next);
         //add setText
 
-        final SQLiteOpenHelper eatrightDatabaseHelper = new DatabaseHelper(this);
-        try {
 
-            final SQLiteDatabase db = eatrightDatabaseHelper.getWritableDatabase();
+        DatabaseGetter dbGetter = new DatabaseGetter();
+        Profile profile = dbGetter.GetDB(_id);
 
-
-            Cursor cursor = db.query("Profile",
-                    new String[]{"_id", "userName", "emailAddress", "gender",
-                            "birthMonth", "birthDate", "birthYear",
-                            "heightft", "heightin", "fitnessGoal",
-                            "curWeight"},
-                    "_id = ?",
-                    new String[]{Integer.toString(_id)},
-                    null, null, "_id");
-
-            if (cursor.moveToFirst()) {
-                int idText = cursor.getInt(0);
-                String usersName = cursor.getString(1);
-                String userEmail = cursor.getString(2);
-                String userGender = cursor.getString(3);
-                String userDOB_month = cursor.getString(4);
-                String userDOB_day = cursor.getString(5);
-                String userDOB_year = cursor.getString(6);
-                String userHeightFeet = cursor.getString(7);
-                String userHeightInches = cursor.getString(8);
-                String userGoal = cursor.getString(9);
-                String userWeight = cursor.getString(10);
-            }
-            cursor.close();
-            db.close();
+        String usersName= profile.getUsersName();
+        String userEmail= profile.getUserEmail();
 
 
-    } catch(
-    SQLiteException e){
-        Toast toast = Toast.makeText(this,"Database Unavailaible", Toast.LENGTH_SHORT);
-        toast.show();
-    }
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

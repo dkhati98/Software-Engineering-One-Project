@@ -20,68 +20,45 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        final int _id = (Integer)getIntent().getExtras().get("id");
+        DatabaseGetter dbGetter = new DatabaseGetter();
+        Profile profile = dbGetter.GetDB(_id);
+
+        String usersName = profile.getUsersName();
+        String userEmail = profile.getUsersEmail();
+        String userGender = profile.getUsersName();
+        String userDOB_month = profile.getUsersName();
+        String userDOB_day = profile.getUsersName();
+        String userDOB_year = profile.getUsersName();
+        String userHeightFeet = profile.getUsersName();
+        String userHeightInches = profile.getUsersName();
+        String userGoal = profile.getUsersName();
+        String userWeight = profile.getUsersName();
 
 
-        final int _id = (Integer) getIntent().getExtras().get("id");
-
-        final SQLiteOpenHelper eatrightDatabaseHelper = new DatabaseHelper(this);
-        try {
-
-            final SQLiteDatabase db = eatrightDatabaseHelper.getWritableDatabase();
 
 
-            Cursor cursor = db.query("Profile",
-                    new String[]{"_id", "userName", "emailAddress", "gender",
-                            "birthMonth", "birthDate", "birthYear",
-                            "heightft", "heightin", "fitnessGoal",
-                              "curWeight"},
-                    "_id = ?",
-                    new String[]{Integer.toString(_id)},
-                    null, null, "_id");
+        final TextView user_name = (TextView) findViewById(R.id.user_name);
+        user_name.setText(usersName);
+        final TextView user_email = (TextView) findViewById(R.id.user_email);
+        user_email.setText(userEmail);
+        final TextView user_gender = (TextView) findViewById(R.id.user_gender);
+        user_gender.setText(userGender);
+        final TextView user_dob_month = (TextView) findViewById(R.id.user_dob_month);
+        user_dob_month.setText(userDOB_month);
+        final TextView user_dob_day = (TextView) findViewById(R.id.user_dob_day);
+        user_dob_day.setText(userDOB_day);
+        final TextView user_dob_year = (TextView) findViewById(R.id.user_dob_year);
+        user_dob_year.setText(userDOB_year);
+        final TextView user_heightFeet = (TextView) findViewById(R.id.user_heightFeet);
+        user_heightFeet.setText(userHeightFeet);
+        final TextView user_heightInches = (TextView) findViewById(R.id.user_heightInches);
+        user_heightInches.setText(userHeightInches);
+        final TextView user_goal = (TextView) findViewById(R.id.user_goal);
+        user_goal.setText(userGoal);
+        final TextView user_current_weight = (TextView) findViewById(R.id.user_current_weight);
+        user_current_weight.setText(userWeight);
 
-            if (cursor.moveToFirst()) {
-                int idText = cursor.getInt(0);
-                String usersName = cursor.getString(1);
-                String userEmail = cursor.getString(2);
-                String userGender = cursor.getString(3);
-                String userDOB_month = cursor.getString(4);
-                String userDOB_day = cursor.getString(5);
-                String userDOB_year = cursor.getString(6);
-                String userHeightFeet = cursor.getString(7);
-                String userHeightInches = cursor.getString(8);
-                String userGoal = cursor.getString(9);
-                String userWeight = cursor.getString(10);
-
-                final TextView user_name = (TextView) findViewById(R.id.user_name);
-                user_name.setText(usersName);
-                final TextView user_email = (TextView) findViewById(R.id.user_email);
-                user_email.setText(userEmail);
-                final TextView user_gender = (TextView) findViewById(R.id.user_gender);
-                user_gender.setText(userGender);
-                final TextView user_dob_month = (TextView) findViewById(R.id.user_dob_month);
-                user_dob_month.setText(userDOB_month);
-                final TextView user_dob_day = (TextView) findViewById(R.id.user_dob_day);
-                user_dob_day.setText(userDOB_day);
-                final TextView user_dob_year = (TextView) findViewById(R.id.user_dob_year);
-                user_dob_year.setText(userDOB_year);
-                final TextView user_heightFeet = (TextView) findViewById(R.id.user_heightFeet);
-                user_heightFeet.setText(userHeightFeet);
-                final TextView user_heightInches = (TextView) findViewById(R.id.user_heightInches);
-                user_heightInches.setText(userHeightInches);
-                final TextView user_goal = (TextView) findViewById(R.id.user_goal);
-                user_goal.setText(userGoal);
-                final TextView user_current_weight = (TextView) findViewById(R.id.user_current_weight);
-                user_current_weight.setText(userWeight);
-
-            }
-            cursor.close();
-            db.close();
-//        public void displayUserProfile{
-
-        } catch(SQLiteException e){
-            Toast toast = Toast.makeText(this,"Database Unavailaible", Toast.LENGTH_SHORT);
-            toast.show();
-        }
 
 
 

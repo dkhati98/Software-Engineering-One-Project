@@ -2,119 +2,94 @@ package com.sred.eatright;
 
 public class Profile {
 	
-	private String firstName;
-	private String lastName;
-	private	int age;
-	private Gender gender;
-	private int height;
-	private String location;
-	private int zip;
-	private String timeZone;
-	private	String emailAddress;
-	private Goal goal;
-	
-	private Profile(ProfileBuilder builder) {
-		this.firstName = builder.firstName;
-		this.lastName = builder.lastName;
-		this.age = builder.age;
-		this.gender = builder.gender;
-		this.height = builder.height;
-		this.location = builder.location;
-		this.zip = builder.zip;
-		this.timeZone = builder.timeZone;
-		this.emailAddress = builder.emailAddress;
-		this.goal = builder.goal;
-	}
-	
-	public String getFirstName() {
-		return firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public int getAge() {
-		return age;
-	}
-	public Gender getGender() {
-		return gender;
-	}
-	public int getHeight() {
-		return height;
-	}
-	public String getLocation() {
-		return location;
-	}
-	public int getZip() {
-		return zip;
-	}
-	public String getTimeZone() {
-		return timeZone;
-	}
-	public String setEmialAddress() {
-		return emailAddress;
-	}
-	public Goal setGoal() {
-		return goal;
-	}
-	
-	public static class ProfileBuilder {
-		private String firstName;
-		private String lastName;
-		private int age;
-		private Gender gender;
-		private int height;
-		private String location;
-		private int zip;
-		private String timeZone;
-		private	String emailAddress;
-		private Goal goal;
-		
-		public ProfileBuilder setFirstName(String firstName) {
-			this.firstName = firstName;
-			return this;
-		}
-		public ProfileBuilder setLastName(String lastName) {
-			this.lastName = lastName;
-			return this;
-		}
-		public ProfileBuilder setAge(int age) {
-			this.age = age;
-			return this;
-		}
-		public ProfileBuilder setGender(Gender gender) {
-			this.gender = gender;
-			return this;
-		}
-		public ProfileBuilder setHeight(int height) {
-			this.height = height;
-			return this;
-		}
-		public ProfileBuilder setLocation(String location) {
-			this.location = location;
-			return this;
-		}
-		public ProfileBuilder setZip(int zip) {
-			this.zip = zip;
-			return this;
-		}
-		public ProfileBuilder setTimeZone(String timeZone) {
-			this.timeZone = timeZone;
-			return this;
-		}
-		public ProfileBuilder setEmialAddress(String emailAddress) {
-			this.emailAddress = emailAddress;
-			return this;
-		}
-		public ProfileBuilder setGoal(Goal goal) {
-			this.goal = goal;
-			return this;
-		}
-		public Profile buildProfile() {
-			if (firstName == null || lastName == null) {
-				throw new IllegalArgumentException("Required Fields Are Not Set");
-			}
-			return new Profile(this);
-		}
+	private String usersName;
+	private String userEmail;
+	private String userGender;
+	private String userDOB_month;
+	private String userDOB_year;
+	private String userDOB_day;
+	private String userHeightFeet;
+	private String userHeightInches;
+	private String userGoal;
+	private String userWeight;
+
+	public String getUsersName() {
+		return usersName;
 	}
 
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public String getUserGender() {
+		return userGender;
+	}
+
+	public String getUserDOB_month() {
+		return userDOB_month;
+	}
+
+	public String getUserDOB_year() {
+		return userDOB_year;
+	}
+
+	public String getUserDOB_day() {
+		return userDOB_day;
+	}
+
+	public String getUserHeightFeet() {
+		return userHeightFeet;
+	}
+
+	public String getUserHeightInches() {
+		return userHeightInches;
+	}
+
+	public String getUserGoal() {
+		return userGoal;
+	}
+
+	public String getUserWeight() {
+		return userWeight;
+	}
+
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public void setUserGender(String userGender) {
+		this.userGender = userGender;
+	}
+
+	public void setUserDOB_month(String userDOB_month) {
+		this.userDOB_month = userDOB_month;
+	}
+
+	public void setUserDOB_year(String userDOB_year) {
+		this.userDOB_year = userDOB_year;
+	}
+
+	public void setUserDOB_day(String userDOB_day) {
+		this.userDOB_day = userDOB_day;
+	}
+
+	public void setUserHeightFeet(String userHeightFeet) {
+		this.userHeightFeet = userHeightFeet;
+	}
+
+	public void setUserHeightInches(String userHeightInches) {
+		this.userHeightInches = userHeightInches;
+	}
+
+	public void setUserGoal(String userGoal) {
+		this.userGoal = userGoal;
+	}
+
+	public void setUserWeight(String userWeight) {
+		this.userWeight = userWeight;
+	}
 }
