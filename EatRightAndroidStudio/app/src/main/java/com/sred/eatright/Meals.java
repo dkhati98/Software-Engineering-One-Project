@@ -3,11 +3,17 @@ package com.sred.eatright;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class Meals implements FoodAdding{
     private Nutrient overAllNutrients;
     private int overAllCalories;
     private List<OurFood> ourFoodList;
 
+    /**
+     *
+     */
     Meals() {
         this.ourFoodList = new ArrayList<>();
         updateOverAllCalories();

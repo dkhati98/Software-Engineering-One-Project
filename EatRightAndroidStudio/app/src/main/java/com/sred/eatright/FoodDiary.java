@@ -3,6 +3,9 @@ package com.sred.eatright;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * FoodDiary class has a list of meals
+ */
 public class FoodDiary {
     //private Date myDate;
     private Nutrient overAllNutrients;
