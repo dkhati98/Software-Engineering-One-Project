@@ -13,7 +13,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        final int _id = (Integer)getIntent().getExtras().get("id");
+
         final Button button_help = (Button) findViewById(R.id.button_help);
         final Button button_search = (Button) findViewById(R.id.button_search);
         final Button button_profile = (Button) findViewById(R.id.button_profile);
@@ -80,6 +80,7 @@ public class Home extends AppCompatActivity {
         button_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final int _id = (Integer)getIntent().getExtras().get("id");
                 Intent moveToProfile = new Intent(Home.this, ProfileActivity.class);
                 moveToProfile.putExtra("id",_id);
                 startActivity(moveToProfile);

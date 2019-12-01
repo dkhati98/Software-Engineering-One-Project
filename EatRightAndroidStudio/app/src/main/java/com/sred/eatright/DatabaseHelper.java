@@ -177,6 +177,20 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
+    public void updateUserWeight(int _id, int curWeight){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues args = new ContentValues();
+        args.put("curWeight", curWeight);
+        long res = db.update("Profile",
+                args,
+                "_id = ?",
+                new String[] {Integer.toString(_id)});
+        db.close();
+
+    }
+
+
+
 //    public static void createProfile(SQLiteDatabase db, String userName, String password, String timeZone,
 //                                     String emailAddress, int zip, String location, int heightft,
 //                                     int heightin, String firstName, String lastName, int age, String gender,

@@ -24,10 +24,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         final int _id = (Integer) getIntent().getExtras().get("id");
 
-        SQLiteOpenHelper eatrightDatabaseHelper = new DatabaseHelper(this);
-
+        final SQLiteOpenHelper eatrightDatabaseHelper = new DatabaseHelper(this);
         try {
-            SQLiteDatabase db = eatrightDatabaseHelper.getWritableDatabase();
+
+            final SQLiteDatabase db = eatrightDatabaseHelper.getWritableDatabase();
 
 
             Cursor cursor = db.query("Profile",
@@ -91,16 +91,15 @@ public class ProfileActivity extends AppCompatActivity {
         final Button button_search = (Button) findViewById(R.id.button_search);
         final Button button_home = (Button) findViewById(R.id.button_home);
 
-
-        //Insert code to set TextViews to user's saved DB information
-
-        final String userUpdatedWeight = updateWeight.getText().toString().trim();
-        //insert code to overwrite old userWeight to userUpdatedWeight
+        final int userUpdatedWeight =  Integer.parseInt(updateWeight.getText().toString().trim());
+        final DatabaseHelper db;
+        db = new DatabaseHelper(this);
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Insert code to recalculate weight using userUpdatedWeight
+
+                db.updateUserWeight(_id,userUpdatedWeight);
                 Intent moveToRefresh = new Intent(ProfileActivity.this, ProfileActivity.class);
                 startActivity(moveToRefresh);
             }
