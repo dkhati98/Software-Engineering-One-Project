@@ -22,12 +22,13 @@
         android:layout_marginEnd="20dp"/>
 
     <!-- Enter calculated calories here -->
+
     <TextView
         android:id="@+id/calculated_calories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_margin="50dp"/>
+        android:layout_margin="50dp"
+        android:layout_marginStart="50dp" />
 
     <Button
         android:id="@+id/button_next"
