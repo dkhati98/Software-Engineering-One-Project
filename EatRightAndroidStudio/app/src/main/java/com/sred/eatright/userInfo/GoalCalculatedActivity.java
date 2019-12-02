@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.sred.eatright.R;
-import com.sred.eatright.userDiary.Home;
+import com.sred.eatright.userDiary.HomeActivity;
 
-public class GoalsCalculated extends AppCompatActivity {
+public class GoalCalculatedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class GoalsCalculated extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Insert code to view calculated goal
-                Intent moveToHome = new Intent(GoalsCalculated.this, Home.class);
+                Intent moveToHome = new Intent(GoalCalculatedActivity.this, HomeActivity.class);
                 moveToHome.putExtra("id",_id);
                 startActivity(moveToHome);
             }

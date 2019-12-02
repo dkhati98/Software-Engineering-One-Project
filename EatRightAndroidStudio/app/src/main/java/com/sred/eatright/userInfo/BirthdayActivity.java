@@ -11,7 +11,7 @@ import android.widget.DatePicker;
 import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
 
-public class Birthday extends AppCompatActivity {
+public class BirthdayActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +33,13 @@ public class Birthday extends AppCompatActivity {
                 int _id = (Integer)getIntent().getExtras().get("id");
                 long val = db.updateUserBirthday(_id, day, month, year);
                 if (val > 0) {
-                    Intent moveToGetgoal = new Intent(Birthday.this, GetGoal.class);
+                    Intent moveToGetgoal = new Intent(BirthdayActivity.this, GetGoalActivity.class);
                     moveToGetgoal.putExtra("id",_id);
                     startActivity(moveToGetgoal);
-                    Toast.makeText(Birthday.this, "Select your birthday", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BirthdayActivity.this, "Select your birthday", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(Birthday.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BirthdayActivity.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
                 }
             }
         });

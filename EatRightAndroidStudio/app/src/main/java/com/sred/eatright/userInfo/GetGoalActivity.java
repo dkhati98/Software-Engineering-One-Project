@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
 
-public class GetGoal extends AppCompatActivity {
+public class GetGoalActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,20 +37,20 @@ public class GetGoal extends AppCompatActivity {
                     int _id = (Integer)getIntent().getExtras().get("id");
                     long val = db.updateUserGoal(_id, realGoal);
                     if (val > 0) {
-//                        Intent moveToGoalsCalculated = new Intent(GetGoal.this, GoalsCalculated.class);
+//                        Intent moveToGoalsCalculated = new Intent(GetGoalActivity.this, GoalCalculatedActivity.class);
 //                        startActivity(moveToGoalsCalculated);
 
-                        Intent moveToGoalsCalculated = new Intent(GetGoal.this, GoalsCalculated.class);
+                        Intent moveToGoalsCalculated = new Intent(GetGoalActivity.this, GoalCalculatedActivity.class);
                         moveToGoalsCalculated.putExtra("id",_id);
                         startActivity(moveToGoalsCalculated);
 
-                        Toast.makeText(GetGoal.this, "Select a goal", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GetGoalActivity.this, "Select a goal", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Toast.makeText(GetGoal.this, "Unable to connect to Internet", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GetGoalActivity.this, "Unable to connect to Internet", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(GetGoal.this, "Please Select an Option.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GetGoalActivity.this, "Please Select an Option.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

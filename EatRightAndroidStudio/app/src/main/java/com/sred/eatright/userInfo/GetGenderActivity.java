@@ -16,7 +16,7 @@ import com.sred.eatright.R;
 
 import static java.lang.Integer.parseInt;
 
-public class getGender extends AppCompatActivity {
+public class GetGenderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +48,13 @@ public class getGender extends AppCompatActivity {
 
                 if (val > 0) {
                     //fill in code to save to DB
-                    Intent moveToBirthday = new Intent(getGender.this, Birthday.class);
+                    Intent moveToBirthday = new Intent(GetGenderActivity.this, BirthdayActivity.class);
                     moveToBirthday.putExtra("id",_id);
                     startActivity(moveToBirthday);
-                    Toast.makeText(getGender.this, "Please enter your information", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GetGenderActivity.this, "Please enter your information", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(getGender.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GetGenderActivity.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
                 }
             }
         });

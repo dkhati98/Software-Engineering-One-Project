@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.sred.eatright.R;
 import com.sred.eatright.userInfo.ProfileActivity;
 
-public class Help extends AppCompatActivity {
+public class HelpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class Help extends AppCompatActivity {
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToHelp = new Intent(Help.this, Home.class);
+                Intent moveToHelp = new Intent(HelpActivity.this, HomeActivity.class);
                 startActivity(moveToHelp);
             }
         });
@@ -34,7 +34,7 @@ public class Help extends AppCompatActivity {
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Help.this, Search.class);
+                Intent moveToSearch = new Intent(HelpActivity.this, SearchActivity.class);
                 startActivity(moveToSearch);
             }
         });
@@ -43,7 +43,7 @@ public class Help extends AppCompatActivity {
         button_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToProfile = new Intent(Help.this, ProfileActivity.class);
+                Intent moveToProfile = new Intent(HelpActivity.this, ProfileActivity.class);
                 startActivity(moveToProfile);
             }
         });

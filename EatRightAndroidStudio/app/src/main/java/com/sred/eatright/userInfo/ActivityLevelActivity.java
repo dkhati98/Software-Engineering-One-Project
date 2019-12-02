@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.sred.eatright.R;
 
-public class ActivityLevel extends AppCompatActivity {
+public class ActivityLevelActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +34,13 @@ public class ActivityLevel extends AppCompatActivity {
                if (true/*data > 0same as below*/) {
                    //insert code to save to DB: activity level
                    if (true/*datasuccesfullySavedToDB* commented this cause we dont have this method implemented yet*/) {
-                       Intent moveToActivityLevel = new Intent(ActivityLevel.this, GoalsCalculated.class);
+                       Intent moveToActivityLevel = new Intent(ActivityLevelActivity.this, GoalCalculatedActivity.class);
                        startActivity(moveToActivityLevel);
                    } else {
-                       Toast.makeText(ActivityLevel.this, "Unable to access Internet", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(ActivityLevelActivity.this, "Unable to access Internet", Toast.LENGTH_SHORT).show();
                    }
                } else {
-                   Toast.makeText(ActivityLevel.this, "Choose an activity level", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(ActivityLevelActivity.this, "Choose an activity level", Toast.LENGTH_SHORT).show();
                }
            }
        });

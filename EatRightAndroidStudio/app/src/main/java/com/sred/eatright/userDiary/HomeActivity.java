@@ -11,7 +11,7 @@ import android.widget.Button;
 import com.sred.eatright.R;
 import com.sred.eatright.userInfo.ProfileActivity;
 
-public class Home extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,7 @@ public class Home extends AppCompatActivity {
         add_breakfast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Home.this, Search.class);
+                Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
                 startActivity(moveToSearch);
             }
         });
@@ -38,7 +38,7 @@ public class Home extends AppCompatActivity {
         add_lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Home.this, Search.class);
+                Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
                 startActivity(moveToSearch);
             }
         });
@@ -47,7 +47,7 @@ public class Home extends AppCompatActivity {
         add_dinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Home.this, Search.class);
+                Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
                 startActivity(moveToSearch);
             }
         });
@@ -56,7 +56,7 @@ public class Home extends AppCompatActivity {
         add_snacks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Home.this, Search.class);
+                Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
                 startActivity(moveToSearch);
             }
         });
@@ -65,7 +65,7 @@ public class Home extends AppCompatActivity {
         button_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToHelp = new Intent(Home.this, Help.class);
+                Intent moveToHelp = new Intent(HomeActivity.this, HelpActivity.class);
                 startActivity(moveToHelp);
             }
         });
@@ -74,7 +74,7 @@ public class Home extends AppCompatActivity {
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Home.this, Search.class);
+                Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
                 startActivity(moveToSearch);
             }
         });
@@ -83,7 +83,7 @@ public class Home extends AppCompatActivity {
         button_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToProfile = new Intent(Home.this, ProfileActivity.class);
+                Intent moveToProfile = new Intent(HomeActivity.this, ProfileActivity.class);
                 moveToProfile.putExtra("id",_id);
                 startActivity(moveToProfile);
             }

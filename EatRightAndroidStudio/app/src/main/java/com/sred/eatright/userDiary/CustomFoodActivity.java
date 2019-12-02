@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.sred.eatright.R;
 import com.sred.eatright.userInfo.ProfileActivity;
 
-public class customFood extends AppCompatActivity {
+public class CustomFoodActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class customFood extends AppCompatActivity {
         button_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToHelp = new Intent(customFood.this, Help.class);
+                Intent moveToHelp = new Intent(CustomFoodActivity.this, HelpActivity.class);
                 startActivity(moveToHelp);
             }
         });
@@ -43,7 +43,7 @@ public class customFood extends AppCompatActivity {
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToCustomFood = new Intent(customFood.this, Search.class);
+                Intent moveToCustomFood = new Intent(CustomFoodActivity.this, SearchActivity.class);
                 startActivity(moveToCustomFood);
             }
         });
@@ -52,7 +52,7 @@ public class customFood extends AppCompatActivity {
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToHome = new Intent(customFood.this, Home.class);
+                Intent moveToHome = new Intent(CustomFoodActivity.this, HomeActivity.class);
                 startActivity(moveToHome);
             }
         });
@@ -61,7 +61,7 @@ public class customFood extends AppCompatActivity {
         button_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToProfile = new Intent(customFood.this, ProfileActivity.class);
+                Intent moveToProfile = new Intent(CustomFoodActivity.this, ProfileActivity.class);
                 startActivity(moveToProfile);
             }
         });
@@ -70,7 +70,7 @@ public class customFood extends AppCompatActivity {
         cancel_creation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(customFood.this, Search.class);
+                Intent moveToSearch = new Intent(CustomFoodActivity.this, SearchActivity.class);
                 startActivity(moveToSearch);
             }
         });
@@ -80,7 +80,7 @@ public class customFood extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Insert code to save custom created food to DB, then add to home screen
-                Intent moveToHome = new Intent(customFood.this, Home.class);
+                Intent moveToHome = new Intent(CustomFoodActivity.this, HomeActivity.class);
                 startActivity(moveToHome);
             }
         });

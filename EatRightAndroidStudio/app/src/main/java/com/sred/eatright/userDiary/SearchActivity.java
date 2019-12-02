@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.sred.eatright.R;
 import com.sred.eatright.userInfo.ProfileActivity;
 
-public class Search extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class Search extends AppCompatActivity {
         button_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToHelp = new Intent(Search.this, Help.class);
+                Intent moveToHelp = new Intent(SearchActivity.this, HelpActivity.class);
                 startActivity(moveToHelp);
             }
         });
@@ -42,7 +42,7 @@ public class Search extends AppCompatActivity {
         create_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToCustomFood = new Intent(Search.this, customFood.class);
+                Intent moveToCustomFood = new Intent(SearchActivity.this, CustomFoodActivity.class);
                 startActivity(moveToCustomFood);
             }
         });
@@ -51,7 +51,7 @@ public class Search extends AppCompatActivity {
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToHome = new Intent(Search.this, Home.class);
+                Intent moveToHome = new Intent(SearchActivity.this, HomeActivity.class);
                 startActivity(moveToHome);
             }
         });
@@ -60,7 +60,7 @@ public class Search extends AppCompatActivity {
         button_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToProfile = new Intent(Search.this, ProfileActivity.class);
+                Intent moveToProfile = new Intent(SearchActivity.this, ProfileActivity.class);
                 startActivity(moveToProfile);
             }
         });
