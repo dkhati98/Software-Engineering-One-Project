@@ -135,6 +135,42 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         return returnvalue;
     }
 
+    public  Profile GetDB(int _id) {
+            Profile profile = new Profile();
+
+            SQLiteDatabase db = this.getWritableDatabase();
+
+            Cursor cursor = db.query("Profile",
+                    new String[]{"_id", "userName", "emailAddress", "gender",
+                            "birthMonth", "birthDate", "birthYear",
+                            "heightft", "heightin", "fitnessGoal",
+                            "curWeight"},
+                    "_id = ?",
+                    new String[]{Integer.toString(_id)},
+                    null, null, "_id");
+
+            if (cursor.moveToFirst()) {
+
+                profile.setUsersName(cursor.getString(1));
+                profile.setUserEmail(cursor.getString(2));
+                profile.setUserGender(cursor.getString(3));
+                profile.setUserDOB_month(cursor.getString(4));
+                profile.setUserDOB_day(cursor.getString(5));
+                profile.setUserDOB_year(cursor.getString(6));
+                profile.setUserHeightFeet(cursor.getString(7));
+                profile.setUserHeightInches(cursor.getString(8));
+                profile.setUserGoal(cursor.getString(9));
+                profile.setUserWeight(cursor.getString(10));
+                cursor.close();
+                db.close();
+                return profile;
+            }
+
+        return profile;
+    }
+
+
+
     public  long updateUserBirthday(int _id, int birthYear, int birthMonth, int birthDate){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues args = new ContentValues();
@@ -176,6 +212,20 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return res;
     }
+
+    public void updateUserWeight(int _id, int curWeight){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues args = new ContentValues();
+        args.put("curWeight", curWeight);
+        long res = db.update("Profile",
+                args,
+                "_id = ?",
+                new String[] {Integer.toString(_id)});
+        db.close();
+
+    }
+
+
 
 //    public static void createProfile(SQLiteDatabase db, String userName, String password, String timeZone,
 //                                     String emailAddress, int zip, String location, int heightft,
