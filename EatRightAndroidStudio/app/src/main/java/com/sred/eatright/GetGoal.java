@@ -31,7 +31,7 @@ public class GetGoal extends AppCompatActivity {
             public void onClick(View v) {
                 if (realGoal != null) {
                     //Insert code to save to DB: goal
-                    Intent moveToGoalsCalculated = new Intent(GetGoal.this, GoalsCalculated.class);
+                    Intent moveToGoalsCalculated = new Intent(GetGoal.this, ActivityLevel.class);
                     startActivity(moveToGoalsCalculated);
                 } else {
                     Toast.makeText(GetGoal.this, "Unable to connect to Internet", Toast.LENGTH_SHORT).show();
