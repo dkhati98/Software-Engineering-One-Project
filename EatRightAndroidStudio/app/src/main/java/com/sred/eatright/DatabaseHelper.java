@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.sred.eatright.userInfo.Profile;
+
 public  class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="eatright.db";
     public static final String TABLE_NAME="Profile";
@@ -135,7 +137,7 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         return returnvalue;
     }
 
-    public  Profile GetDB(int _id) {
+    public Profile GetDB(int _id) {
             Profile profile = new Profile();
 
             SQLiteDatabase db = this.getWritableDatabase();

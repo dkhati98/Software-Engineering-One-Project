@@ -1,171 +1,95 @@
 package com.sred.eatright.userInfo;
 
-import com.sred.eatright.userInfo.helperClass.Gender;
-import com.sred.eatright.userInfo.helperClass.Goal;
-
 public class Profile {
-	
-	private final String firstName;
-	private final String lastName;
-	private	int age;
-	private Gender gender;
-	private int height;
-	private String location;
-	private int zip;
-	private String timeZone;
-	private	String emailAddress;
-	private Goal goal;
-	
-	private Profile(String firstName, String lastName, int age, Gender gender, int height) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.age = age;
-		this.gender = gender;
-		this.height = height;
+
+	private String usersName;
+	private String userEmail;
+	private String userGender;
+	private String userDOB_month;
+	private String userDOB_year;
+	private String userDOB_day;
+	private String userHeightFeet;
+	private String userHeightInches;
+	private String userGoal;
+	private String userWeight;
+
+	public String getUsersName() {
+		return usersName;
 	}
 
-	//setter
-	public void setAge(int age) {
-		this.age = age;
+	public String getUserEmail() {
+		return userEmail;
 	}
 
-	public void setGender(Gender gender) {
-		this.gender = gender;
+	public String getUserGender() {
+		return userGender;
 	}
 
-	public void setHeight(int height) {
-		this.height = height;
+	public String getUserDOB_month() {
+		return userDOB_month;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public String getUserDOB_year() {
+		return userDOB_year;
 	}
 
-	public void setZip(int zip) {
-		this.zip = zip;
+	public String getUserDOB_day() {
+		return userDOB_day;
 	}
 
-	public void setTimeZone(String timeZone) {
-		this.timeZone = timeZone;
+	public String getUserHeightFeet() {
+		return userHeightFeet;
 	}
 
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
+	public String getUserHeightInches() {
+		return userHeightInches;
 	}
 
-	//call this function when the user gives all the information to create an object of Goal
-	//well call this function again when the user finish filling data for NutritionGoal
-	public void setGoal(Goal goal) {
-		this.goal = goal;
+	public String getUserGoal() {
+		return userGoal;
 	}
 
-	//getter
-	public String getFirstName() {
-		return firstName;
+	public String getUserWeight() {
+		return userWeight;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
 	}
 
-	public int getAge() {
-		return age;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
-	public Gender getGender() {
-		return gender;
+	public void setUserGender(String userGender) {
+		this.userGender = userGender;
 	}
 
-	public int getHeight() {
-		return height;
+	public void setUserDOB_month(String userDOB_month) {
+		this.userDOB_month = userDOB_month;
 	}
 
-	public String getLocation() {
-		return location;
+	public void setUserDOB_year(String userDOB_year) {
+		this.userDOB_year = userDOB_year;
 	}
 
-	public int getZip() {
-		return zip;
+	public void setUserDOB_day(String userDOB_day) {
+		this.userDOB_day = userDOB_day;
 	}
 
-	public String getTimeZone() {
-		return timeZone;
+	public void setUserHeightFeet(String userHeightFeet) {
+		this.userHeightFeet = userHeightFeet;
 	}
 
-	public String getEmialAddress() {
-		return emailAddress;
+	public void setUserHeightInches(String userHeightInches) {
+		this.userHeightInches = userHeightInches;
 	}
 
-	public Goal getGoal() {
-		return goal;
+	public void setUserGoal(String userGoal) {
+		this.userGoal = userGoal;
 	}
 
-
-	//Builder functions
-//	public static class ProfileBuilder {
-//		private String firstName;
-//		private String lastName;
-//		private int age;
-//		private Gender gender;
-//		private int height;
-//		private String location;
-//		private int zip;
-//		private String timeZone;
-//		private	String emailAddress;
-//		private Goal goal;
-//
-//		public ProfileBuilder setFirstName(String firstName) {
-//			this.firstName = firstName;
-//			return this;
-//		}
-//		public ProfileBuilder setLastName(String lastName) {
-//			this.lastName = lastName;
-//			return this;
-//		}
-//		public ProfileBuilder setAge(int age) {
-//			this.age = age;
-//			return this;
-//		}
-//		public ProfileBuilder setGender(Gender gender) {
-//			this.gender = gender;
-//			return this;
-//		}
-//		public ProfileBuilder setHeight(int height) {
-//			this.height = height;
-//			return this;
-//		}
-//		public ProfileBuilder setLocation(String location) {
-//			this.location = location;
-//			return this;
-//		}
-//		public ProfileBuilder setZip(int zip) {
-//			this.zip = zip;
-//			return this;
-//		}
-//		public ProfileBuilder setTimeZone(String timeZone) {
-//			this.timeZone = timeZone;
-//			return this;
-//		}
-//		public ProfileBuilder setEmialAddress(String emailAddress) {
-//			this.emailAddress = emailAddress;
-//			return this;
-//		}
-//		public ProfileBuilder setGoal(double curWeight, double goalWeight, FitnessGoal fitnessGoal, ActivityLevelActivity activityLevel, NutritionGoal nutritionGoal) {
-//			Goal goal = new Goal.GoalBuilder().setCurWeight(curWeight)
-//											.setGoalWeight(goalWeight)
-//											.setFitnessGoal(fitnessGoal)
-//											.setActivityLevel(activityLevel)
-//											.setNutritionGoal(nutritionGoal)
-//											.buildGoal();
-//			this.goal = goal;
-//			return this;
-//		}
-//		public Profile buildProfile() {
-//			if (firstName == null || lastName == null) {
-//				throw new IllegalArgumentException("Required Fields Are Not Set");
-//			}
-//			return new Profile(this);
-//		}
-//	}
-
+	public void setUserWeight(String userWeight) {
+		this.userWeight = userWeight;
+	}
 }
