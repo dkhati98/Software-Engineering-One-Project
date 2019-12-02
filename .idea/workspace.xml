@@ -40,8 +40,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="348" />
-    <option name="width" value="698" />
+    <option name="x" value="347" />
+    <option name="width" value="699" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectView">
@@ -49,24 +49,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane" />
       <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="Software-Engineering-One-Project1" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\ladyd\Desktop\Software-Engineering-One-Project1" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="Software-Engineering-One-Project1" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\ladyd\Desktop\Software-Engineering-One-Project1" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="EatRightAndroidStudio" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -105,7 +90,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25033557" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2536913" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -122,7 +107,7 @@
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Theme Preview" order="2" />
-      <window_info anchor="right" id="Preview" order="3" weight="0.32980332" />
+      <window_info anchor="right" id="Preview" order="3" visible="true" weight="0.3295302" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
     </layout>
   </component>
