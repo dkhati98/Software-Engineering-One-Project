@@ -27,57 +27,57 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <!-- Insert data binding names from DB -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
                 android:text="@string/profile_name"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:paddingStart="15dp"
-                android:paddingEnd="5dp"/>
+                android:layout_marginStart="10dp"/>
 
-            <!-- Insert data binding names from DB -->
             <TextView
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <!-- Insert user email -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
                 android:text="@string/profile_email"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="5dp"/>
+                android:layout_marginStart="10dp"/>
 
-            <!-- Insert user email -->
             <TextView
                 android:id="@+id/user_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -86,23 +86,22 @@
                 android:layout_height="wrap_content"
                 android:text="@string/gender"
                 android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"/>
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
 
             <!-- Insert user gender -->
             <TextView
                 android:id="@+id/user_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -111,16 +110,16 @@
                 android:layout_height="wrap_content"
                 android:text="@string/birthdate"
                 android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"/>
+                android:textSize="20sp"
+                android:paddingEnd="5dp"
+                android:layout_marginStart="10dp"/>
 
             <!-- Insert user DOB date-->
             <TextView
                 android:id="@+id/user_dob_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"/>
             <!-- Insert user DOB month -->
@@ -128,7 +127,7 @@
                 android:id="@+id/user_dob_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"/>
             <!-- Insert user DOB year -->
@@ -136,14 +135,14 @@
                 android:id="@+id/user_dob_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -152,16 +151,15 @@
                 android:layout_height="wrap_content"
                 android:text="@string/height"
                 android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="5dp"/>
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
 
             <!-- Insert user height Feet -->
             <TextView
                 android:id="@+id/user_heightFeet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"/>
 
@@ -170,14 +168,12 @@
                 android:id="@+id/user_heightInches"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
+                android:textSize="15sp"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -186,23 +182,22 @@
                 android:layout_height="wrap_content"
                 android:text="@string/goal"
                 android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="20dp"
-                android:paddingEnd="5dp"/>
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
 
             <!-- Insert user current weight -->
             <TextView
                 android:id="@+id/user_goal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -211,18 +206,17 @@
                 android:layout_height="wrap_content"
                 android:text="@string/weight"
                 android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="20dp"
-                android:paddingEnd="5dp"/>
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
 
             <!-- Insert user current weight -->
             <TextView
                 android:id="@+id/user_current_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
+                android:paddingEnd="25dp" />
 
         </LinearLayout>
 
@@ -265,43 +259,43 @@
 
     <RelativeLayout
         android:id="@+id/footer_menu"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
         android:background="#2A3C25">
 
         <Button
             android:id="@+id/button_search"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:background="@drawable/rounded_button"
             android:text="@string/search"
             android:textColor="#FFFCFC"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="15dp"/>
+            android:layout_marginStart="30dp"/>
 
         <Button
             android:id="@+id/button_home"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:background="@drawable/rounded_button"
             android:text="@string/button_home"
             android:textColor="#FFFCFC"
-            android:textSize="20sp"
-            android:layout_marginStart="155dp"/>
+            android:textSize="15sp"
+            android:layout_marginStart="169dp"/>
 
         <Button
             android:id="@+id/button_profile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:background="@drawable/rounded_button"
             android:text="@string/profile"
             android:textColor="#FFFCFC"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"/>
-
+            android:layout_marginEnd="30dp"/>
 
     </RelativeLayout>
 

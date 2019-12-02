@@ -69,6 +69,6 @@
         android:layout_gravity="end"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginTop="200dp"/>
+        android:layout_marginTop="100dp"/>
 
 </LinearLayout>
