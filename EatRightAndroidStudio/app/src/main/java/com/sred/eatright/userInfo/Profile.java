@@ -1,4 +1,7 @@
-package com.sred.eatright;
+package com.sred.eatright.userInfo;
+
+import com.sred.eatright.userInfo.helperClass.Gender;
+import com.sred.eatright.userInfo.helperClass.Goal;
 
 public class Profile {
 	

@@ -1,4 +1,8 @@
-package com.sred.eatright;
+package com.sred.eatright.userInfo.helperClass;
+
+import com.sred.eatright.userInfo.ActivityLevel;
+import com.sred.eatright.userInfo.helperClass.FitnessGoal;
+import com.sred.eatright.userInfo.helperClass.NutritionGoal;
 
 public class Goal {
 	private double curWeight;

@@ -1,4 +1,6 @@
-package com.sred.eatright;
+package com.sred.eatright.userDiary;
+
+import com.sred.eatright.userInfo.Profile;
 
 /**
  * Calculator class used to get the goal calories and food calories, and calculate the remaining calories for the day

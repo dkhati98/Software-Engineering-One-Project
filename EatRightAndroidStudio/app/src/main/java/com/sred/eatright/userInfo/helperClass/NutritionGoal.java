@@ -1,4 +1,8 @@
-package com.sred.eatright;
+package com.sred.eatright.userInfo.helperClass;
+
+import com.sred.eatright.userInfo.Profile;
+import com.sred.eatright.userInfo.helperClass.FitnessGoal;
+import com.sred.eatright.userInfo.helperClass.Gender;
 
 public class NutritionGoal {
     //private Nutrient goalNutrient;

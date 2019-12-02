@@ -1,4 +1,6 @@
-package com.sred.eatright;
+package com.sred.eatright.userDiary;
+
+import com.sred.eatright.userInfo.helperClass.MetricServingUnit;
 
 public class OurFood {
 

@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sred.eatright.SignUpLogIn.RegisterActivity;
+import com.sred.eatright.SignUpLogIn.WelcomeActivity;
+
 public class Main2Activity extends AppCompatActivity {
 
     DatabaseHelper db;

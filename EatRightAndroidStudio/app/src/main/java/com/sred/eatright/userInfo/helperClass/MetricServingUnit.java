@@ -1,4 +1,4 @@
-package com.sred.eatright;
+package com.sred.eatright.userInfo.helperClass;
 
 // 1 ounce = 28.35 grams
 // 1 ounce = 0.0625 pound

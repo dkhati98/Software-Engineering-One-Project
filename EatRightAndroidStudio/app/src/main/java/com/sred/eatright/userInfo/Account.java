@@ -1,4 +1,6 @@
-package com.sred.eatright;
+package com.sred.eatright.userInfo;
+
+import com.sred.eatright.Log;
 
 /**
  * An account has a userName, a password, a profile and a log

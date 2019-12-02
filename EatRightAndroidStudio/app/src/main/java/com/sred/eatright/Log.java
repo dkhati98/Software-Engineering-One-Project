@@ -1,5 +1,8 @@
 package com.sred.eatright;
 
+import com.sred.eatright.userDiary.FoodDiary;
+import com.sred.eatright.userInfo.Profile;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.sred.eatright;
+package com.sred.eatright.userDiary;
 
 public class Nutrient {
     //unit in grams

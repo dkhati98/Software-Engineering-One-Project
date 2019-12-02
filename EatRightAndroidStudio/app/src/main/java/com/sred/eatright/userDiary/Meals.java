@@ -1,4 +1,4 @@
-package com.sred.eatright;
+package com.sred.eatright.userDiary;
 
 import java.util.ArrayList;
 import java.util.List;

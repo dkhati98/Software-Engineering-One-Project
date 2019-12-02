@@ -1,6 +1,5 @@
-package com.sred.eatright;
+package com.sred.eatright.SignUpLogIn;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,12 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.sred.eatright.DatabaseHelper;
+import com.sred.eatright.Main2Activity;
+import com.sred.eatright.R;
 
 public class RegisterActivity extends AppCompatActivity {
 

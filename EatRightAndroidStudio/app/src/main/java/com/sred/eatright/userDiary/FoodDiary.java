@@ -1,4 +1,6 @@
-package com.sred.eatright;
+package com.sred.eatright.userDiary;
+
+import com.sred.eatright.userInfo.Profile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +15,7 @@ public class FoodDiary {
     private List<Meals> mealsList;
     private Calculator calculator;
 
-    FoodDiary(Profile profile) {
+    public FoodDiary(Profile profile) {
         //this.myDate = date;
         this.mealsList = new ArrayList<>();
         //addMeals();

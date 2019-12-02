@@ -1,4 +1,4 @@
-package com.sred.eatright;
+package com.sred.eatright.userInfo.helperClass;
 
 public enum FitnessGoal {
 	LOSE,

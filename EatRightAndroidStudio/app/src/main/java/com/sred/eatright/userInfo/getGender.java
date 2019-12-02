@@ -1,4 +1,4 @@
-package com.sred.eatright;
+package com.sred.eatright.userInfo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.sred.eatright.DatabaseHelper;
+import com.sred.eatright.R;
 
 import static java.lang.Integer.parseInt;
 

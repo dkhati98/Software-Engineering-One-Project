@@ -1,4 +1,4 @@
-package com.sred.eatright;
+package com.sred.eatright.userInfo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.DatePicker;
+
+import com.sred.eatright.DatabaseHelper;
+import com.sred.eatright.R;
 
 public class Birthday extends AppCompatActivity {
 

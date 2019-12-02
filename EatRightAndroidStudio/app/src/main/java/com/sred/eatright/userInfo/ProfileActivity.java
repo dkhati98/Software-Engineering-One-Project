@@ -1,4 +1,4 @@
-package com.sred.eatright;
+package com.sred.eatright.userInfo;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,6 +13,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.sred.eatright.DatabaseHelper;
+import com.sred.eatright.userDiary.Help;
+import com.sred.eatright.userDiary.Home;
+import com.sred.eatright.R;
+import com.sred.eatright.userDiary.Search;
 
 public class ProfileActivity extends AppCompatActivity {
 
