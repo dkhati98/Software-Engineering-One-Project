@@ -4,304 +4,316 @@
     android:layout_height="match_parent"
     android:background="@color/background_color">
 
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_color">
-
-    <ImageView
-        android:layout_width="250dp"
-        android:layout_height="200dp"
-        android:src="@drawable/launcherlogo"
-        android:contentDescription="@string/imageview_logo"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="25dp"/>
-
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/profile_name"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:paddingStart="15dp"
-                android:paddingEnd="5dp"/>
-
-            <!-- Insert data binding names from DB -->
-            <TextView
-                android:id="@+id/user_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/profile_email"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="5dp"/>
-
-            <!-- Insert user email -->
-            <TextView
-                android:id="@+id/user_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/gender"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"/>
-
-            <!-- Insert user gender -->
-            <TextView
-                android:id="@+id/user_gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/birthdate"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"/>
-
-            <!-- Insert user DOB date-->
-            <TextView
-                android:id="@+id/user_dob_day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
-            <!-- Insert user DOB month -->
-            <TextView
-                android:id="@+id/user_dob_month"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
-            <!-- Insert user DOB year -->
-            <TextView
-                android:id="@+id/user_dob_year"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/height"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="5dp"/>
-
-            <!-- Insert user height Feet -->
-            <TextView
-                android:id="@+id/user_heightFeet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
-
-            <!-- Insert user height Inches -->
-            <TextView
-                android:id="@+id/user_heightInches"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/goal"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="20dp"
-                android:paddingEnd="5dp"/>
-
-            <!-- Insert user current weight -->
-            <TextView
-                android:id="@+id/user_goal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/weight"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:paddingStart="20dp"
-                android:paddingEnd="5dp"/>
-
-            <!-- Insert user current weight -->
-            <TextView
-                android:id="@+id/user_current_weight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/user_new_weight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/update_weight"
-                android:layout_marginStart="200dp"
-                android:importantForAutofill="no"
-                android:inputType="number"/>
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/button_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/save"
-            android:layout_marginEnd="15dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/note_update_weight"
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:src="@drawable/launcherlogo"
+            android:contentDescription="@string/imageview_logo"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:paddingBottom="5dp"/>
+            android:layout_marginTop="25dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/dialog_holo_light_frame"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_name"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="5dp"
+                    android:layout_marginStart="28dp"/>
+
+                <!-- Insert data binding names from DB -->
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:layout_marginStart="50dp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_email"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="5dp"
+                    android:layout_marginStart="24dp"/>
+
+                <!-- Insert user email -->
+                <TextView
+                    android:id="@+id/user_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:paddingStart="25dp"
+                    android:layout_marginStart="50dp"
+                    android:paddingEnd="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gender"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:layout_marginStart="24dp"/>
+
+                <!-- Insert user gender -->
+                <TextView
+                    android:id="@+id/user_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:layout_marginStart="50dp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/birthdate"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"/>
+
+                <!-- Insert user DOB date-->
+                <TextView
+                    android:id="@+id/user_dob_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:layout_marginStart="50dp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"/>
+                <!-- Insert user DOB month -->
+                <TextView
+                    android:id="@+id/user_dob_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"/>
+                <!-- Insert user DOB year -->
+                <TextView
+                    android:id="@+id/user_dob_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/height"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="5dp"
+                    android:layout_marginStart="10dp"/>
+
+                <!-- Insert user height Feet -->
+                <TextView
+                    android:id="@+id/user_heightFeet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"/>
+
+                <!-- Insert user height Inches -->
+                <TextView
+                    android:id="@+id/user_heightInches"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goal"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="5dp"
+                    android:layout_marginStart="40dp"/>
+
+                <!-- Insert user current weight -->
+                <TextView
+                    android:id="@+id/user_goal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:layout_marginStart="50dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weight"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="5dp"
+                    android:layout_marginStart="13dp"/>
+
+                <!-- Insert user current weight -->
+                <TextView
+                    android:id="@+id/user_current_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:layout_marginStart="49dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/user_new_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/update_weight"
+                    android:layout_marginStart="200dp"
+                    android:importantForAutofill="no"
+                    android:inputType="number"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/save"
+                android:layout_marginEnd="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/note_update_weight"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:paddingBottom="5dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
-
     <RelativeLayout
         android:id="@+id/footer_menu"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
         android:background="#2A3C25">
 
         <Button
             android:id="@+id/button_search"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:background="@drawable/rounded_button"
             android:text="@string/search"
             android:textColor="#FFFCFC"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="15dp"/>
+            android:layout_marginStart="30dp"/>
 
         <Button
             android:id="@+id/button_home"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:background="@drawable/rounded_button"
             android:text="@string/button_home"
             android:textColor="#FFFCFC"
-            android:textSize="20sp"
-            android:layout_marginStart="155dp"/>
+            android:textSize="15sp"
+            android:layout_marginStart="169dp"/>
 
         <Button
             android:id="@+id/button_profile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:background="@drawable/rounded_button"
             android:text="@string/profile"
             android:textColor="#FFFCFC"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"/>
-
+            android:layout_marginEnd="30dp"/>
 
     </RelativeLayout>
 

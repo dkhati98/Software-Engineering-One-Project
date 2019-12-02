@@ -31,7 +31,7 @@
     <RelativeLayout
         android:id="@+id/calories_header"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="110dp"
         android:layout_marginTop="50dp"
         android:visibility="visible"
         tools:visibility="visible"
@@ -50,32 +50,58 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="100dp"
         android:layout_marginTop="55dp"
         android:gravity="center">
 
         <!-- Update with user goal calories -->
         <TextView
             android:id="@+id/nutrition_goal"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Dummy_text"
-            android:textSize="45sp"
+            android:textSize="35sp"
             android:gravity="center"/>
-        <!-- text="@{String.valueOf(nutritionGoal.getGoalCalories)} -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:text="\-"
+            android:paddingStart="10dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/goal_consumed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:paddingStart="10dp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:paddingStart="10dp"
+            android:text="\="
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/goal_leftover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:paddingStart="10dp"
+            android:gravity="center"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="130dp">
+        android:layout_marginTop="120dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/calorie_breakdown"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:gravity="center"/>
 
     </LinearLayout>
@@ -83,42 +109,42 @@
     <RelativeLayout
         android:id="@+id/footer_menu"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
         android:gravity="bottom"
         android:background="#2A3C25">
 
         <Button
             android:id="@+id/button_search"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:background="@drawable/rounded_button"
             android:text="@string/search"
             android:textColor="#FFFCFC"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="15dp"/>
+            android:layout_marginStart="30dp"/>
 
         <Button
             android:id="@+id/button_home"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:background="@drawable/rounded_button"
             android:text="@string/button_home"
             android:textColor="#FFFCFC"
-            android:textSize="20sp"
-            android:layout_marginStart="155dp"/>
+            android:textSize="15sp"
+            android:layout_marginStart="169dp"/>
 
         <Button
             android:id="@+id/button_profile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:background="@drawable/rounded_button"
             android:text="@string/profile"
             android:textColor="#FFFCFC"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"/>
+            android:layout_marginEnd="30dp"/>
 
     </RelativeLayout>
 
@@ -144,7 +170,7 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -159,7 +185,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/button_add_food"
-                    android:layout_marginStart="205dp"
+                    android:layout_marginStart="150dp"
                     android:text="@string/add"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
@@ -179,7 +205,7 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp">
 
@@ -195,7 +221,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/button_add_food"
-                    android:layout_marginStart="248dp"
+                    android:layout_marginStart="195dp"
                     android:text="@string/add"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
@@ -213,7 +239,7 @@
             <!-- Dinner -->
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp">
 
@@ -229,7 +255,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/button_add_food"
-                    android:layout_marginStart="240dp"
+                    android:layout_marginStart="190dp"
                     android:text="@string/add"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
@@ -244,15 +270,10 @@
                 android:text="@string/default_food"
                 android:textSize="20sp"/>
 
-            <TextView
-                android:id="@+id/add_dinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
             <!-- Snacks -->
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp">
 
@@ -268,7 +289,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/button_add_food"
-                    android:layout_marginStart="230dp"
+                    android:layout_marginStart="185dp"
                     android:text="@string/add"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
