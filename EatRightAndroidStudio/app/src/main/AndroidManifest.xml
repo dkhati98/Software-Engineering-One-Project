@@ -21,6 +21,7 @@
         <activity android:name=".userInfo.GoalCalculatedActivity"/>
         <activity android:name=".SignUpLogIn.WelcomeActivity"/>
         <activity android:name=".userInfo.GetGoalActivity"/>
+        <activity android:name=".userDiary.CustomFoodActivity"/>
         <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

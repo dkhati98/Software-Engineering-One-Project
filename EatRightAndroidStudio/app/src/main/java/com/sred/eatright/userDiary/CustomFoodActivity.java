@@ -19,9 +19,9 @@ public class CustomFoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_custom_food);
 
         final Button button_help = (Button) findViewById(R.id.button_help);
-        final Button button_home = (Button) findViewById(R.id.button_home);
-        final Button button_profile = (Button) findViewById(R.id.button_profile);
-        final Button button_search = (Button) findViewById(R.id.button_search);
+//        final Button button_home = (Button) findViewById(R.id.button_home);
+//        final Button button_profile = (Button) findViewById(R.id.button_profile);
+//        final Button button_search = (Button) findViewById(R.id.button_search);
         final Button cancel_creation = (Button) findViewById(R.id.button_cancel);
         final Button save_creation = (Button) findViewById(R.id.button_save);
         final EditText custom_name = (EditText) findViewById(R.id.custom_food_name);
@@ -39,32 +39,32 @@ public class CustomFoodActivity extends AppCompatActivity {
             }
         });
 
-        //search button
-        button_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent moveToCustomFood = new Intent(CustomFoodActivity.this, SearchActivity.class);
-                startActivity(moveToCustomFood);
-            }
-        });
-
-        //home screen button
-        button_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent moveToHome = new Intent(CustomFoodActivity.this, HomeActivity.class);
-                startActivity(moveToHome);
-            }
-        });
-
-        //profile button
-        button_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent moveToProfile = new Intent(CustomFoodActivity.this, ProfileActivity.class);
-                startActivity(moveToProfile);
-            }
-        });
+//        //search button
+//        button_search.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent moveToCustomFood = new Intent(CustomFoodActivity.this, SearchActivity.class);
+//                startActivity(moveToCustomFood);
+//            }
+//        });
+//
+//        //home screen button
+//        button_home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent moveToHome = new Intent(CustomFoodActivity.this, HomeActivity.class);
+//                startActivity(moveToHome);
+//            }
+//        });
+//
+//        //profile button
+//        button_profile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent moveToProfile = new Intent(CustomFoodActivity.this, ProfileActivity.class);
+//                startActivity(moveToProfile);
+//            }
+//        });
 
         //cancel
         cancel_creation.setOnClickListener(new View.OnClickListener() {
