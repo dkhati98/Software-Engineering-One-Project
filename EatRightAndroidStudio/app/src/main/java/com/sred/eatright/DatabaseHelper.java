@@ -31,27 +31,27 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         String queryCreateProfile = "CREATE TABLE Profile (_id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "userName TEXT," +
                 "password TEXT," +
-                "timeZone TEXT," +
+//                "timeZone TEXT," +
                 "emailAddress TEXT," +
-                "zip INTEGER," +
-                "location TEXT," +
+//                "zip INTEGER," +
+//                "location TEXT," +
                 "heightft INTEGER, " +
                 "heightin INTEGER, " +
-                "firstName TEXT," +
-                "lastName TEXT," +
+//                "firstName TEXT," +
+//                "lastName TEXT," +
                 "age INTEGER," +
                 "birthYear INTEGER," +
                 "birthMonth INTEGER," +
                 "birthDate INTEGER," +
                 "gender TEXT," +
                 "curWeight INTEGER," +
-                "goalWeight INTEGER," +
+//                "goalWeight INTEGER," +
                 "fitnessGoal TEXT," +
                 "activityLevel TEXT," +
                 "goalCalories INTEGER," +
-                "goalFat INTEGER," +
-                "goalProtein INTEGER," +
-                "goalCarbohydrates INTEGER," +
+//                "goalFat INTEGER," +
+//                "goalProtein INTEGER," +
+//                "goalCarbohydrates INTEGER," +
                 "CONSTRAINT fk_users " +
                 "FOREIGN KEY (_id,userName, password, emailAddress)" +
                 "REFERENCES Users(_id,userName,password, emailAddress));";
