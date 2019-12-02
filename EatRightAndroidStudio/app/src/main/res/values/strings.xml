@@ -91,7 +91,7 @@
     <string name="save">Save</string>
     <string name="note_update_weight">**Updating weight will change your goal calories**</string>
 
-    <!-- Help Page -->
+    <!-- HelpActivity Page -->
     <string name="question_mark">\?</string>
     <string name="what_is_eatright">What is EatRight?</string>
     <string name="about_eatRight">\t\tEatRight is a mobile application created by students of Troy University. It was created with the idea of making healthy eating fun and helping people just like you to accomplish their goals.</string>

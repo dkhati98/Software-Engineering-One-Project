@@ -15,10 +15,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.sred.eatright.DatabaseHelper;
-import com.sred.eatright.userDiary.Help;
-import com.sred.eatright.userDiary.Home;
+import com.sred.eatright.userDiary.HelpActivity;
+import com.sred.eatright.userDiary.HomeActivity;
 import com.sred.eatright.R;
-import com.sred.eatright.userDiary.Search;
+import com.sred.eatright.userDiary.SearchActivity;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -116,7 +116,7 @@ public class ProfileActivity extends AppCompatActivity {
         button_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToHelp = new Intent(ProfileActivity.this, Help.class);
+                Intent moveToHelp = new Intent(ProfileActivity.this, HelpActivity.class);
                 startActivity(moveToHelp);
             }
         });
@@ -125,7 +125,7 @@ public class ProfileActivity extends AppCompatActivity {
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(ProfileActivity.this, Search.class);
+                Intent moveToSearch = new Intent(ProfileActivity.this, SearchActivity.class);
                 startActivity(moveToSearch);
             }
         });
@@ -134,7 +134,7 @@ public class ProfileActivity extends AppCompatActivity {
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToHome = new Intent(ProfileActivity.this, Home.class);
+                Intent moveToHome = new Intent(ProfileActivity.this, HomeActivity.class);
                 moveToHome.putExtra("id",_id);
                 startActivity(moveToHome);
             }

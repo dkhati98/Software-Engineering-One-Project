@@ -41,7 +41,7 @@ public class NutritionGoal {
 
     public void setGoalCaloriesActivityLevel() {
         double goalCalories;
-//        ActivityLevel activityLevel = profile.getGoal().getActivityLevel();
+//        ActivityLevelActivity activityLevel = profile.getGoal().getActivityLevel();
 
         /**
          *

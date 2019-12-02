@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.sred.eatright.R;
-import com.sred.eatright.userInfo.getGender;
+import com.sred.eatright.userInfo.GetGenderActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -22,7 +22,7 @@ public class WelcomeActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToGender = new Intent(WelcomeActivity.this, getGender.class);
+                Intent moveToGender = new Intent(WelcomeActivity.this, GetGenderActivity.class);
                 int _id = (Integer)getIntent().getExtras().get("id");
                 moveToGender.putExtra("id",_id);
                 startActivity(moveToGender);

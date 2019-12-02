@@ -150,7 +150,7 @@ public class Profile {
 //			this.emailAddress = emailAddress;
 //			return this;
 //		}
-//		public ProfileBuilder setGoal(double curWeight, double goalWeight, FitnessGoal fitnessGoal, ActivityLevel activityLevel, NutritionGoal nutritionGoal) {
+//		public ProfileBuilder setGoal(double curWeight, double goalWeight, FitnessGoal fitnessGoal, ActivityLevelActivity activityLevel, NutritionGoal nutritionGoal) {
 //			Goal goal = new Goal.GoalBuilder().setCurWeight(curWeight)
 //											.setGoalWeight(goalWeight)
 //											.setFitnessGoal(fitnessGoal)

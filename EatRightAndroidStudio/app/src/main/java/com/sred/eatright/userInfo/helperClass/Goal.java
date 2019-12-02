@@ -1,17 +1,15 @@
 package com.sred.eatright.userInfo.helperClass;
 
-import com.sred.eatright.userInfo.ActivityLevel;
-import com.sred.eatright.userInfo.helperClass.FitnessGoal;
-import com.sred.eatright.userInfo.helperClass.NutritionGoal;
+import com.sred.eatright.userInfo.ActivityLevelActivity;
 
 public class Goal {
 	private double curWeight;
 	private double goalWeight;
 	private FitnessGoal fitnessGoal;
-	private ActivityLevel activityLevel;
+	private ActivityLevelActivity activityLevel;
 	private NutritionGoal nutritionGoal;
 	
-	private Goal(double curWeight, double goalWeight, FitnessGoal fitnessGoal, ActivityLevel activityLevel) {
+	private Goal(double curWeight, double goalWeight, FitnessGoal fitnessGoal, ActivityLevelActivity activityLevel) {
 		this.curWeight = curWeight;
 		this.goalWeight = goalWeight;
 		this.fitnessGoal = fitnessGoal ;
@@ -27,7 +25,7 @@ public class Goal {
 		this.goalWeight = goalWeight;
 	}
 
-	public void setActivityLevel(ActivityLevel activityLevel) {
+	public void setActivityLevel(ActivityLevelActivity activityLevel) {
 		this.activityLevel = activityLevel;
 	}
 
@@ -54,7 +52,7 @@ public class Goal {
 		return fitnessGoal;
 	}
 
-	public ActivityLevel getActivityLevel() {
+	public ActivityLevelActivity getActivityLevel() {
 		return activityLevel;
 	}
 
@@ -68,7 +66,7 @@ public class Goal {
 //		private double curWeight;
 //		private double goalWeight;
 //		private FitnessGoal fitnessGoal;
-//		private ActivityLevel activityLevel;
+//		private ActivityLevelActivity activityLevel;
 //		private NutritionGoal nutritionGoal;
 //
 //		public GoalBuilder setCurWeight(double curWeight) {
@@ -83,7 +81,7 @@ public class Goal {
 //			this.fitnessGoal = fitnessGoal;
 //			return this;
 //		}
-//		public GoalBuilder setActivityLevel(ActivityLevel activityLevel) {
+//		public GoalBuilder setActivityLevel(ActivityLevelActivity activityLevel) {
 //			this.activityLevel = activityLevel;
 //			return this;
 //		}

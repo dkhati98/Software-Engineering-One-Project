@@ -11,16 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".userDiary.Search"/>
+        <activity android:name=".userDiary.SearchActivity"/>
         <activity android:name=".userInfo.ProfileActivity" />
-        <activity android:name=".userDiary.Home" />
-        <activity android:name=".userDiary.Help" />
-        <activity android:name=".userInfo.getGender" />
-        <activity android:name=".userInfo.ActivityLevel"/>
-        <activity android:name=".userInfo.Birthday"/>
-        <activity android:name=".userInfo.GoalsCalculated"/>
+        <activity android:name=".userDiary.HomeActivity" />
+        <activity android:name=".userDiary.HelpActivity" />
+        <activity android:name=".userInfo.GetGenderActivity" />
+        <activity android:name=".userInfo.ActivityLevelActivity"/>
+        <activity android:name=".userInfo.BirthdayActivity"/>
+        <activity android:name=".userInfo.GoalCalculatedActivity"/>
         <activity android:name=".SignUpLogIn.WelcomeActivity"/>
-        <activity android:name=".userInfo.GetGoal"/>
+        <activity android:name=".userInfo.GetGoalActivity"/>
         <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
