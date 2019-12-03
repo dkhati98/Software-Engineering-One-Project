@@ -18,7 +18,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.sred.eatright.searchFood.Api;
-import com.sred.eatright.searchFood.Example;
+import com.sred.eatright.userDiary.HomeActivity;
 
 import java.util.ArrayList;
 
@@ -27,6 +27,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import com.sred.eatright.searchFood.Api;
+import com.sred.eatright.searchFood.Example;
 
 import static com.sred.eatright.searchFood.Api.BASE_URL;
 
@@ -35,7 +37,7 @@ import static com.sred.eatright.searchFood.Api.BASE_URL;
 //import android.widget.ImageView;
 //import java.util.List;
 
-//import static com.sred.eatright.searchFood.Api.BASE_URL;
+//import static com.sred.eatright.com.sred.eatright.searchFood.Api.BASE_URL;
 
 public class Search extends Fragment
 {
@@ -52,7 +54,7 @@ public class Search extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        final Home activity = (Home) getActivity();
+        final HomeActivity activity = (HomeActivity) getActivity();
 
         myView = inflater.inflate(R.layout.activity_search, container, false);
 

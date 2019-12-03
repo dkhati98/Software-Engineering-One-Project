@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
+import com.sred.eatright.Search;
 import com.sred.eatright.userInfo.Profile;
 import com.sred.eatright.userInfo.ProfileActivity;
 
@@ -19,7 +20,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        final int _id = (Integer)getIntent().getExtras().get("id");
+        final int _id = (Integer) getIntent().getExtras().get("id");
         final Button button_help = (Button) findViewById(R.id.button_help);
         final Button button_search = (Button) findViewById(R.id.button_search);
         final Button button_profile = (Button) findViewById(R.id.button_profile);
@@ -38,16 +39,15 @@ public class HomeActivity extends AppCompatActivity {
 //        final TextView goal_consumed = (android.widget.TextView) findViewById(R.id.goal_consumed);
 //        goal_consumed.setText(Integer.toString(calorieConsumed));
 
-
         //search and add to breakfast button
         add_breakfast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
-                String mealType="Breakfast";
-                moveToSearch.putExtra("id",_id);
-                moveToSearch.putExtra("mealType", mealType);
-                startActivity(moveToSearch);
+                // add_breakfast.setVisibility(View.INVISIBLE);
+
+                Search myfragent = new Search();
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
             }
         });
 
@@ -55,11 +55,9 @@ public class HomeActivity extends AppCompatActivity {
         add_lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
-                String mealType="Lunch";
-                moveToSearch.putExtra("id",_id);
-                moveToSearch.putExtra("mealType", mealType);
-                startActivity(moveToSearch);
+                Search myfragent = new Search();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+
             }
         });
 
@@ -67,11 +65,9 @@ public class HomeActivity extends AppCompatActivity {
         add_dinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
-                String mealType="Dinner";
-                moveToSearch.putExtra("id",_id);
-                moveToSearch.putExtra("mealType", mealType);
-                startActivity(moveToSearch);
+                Search myfragent = new Search();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+
             }
         });
 
@@ -79,11 +75,10 @@ public class HomeActivity extends AppCompatActivity {
         add_snacks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
-                String mealType="Snacks";
-                moveToSearch.putExtra("id",_id);
-                moveToSearch.putExtra("mealType", mealType);
-                startActivity(moveToSearch);
+                Search myfragent = new Search();
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+
             }
         });
 
@@ -92,27 +87,17 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToHelp = new Intent(HomeActivity.this, HelpActivity.class);
-                moveToHelp.putExtra("id",_id);
                 startActivity(moveToHelp);
             }
         });
 
-        //search screen button
-        button_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
-                moveToSearch.putExtra("id",_id);
-                startActivity(moveToSearch);
-            }
-        });
 
         //profile button
         button_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent moveToProfile = new Intent(HomeActivity.this, ProfileActivity.class);
-                moveToProfile.putExtra("id",_id);
+                moveToProfile.putExtra("id", _id);
                 startActivity(moveToProfile);
             }
         });

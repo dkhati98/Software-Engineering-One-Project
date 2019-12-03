@@ -18,7 +18,7 @@ import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
 import com.sred.eatright.userDiary.HelpActivity;
 import com.sred.eatright.userDiary.HomeActivity;
-import com.sred.eatright.userDiary.SearchActivity;
+import com.sred.eatright.Search;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -103,7 +103,7 @@ public class ProfileActivity extends AppCompatActivity {
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(ProfileActivity.this, SearchActivity.class);
+                Intent moveToSearch = new Intent(ProfileActivity.this, Search.class);
                 moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }

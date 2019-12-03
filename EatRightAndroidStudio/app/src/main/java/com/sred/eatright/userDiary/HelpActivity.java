@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.sred.eatright.R;
+import com.sred.eatright.Search;
 import com.sred.eatright.userInfo.ProfileActivity;
 
 public class HelpActivity extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class HelpActivity extends AppCompatActivity {
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(HelpActivity.this, SearchActivity.class);
+                Intent moveToSearch = new Intent(HelpActivity.this, Search.class);
                 moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }

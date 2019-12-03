@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
+import com.sred.eatright.Search;
 import com.sred.eatright.userInfo.ProfileActivity;
 
 public class CustomFoodActivity extends AppCompatActivity {
@@ -46,7 +47,7 @@ public class CustomFoodActivity extends AppCompatActivity {
         cancel_creation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(CustomFoodActivity.this, SearchActivity.class);
+                Intent moveToSearch = new Intent(CustomFoodActivity.this, Search.class);
                 moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }

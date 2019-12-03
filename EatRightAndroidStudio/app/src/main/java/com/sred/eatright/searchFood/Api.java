@@ -1,8 +1,8 @@
-package searchFood;
+package com.sred.eatright.searchFood;
 
 
 
-import com.sred.eatright.searchWithBarcode.BarcodeResult;
+import searchWithBarcode.BarcodeResult;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

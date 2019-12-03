@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#FFFFFF"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_height="match_parent">
+
+
+
+
+    <TextView
+        android:id="@+id/food_name"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="Food Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/food_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/food_name"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="Calories:"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/food_calories_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/food_calories"
+        android:layout_below="@+id/food_name"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="250"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/product_bb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/food_calories_value"
+        android:layout_below="@+id/food_name"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:text="Brand:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/product_bbvalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/product_bb"
+        android:layout_below="@+id/food_name"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="Great Value"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
+        android:textSize="14dp" />
+
+    <Button
+        android:id="@+id/add_cart"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        android:layout_alignParentRight="true"
+        android:layout_marginRight ="10dp"
+        android:gravity="center"
+        android:drawableLeft="@drawable/add_food"
+        style="?android:attr/borderlessButtonStyle" />
+
+</RelativeLayout>
