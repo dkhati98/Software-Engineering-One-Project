@@ -35,7 +35,7 @@ public class GetGoalActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (realGoal != null) {
                     int _id = (Integer)getIntent().getExtras().get("id");
-                    long val = db.updateUserGoal(_id, realGoal);
+                    long val = db.updateUserFitnessGoal(_id, realGoal);
                     if (val > 0) {
 //                        Intent moveToGoalsCalculated = new Intent(GetGoalActivity.this, GoalCalculatedActivity.class);
 //                        startActivity(moveToGoalsCalculated);

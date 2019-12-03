@@ -159,10 +159,10 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
                 profile.setUserDOB_month(cursor.getString(4));
                 profile.setUserDOB_day(cursor.getString(5));
                 profile.setUserDOB_year(cursor.getString(6));
-                profile.setUserHeightFeet(cursor.getString(7));
-                profile.setUserHeightInches(cursor.getString(8));
-                profile.setUserGoal(cursor.getString(9));
-                profile.setUserWeight(cursor.getString(10));
+                profile.setUserHeightFeet(cursor.getInt(7));
+                profile.setUserHeightInches(cursor.getInt(8));
+                profile.setUserFitnessGoal(cursor.getString(9));
+                profile.setUserWeight(cursor.getInt(10));
                 cursor.close();
                 db.close();
                 return profile;
@@ -203,7 +203,7 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public long updateUserGoal(int _id, String goal){
+    public long updateUserFitnessGoal(int _id, String goal){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues args = new ContentValues();
         args.put("fitnessGoal", goal);

@@ -24,7 +24,7 @@
     <!-- Enter calculated calories here -->
 
     <TextView
-        android:id="@+id/calculated_calories"
+        android:id="@+id/user_goal_calories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"

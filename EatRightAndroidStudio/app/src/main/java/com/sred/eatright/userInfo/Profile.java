@@ -8,10 +8,14 @@ public class Profile {
 	private String userDOB_month;
 	private String userDOB_year;
 	private String userDOB_day;
-	private String userHeightFeet;
-	private String userHeightInches;
-	private String userGoal;
-	private String userWeight;
+	private int userHeightFeet;
+	private int userHeightInches;
+	private String userFitnessGoal;
+	private int userWeight;
+
+	private int userAge;
+	private int userGoalCalories;
+	private String userActivityLevel;
 
 	public String getUsersName() {
 		return usersName;
@@ -37,20 +41,32 @@ public class Profile {
 		return userDOB_day;
 	}
 
-	public String getUserHeightFeet() {
+	public int getUserHeightFeet() {
 		return userHeightFeet;
 	}
 
-	public String getUserHeightInches() {
+	public int getUserHeightInches() {
 		return userHeightInches;
 	}
 
-	public String getUserGoal() {
-		return userGoal;
+	public String getUserFitnessGoal() {
+		return userFitnessGoal;
 	}
 
-	public String getUserWeight() {
+	public int getUserWeight() {
 		return userWeight;
+	}
+
+	public int getUserGoalCalories() {
+		return userGoalCalories;
+	}
+
+	public int getUserAge() {
+		return userAge;
+	}
+
+	public String getUserActivityLevel() {
+		return userActivityLevel;
 	}
 
 	public void setUsersName(String usersName) {
@@ -77,19 +93,31 @@ public class Profile {
 		this.userDOB_day = userDOB_day;
 	}
 
-	public void setUserHeightFeet(String userHeightFeet) {
+	public void setUserHeightFeet(int userHeightFeet) {
 		this.userHeightFeet = userHeightFeet;
 	}
 
-	public void setUserHeightInches(String userHeightInches) {
+	public void setUserHeightInches(int userHeightInches) {
 		this.userHeightInches = userHeightInches;
 	}
 
-	public void setUserGoal(String userGoal) {
-		this.userGoal = userGoal;
+	public void setUserFitnessGoal(String userGoal) {
+		this.userFitnessGoal = userGoal;
 	}
 
-	public void setUserWeight(String userWeight) {
+	public void setUserWeight(int userWeight) {
 		this.userWeight = userWeight;
+	}
+
+	public void setUserGoalCalories(int userGoalCalories) {
+		this.userGoalCalories = userGoalCalories;
+	}
+
+	public void setUserAge(int userAge) {
+		this.userAge = userAge;
+	}
+
+	public void setUserActivityLevel(String userActivityLevel) {
+		this.userActivityLevel = userActivityLevel;
 	}
 }
