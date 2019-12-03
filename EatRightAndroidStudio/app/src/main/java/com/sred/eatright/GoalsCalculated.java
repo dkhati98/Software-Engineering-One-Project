@@ -17,6 +17,7 @@ public class GoalsCalculated extends AppCompatActivity {
         final Button next = (Button) findViewById(R.id.button_next);
         //add setText
 
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

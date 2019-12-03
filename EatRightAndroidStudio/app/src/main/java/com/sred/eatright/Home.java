@@ -1,12 +1,22 @@
 package com.sred.eatright;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import android.content.Intent;
+import android.service.autofill.SaveRequest;
+import android.app.SearchManager;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 import android.view.View;
 import android.widget.Button;
+
+
+
+import static android.os.Build.VERSION_CODES.M;
 
 public class Home extends AppCompatActivity {
 
@@ -26,8 +36,11 @@ public class Home extends AppCompatActivity {
         add_breakfast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Home.this, Search.class);
-                startActivity(moveToSearch);
+               // add_breakfast.setVisibility(View.INVISIBLE);
+
+                Search myfragent = new Search();
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,myfragent,myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
             }
         });
 
@@ -35,8 +48,9 @@ public class Home extends AppCompatActivity {
         add_lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Home.this, Search.class);
-                startActivity(moveToSearch);
+                Search myfragent = new Search();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,myfragent,myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+
             }
         });
 
@@ -44,8 +58,9 @@ public class Home extends AppCompatActivity {
         add_dinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Home.this, Search.class);
-                startActivity(moveToSearch);
+                Search myfragent = new Search();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,myfragent,myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+
             }
         });
 
@@ -53,8 +68,10 @@ public class Home extends AppCompatActivity {
         add_snacks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(Home.this, Search.class);
-                startActivity(moveToSearch);
+                Search myfragent = new Search();
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,myfragent,myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+
             }
         });
 
@@ -67,14 +84,8 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        //search screen button
-        button_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent moveToSearch = new Intent(Home.this, Search.class);
-                startActivity(moveToSearch);
-            }
-        });
+
+
 
         //profile button
         button_profile.setOnClickListener(new View.OnClickListener() {

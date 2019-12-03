@@ -9,14 +9,14 @@
     tools:context="Gender">
 
     <!-- Logo -->
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView"
         android:layout_width="fill_parent"
         android:layout_height="200dp"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/imageview_logo"
         android:src="@drawable/launcherlogo" />
-
+-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

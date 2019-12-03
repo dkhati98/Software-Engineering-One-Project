@@ -12,11 +12,12 @@
         android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
-        <ImageView
+       <!-- <ImageView
             android:id="@+id/imageView2"
             style="@style/logo_style"
             android:contentDescription="@string/imageview_logo"
             android:src="@drawable/launcherlogo" />
+            -->
 
         <TextView
             android:layout_width="wrap_content"

@@ -11,16 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Search"/>
+
+        <activity android:name=".Search" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".Home" />
         <activity android:name=".Help" />
         <activity android:name=".getGender" />
-        <activity android:name=".ActivityLevel"/>
-        <activity android:name=".Birthday"/>
-        <activity android:name=".GoalsCalculated"/>
-        <activity android:name=".WelcomeActivity"/>
-        <activity android:name=".GetGoal"/>
+        <activity android:name=".ActivityLevel" />
+        <activity android:name=".Birthday" />
+        <activity android:name=".GoalsCalculated" />
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".GetGoal" />
         <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
