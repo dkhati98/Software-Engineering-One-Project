@@ -70,25 +70,23 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-        final EditText updateWeight = (EditText) findViewById(R.id.user_new_weight);
+
         final Button buttonSave = (Button) findViewById(R.id.button_save);
         final Button button_help = (Button) findViewById(R.id.button_help);
         final Button button_search = (Button) findViewById(R.id.button_search);
         final Button button_home = (Button) findViewById(R.id.button_home);
 
-//        final int userUpdatedWeight =  Integer.parseInt(updateWeight.getText().toString().trim());
-//        final DatabaseHelper db;
-//        db = new DatabaseHelper(this);
 
-//        buttonSave.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                db.updateUserWeight(_id,userUpdatedWeight);
-//                Intent moveToRefresh = new Intent(ProfileActivity.this, ProfileActivity.class);
-//                startActivity(moveToRefresh);
-//            }
-//    });
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent moveToGetGender = new Intent(ProfileActivity.this, GetGenderActivity.class);
+                moveToGetGender.putExtra("id",_id);
+                startActivity(moveToGetGender);
+            }
+    });
 
         //help button
         button_help.setOnClickListener(new View.OnClickListener() {
