@@ -4,20 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
 import com.sred.eatright.userInfo.ProfileActivity;
 
 public class CustomFoodActivity extends AppCompatActivity {
-
+    DatabaseHelper db = new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_food);
         final int _id = (Integer)getIntent().getExtras().get("id");
+        final String mealType = String.valueOf(getIntent().getExtras().get("mealType"));
         final Button button_help = (Button) findViewById(R.id.button_help);
 //        final Button button_home = (Button) findViewById(R.id.button_home);
 //        final Button button_profile = (Button) findViewById(R.id.button_profile);
@@ -39,6 +42,40 @@ public class CustomFoodActivity extends AppCompatActivity {
             }
         });
 
+        //cancel
+        cancel_creation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent moveToSearch = new Intent(CustomFoodActivity.this, SearchActivity.class);
+                moveToSearch.putExtra("id",_id);
+                startActivity(moveToSearch);
+            }
+        });
+
+        //save food to DB
+        save_creation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String name = custom_name.getText().toString().trim();
+                final int calories = Integer.parseInt(custom_calorie.getText().toString().trim());
+                final int protein = Integer.parseInt(custom_protein.getText().toString().trim());
+                final int fat = Integer.parseInt(custom_fat.getText().toString().trim());
+                final int carbohydrate = Integer.parseInt(custom_carbs.getText().toString().trim());
+
+                //Insert code to save custom created food to DB, then add to home screen
+                int foodID = db.addFood(name,calories,carbohydrate, protein, fat);
+                if (foodID>0){
+
+                }
+                Intent moveToHome = new Intent(CustomFoodActivity.this, HomeActivity.class);
+                moveToHome.putExtra("id",_id);
+                startActivity(moveToHome);
+            }
+        });
+
+
+    }
+}
 //        //search button
 //        button_search.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -65,28 +102,3 @@ public class CustomFoodActivity extends AppCompatActivity {
 //                startActivity(moveToProfile);
 //            }
 //        });
-
-        //cancel
-        cancel_creation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent moveToSearch = new Intent(CustomFoodActivity.this, SearchActivity.class);
-                moveToSearch.putExtra("id",_id);
-                startActivity(moveToSearch);
-            }
-        });
-
-        //save food to DB
-        save_creation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Insert code to save custom created food to DB, then add to home screen
-                Intent moveToHome = new Intent(CustomFoodActivity.this, HomeActivity.class);
-                moveToHome.putExtra("id",_id);
-                startActivity(moveToHome);
-            }
-        });
-
-
-    }
-}

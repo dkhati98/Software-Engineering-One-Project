@@ -38,7 +38,6 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 //                "location TEXT," +
                 "heightft INTEGER, " +
                 "heightin INTEGER, " +
-
                 "age INTEGER," +
                 "birthYear INTEGER," +
                 "birthMonth INTEGER," +
@@ -101,6 +100,34 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(queryCreateMealFood);
     }
 
+    public int addFood(String foodName, int calories, int carbohydrates, int protein, int fat)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues =new ContentValues();
+        contentValues.put("foodName",foodName);
+        contentValues.put("calories",calories);
+        contentValues.put("carbohydrates",carbohydrates);
+        contentValues.put("protein",protein);
+        contentValues.put("fat",fat);
+
+        long res = db.insert("Foods",null,contentValues);
+        db.close();
+        return getFoodid(foodName);
+    }
+    int calories=0;
+    public long addFoodMeal(int foodID, String mealType, int calories){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues =new ContentValues();
+        contentValues.put("foodID",foodID);
+        contentValues.put("mealType", mealType);
+        calories+=calories;
+        contentValues.put("calories", calories);
+
+        long res = db.insert("MealFood",null,contentValues);
+        db.close();
+        return res;
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS '" + TABLE_NAME +"'");
@@ -115,11 +142,12 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("emailAddress",emailAddress);
         contentValues.put("password",password);
         long res = db.insert("Profile",null,contentValues);
+
         db.close();
         return res;
     }
 
-
+//    public long addFoodMeal()
 
 
     public int getid(String userName) {
@@ -128,6 +156,22 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor getidcursor = db.query("Profile",
                 new String[]{"_id, userName"}, "userName = ?", new String[]{userName}, null, null, null);
+        if (getidcursor.moveToFirst()) {
+            returnvalue= getidcursor.getInt(0);
+        }
+//        } catch (SQLiteException e) {
+//            Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);
+//            toast.show();
+//        }
+        return returnvalue;
+    }
+
+    public int getFoodid(String foodName) {
+        int returnvalue = 0;
+//        try {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor getidcursor = db.query("Foods",
+                new String[]{"_Foodid, foodName"}, "foodName = ?", new String[]{foodName}, null, null, null);
         if (getidcursor.moveToFirst()) {
             returnvalue= getidcursor.getInt(0);
         }
@@ -171,7 +215,6 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
                 return profile;
             }
-
         return profile;
     }
 
@@ -193,6 +236,7 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 
         return ageS;
     }
+
 
     public  long updateUserBirthday(int _id, int birthYear, int birthMonth, int birthDate, int age){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -237,17 +281,17 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public void updateUserWeight(int _id, int curWeight){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues args = new ContentValues();
-        args.put("curWeight", curWeight);
-        long res = db.update("Profile",
-                args,
-                "_id = ?",
-                new String[] {Integer.toString(_id)});
-        db.close();
-
-    }
+//    public void updateUserWeight(int _id, int curWeight){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues args = new ContentValues();
+//        args.put("curWeight", curWeight);
+//        long res = db.update("Profile",
+//                args,
+//                "_id = ?",
+//                new String[] {Integer.toString(_id)});
+//        db.close();
+//
+//    }
 
 
 

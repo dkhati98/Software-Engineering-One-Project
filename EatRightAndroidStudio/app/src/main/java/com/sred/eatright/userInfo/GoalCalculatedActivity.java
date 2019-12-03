@@ -110,11 +110,13 @@ public class GoalCalculatedActivity extends AppCompatActivity{
             goalCalories = BMR * 1.9;
         }
         goalCalories = (int)goalCalories;
+
     }
 
     private void setGoalCaloriesFitnessGoal(String fitnessGoal) {
         if(fitnessGoal.equals("GAIN")) {
             goalCalories = goalCalories + 500;
+
         }
         else if(fitnessGoal.equals("LOSE")) {
             goalCalories = goalCalories - 500;

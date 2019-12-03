@@ -18,6 +18,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         final int _id = (Integer)getIntent().getExtras().get("id");
+        final String mealType = String.valueOf(getIntent().getExtras().get("mealType"));
         final Button button_help = (Button) findViewById(R.id.button_help);
         final Button button_home = (Button) findViewById(R.id.button_home);
         final Button button_profile = (Button) findViewById(R.id.button_profile);
@@ -45,6 +46,7 @@ public class SearchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent moveToCustomFood = new Intent(SearchActivity.this, CustomFoodActivity.class);
                 moveToCustomFood.putExtra("id",_id);
+                moveToCustomFood.putExtra("mealType",mealType);
                 startActivity(moveToCustomFood);
             }
         });

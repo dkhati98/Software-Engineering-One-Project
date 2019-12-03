@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
+import com.sred.eatright.userInfo.Profile;
 import com.sred.eatright.userInfo.ProfileActivity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -24,13 +27,26 @@ public class HomeActivity extends AppCompatActivity {
         final Button add_lunch = (Button) findViewById(R.id.button_add_lunch);
         final Button add_dinner = (Button) findViewById(R.id.button_add_dinner);
         final Button add_snacks = (Button) findViewById(R.id.button_add_snacks);
+        DatabaseHelper dbGetter = new DatabaseHelper(this);
+        Profile profile = dbGetter.GetDB(_id);
+        int goalCalorie = Integer.parseInt(profile.getUserGoalCalories());
+        final TextView nutrition_goal = (android.widget.TextView) findViewById(R.id.nutrition_goal);
+        nutrition_goal.setText(Integer.toString(goalCalorie));
+
+
+//        int calorieConsumed = Integer.parseInt(profile.getUserGoalCalories());
+//        final TextView goal_consumed = (android.widget.TextView) findViewById(R.id.goal_consumed);
+//        goal_consumed.setText(Integer.toString(calorieConsumed));
+
 
         //search and add to breakfast button
         add_breakfast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
+                String mealType="Breakfast";
                 moveToSearch.putExtra("id",_id);
+                moveToSearch.putExtra("mealType", mealType);
                 startActivity(moveToSearch);
             }
         });
@@ -40,7 +56,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
+                String mealType="Lunch";
                 moveToSearch.putExtra("id",_id);
+                moveToSearch.putExtra("mealType", mealType);
                 startActivity(moveToSearch);
             }
         });
@@ -50,7 +68,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
+                String mealType="Dinner";
                 moveToSearch.putExtra("id",_id);
+                moveToSearch.putExtra("mealType", mealType);
                 startActivity(moveToSearch);
             }
         });
@@ -60,7 +80,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
+                String mealType="Snacks";
                 moveToSearch.putExtra("id",_id);
+                moveToSearch.putExtra("mealType", mealType);
                 startActivity(moveToSearch);
             }
         });

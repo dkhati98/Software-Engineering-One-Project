@@ -57,10 +57,10 @@
         <!-- Update with user goal calories -->
         <TextView
             android:id="@+id/nutrition_goal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="35sp"
-            android:gravity="center"/>
+            android:layout_width="76dp"
+            android:layout_height="28dp"
+            android:gravity="center"
+            android:textSize="15sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,14 +69,15 @@
             android:paddingStart="10dp"
             android:paddingEnd="5dp"
             android:gravity="center"/>
+
         <TextView
             android:id="@+id/goal_consumed"
-            android:layout_width="wrap_content"
+            android:layout_width="77dp"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:gravity="center"
             android:paddingStart="10dp"
             android:paddingEnd="5dp"
-            android:gravity="center"/>
+            android:textSize="35sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,14 +86,15 @@
             android:paddingEnd="5dp"
             android:text="\="
             android:gravity="center"/>
+
         <TextView
             android:id="@+id/goal_leftover"
-            android:layout_width="wrap_content"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:gravity="center"
             android:paddingStart="10dp"
             android:paddingEnd="5dp"
-            android:gravity="center"/>
+            android:textSize="35sp" />
         <!-- text="@{String.valueOf(nutritionGoal.getGoalCalories)} -->
     </LinearLayout>
 

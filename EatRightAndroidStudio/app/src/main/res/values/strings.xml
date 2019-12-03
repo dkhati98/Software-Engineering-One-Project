@@ -88,7 +88,7 @@
     <string name="weight">Weight:</string>
     <string name="goal">Goal:</string>
     <string name="update_weight">Update Weight</string>
-    <string name="save">Update Profile</string>
+    <string name="save">Add Food</string>
     <string name="note_update_weight">**Updating weight will change your goal calories**</string>
 
     <!-- HelpActivity Page -->
