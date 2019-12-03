@@ -16,6 +16,7 @@ public class HelpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
+        final int _id = (Integer)getIntent().getExtras().get("id");
 
         final Button button_search = (Button) findViewById(R.id.button_search);
         final Button button_profile = (Button) findViewById(R.id.button_profile);
@@ -26,6 +27,7 @@ public class HelpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToHelp = new Intent(HelpActivity.this, HomeActivity.class);
+                moveToHelp.putExtra("id",_id);
                 startActivity(moveToHelp);
             }
         });
@@ -35,6 +37,7 @@ public class HelpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(HelpActivity.this, SearchActivity.class);
+                moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }
         });
@@ -44,6 +47,7 @@ public class HelpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToProfile = new Intent(HelpActivity.this, ProfileActivity.class);
+                moveToProfile.putExtra("id",_id);
                 startActivity(moveToProfile);
             }
         });

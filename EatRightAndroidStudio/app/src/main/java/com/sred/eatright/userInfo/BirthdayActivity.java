@@ -3,6 +3,7 @@ package com.sred.eatright.userInfo;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -21,9 +22,11 @@ public class BirthdayActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
         DatePicker datePicker = (DatePicker)findViewById(R.id.datepicker);
         datePicker.setSpinnersShown(false);
+
         final int day = datePicker.getDayOfMonth();
-        final int month = datePicker.getMonth();
+        final int month = datePicker.getMonth()+1;
         final int year = datePicker.getYear();
+
         final Button nextButton = (Button) findViewById(R.id.button_next);
         final DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
@@ -32,7 +35,8 @@ public class BirthdayActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int _id = (Integer)getIntent().getExtras().get("id");
 
-                int age = Integer.parseInt(databaseHelper.getAge(day, month, year));
+                int age = Integer.parseInt(databaseHelper.getAge(year, month, day));
+                Log.d("ageHere",year+" "+month+" "+day);
                 long val = db.updateUserBirthday(_id, day, month, year, age);
                 if (val > 0) {
                     Intent moveToGetgoal = new Intent(BirthdayActivity.this, GetGoalActivity.class);

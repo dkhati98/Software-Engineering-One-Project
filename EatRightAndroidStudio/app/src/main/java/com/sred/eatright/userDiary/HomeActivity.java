@@ -30,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
+                moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }
         });
@@ -39,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
+                moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }
         });
@@ -48,6 +50,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
+                moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }
         });
@@ -57,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
+                moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }
         });
@@ -66,6 +70,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToHelp = new Intent(HomeActivity.this, HelpActivity.class);
+                moveToHelp.putExtra("id",_id);
                 startActivity(moveToHelp);
             }
         });
@@ -75,6 +80,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(HomeActivity.this, SearchActivity.class);
+                moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }
         });

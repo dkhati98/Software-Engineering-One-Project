@@ -58,23 +58,21 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 
         String queryCreateFoodDiary = "CREATE TABLE FoodDiary (_id INTEGER ," +
                 "waterTracker INTEGER," +
-                "Date TEXT ," +
-                "PRIMARY KEY (_id, Date)," +
+                "PRIMARY KEY (_id)," +
                 "CONSTRAINT fk_profile " +
                 "FOREIGN KEY (_id)" +
                 "REFERENCES Profile(_id));";
 
         String queryCreateMeals = "CREATE TABLE Meals (_id INTEGER ," +
                 "mealType TEXT ," +
-                "Date Text ," +
                 "overAllFat INTEGER," +
                 "overAllProtein INTEGER," +
                 "overAllCarbohydrates INTEGER," +
                 "overAllCalories INTEGER," +
-                "PRIMARY KEY (_id, mealType, Date)," +
+                "PRIMARY KEY (_id, mealType,)," +
                 "CONSTRAINT fk_FoodDiary " +
-                "FOREIGN KEY (_id, Date)" +
-                "REFERENCES Profile(_id, Date));";
+                "FOREIGN KEY (_id,)" +
+                "REFERENCES Profile(_id,));";
 
         String queryCreateFoods = "CREATE TABLE Foods (_Foodid INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "foodName TEXT," +
@@ -85,13 +83,13 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 
         String queryCreateMealFood = "CREATE TABLE MealFood(_id INTEGER," +
                 "mealType TEXT ," +
-                "Date TEXT ," +
-                "_Foodid INTEGER ," +
-                "PRIMARY KEY(_id, mealType, Date,_Foodid)," +
 
+                "_Foodid INTEGER ," +
+                "calories INTEGER," +
+                "PRIMARY KEY(_id, mealType,_Foodid)," +
                 "CONSTRAINT fk_Meals " +
-                "FOREIGN KEY (_id, mealType, Date)" +
-                "REFERENCES users(_id, mealType, Date)," +
+                "FOREIGN KEY (_id, mealType,  calorie)" +
+                "REFERENCES users(_id, mealType,  calorie)," +
                 "CONSTRAINT fk_Foods " +
                 "FOREIGN KEY (_Foodid)" +
                 "REFERENCES Foods(_Foodid))";
@@ -193,6 +191,7 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 
         return ageS;
     }
+
     public  long updateUserBirthday(int _id, int birthYear, int birthMonth, int birthDate, int age){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues args = new ContentValues();

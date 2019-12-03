@@ -17,7 +17,7 @@ public class CustomFoodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_food);
-
+        final int _id = (Integer)getIntent().getExtras().get("id");
         final Button button_help = (Button) findViewById(R.id.button_help);
 //        final Button button_home = (Button) findViewById(R.id.button_home);
 //        final Button button_profile = (Button) findViewById(R.id.button_profile);
@@ -71,6 +71,7 @@ public class CustomFoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(CustomFoodActivity.this, SearchActivity.class);
+                moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }
         });
@@ -81,6 +82,7 @@ public class CustomFoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Insert code to save custom created food to DB, then add to home screen
                 Intent moveToHome = new Intent(CustomFoodActivity.this, HomeActivity.class);
+                moveToHome.putExtra("id",_id);
                 startActivity(moveToHome);
             }
         });

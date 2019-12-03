@@ -17,7 +17,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
+        final int _id = (Integer)getIntent().getExtras().get("id");
         final Button button_help = (Button) findViewById(R.id.button_help);
         final Button button_home = (Button) findViewById(R.id.button_home);
         final Button button_profile = (Button) findViewById(R.id.button_profile);
@@ -34,6 +34,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToHelp = new Intent(SearchActivity.this, HelpActivity.class);
+                moveToHelp.putExtra("id",_id);
                 startActivity(moveToHelp);
             }
         });
@@ -43,6 +44,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToCustomFood = new Intent(SearchActivity.this, CustomFoodActivity.class);
+                moveToCustomFood.putExtra("id",_id);
                 startActivity(moveToCustomFood);
             }
         });
@@ -52,6 +54,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToHome = new Intent(SearchActivity.this, HomeActivity.class);
+                moveToHome.putExtra("id",_id);
                 startActivity(moveToHome);
             }
         });
@@ -61,6 +64,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToProfile = new Intent(SearchActivity.this, ProfileActivity.class);
+                moveToProfile.putExtra("id",_id);
                 startActivity(moveToProfile);
             }
         });
