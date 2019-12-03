@@ -3,6 +3,7 @@ package com.sred.eatright.userDiary;
 //import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.sred.eatright.FoodForSearchBar;
@@ -28,9 +30,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import searchWithBarcode.BarcodeResult;
 
 import com.sred.eatright.searchFood.Example;
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
 import static com.sred.eatright.searchFood.Api.BASE_URL;
 
 //import android.content.Intent;
@@ -47,6 +52,7 @@ public class Search extends Fragment
     ImageButton scanButton;
     ListView searchResult;
     String found = "N";
+    static final int CONTACT_REQUEST =1;
 
     ArrayList<FoodForSearchBar> allFoods = new ArrayList<FoodForSearchBar>();
     ArrayList<FoodForSearchBar>filteredFoodList = new ArrayList<FoodForSearchBar>();
@@ -63,6 +69,19 @@ public class Search extends Fragment
         searchBar.setQueryHint("Search for food...");
         searchResult = (ListView)myView.findViewById(R.id.listview_search);
         scanButton =(ImageButton)myView.findViewById(R.id.scanner_button);
+
+        scanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivityForResult(new Intent(getActivity(),ScanActivity.class),CONTACT_REQUEST);
+
+            }
+
+        });
+
+
+
 
 
         searchBar.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
@@ -95,6 +114,77 @@ public class Search extends Fragment
         });
     return myView;
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        String barcode;
+        if(requestCode==CONTACT_REQUEST)
+        {
+            if(resultCode==RESULT_OK)
+            {
+                barcode = data.getStringExtra("barCodeResult");
+            }
+            else
+            {
+                barcode="null";
+            }
+            if(resultCode==RESULT_CANCELED)
+            {
+                Toast.makeText(getContext(),"Could not find that",Toast.LENGTH_LONG).show();
+            }
+        }
+        else
+        {
+         barcode = "null";
+        }
+        if ((barcode=="null"))
+        {
+            Toast.makeText(getContext(),"Could not find that",Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            Api api = retrofit.create(Api.class);
+            // Call<Example> call = api.getFood("https://api.edamam.com/api/food-database/parser?ingr=red%20apple&app_id=129fed80&app_key=bbd2848b3ab260bdc3d6e2776aca2f68");
+            //Call<Example> call = api.getFood1("chicken","129fed80","bbd2848b3ab260bdc3d6e2776aca2f68");
+            Call<BarcodeResult> call1 = api.getFoodBarcode(barcode,"129fed80","bbd2848b3ab260bdc3d6e2776aca2f68");
+
+            call1.enqueue(new Callback<BarcodeResult>() {
+                @Override
+                public void onResponse(Call<BarcodeResult> call, Response<BarcodeResult> response) {
+                    BarcodeResult barcodeResult = response.body();
+                    if (barcodeResult!=null)
+                    {
+
+                        Log.d("barResponse","Total"+barcodeResult.getHints().get(0).getFood().getNutrients().getENERCKCAL());
+
+                    }
+                    else
+                    {
+                        Log.d("noresponse","result null");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<BarcodeResult> call, Throwable t) {
+                    Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                }
+            });
+
+
+
+
+        }
+
+
+    }
+
     public ArrayList<FoodForSearchBar> filterFoodList(String toSearch)
     {
         String foodName;
