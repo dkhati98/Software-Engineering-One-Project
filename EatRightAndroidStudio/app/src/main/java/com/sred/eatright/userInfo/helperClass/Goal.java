@@ -61,36 +61,36 @@
 //	}
 //
 //
-//	//Builder functions
-////	public static class GoalBuilder {
-////		private double curWeight;
-////		private double goalWeight;
-////		private FitnessGoal fitnessGoal;
-////		private ActivityLevelActivity activityLevel;
-////		private NutritionGoal nutritionGoal;
-////
-////		public GoalBuilder setCurWeight(double curWeight) {
-////			this.curWeight = curWeight;
-////			return this;
-////		}
-////		public GoalBuilder setGoalWeight(double goalWeight) {
-////			this.goalWeight = goalWeight;
-////			return this;
-////		}
-////		public GoalBuilder setFitnessGoal(FitnessGoal fitnessGoal) {
-////			this.fitnessGoal = fitnessGoal;
-////			return this;
-////		}
-////		public GoalBuilder setActivityLevel(ActivityLevelActivity activityLevel) {
-////			this.activityLevel = activityLevel;
-////			return this;
-////		}
-////		public GoalBuilder setNutritionGoal(NutritionGoal nutritionGoal) {
-////			this.nutritionGoal = nutritionGoal;
-////			return this;
-////		}
-////		public Goal buildGoal() {
-////			return new Goal(this);
-////		}
-////	}
+////	Builder functions
+//	public static class GoalBuilder {
+//		private double curWeight;
+//		private double goalWeight;
+//		private FitnessGoal fitnessGoal;
+//		private ActivityLevelActivity activityLevel;
+//		private NutritionGoal nutritionGoal;
+//
+//		public GoalBuilder setCurWeight(double curWeight) {
+//			this.curWeight = curWeight;
+//			return this;
+//		}
+//		public GoalBuilder setGoalWeight(double goalWeight) {
+//			this.goalWeight = goalWeight;
+//			return this;
+//		}
+//		public GoalBuilder setFitnessGoal(FitnessGoal fitnessGoal) {
+//			this.fitnessGoal = fitnessGoal;
+//			return this;
+//		}
+//		public GoalBuilder setActivityLevel(ActivityLevelActivity activityLevel) {
+//			this.activityLevel = activityLevel;
+//			return this;
+//		}
+//		public GoalBuilder setNutritionGoal(NutritionGoal nutritionGoal) {
+//			this.nutritionGoal = nutritionGoal;
+//			return this;
+//		}
+//		public Goal buildGoal() {
+//			return new Goal(this);
+//		}
+//	}
 //}

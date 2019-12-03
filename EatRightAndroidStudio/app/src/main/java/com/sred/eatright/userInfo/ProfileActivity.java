@@ -95,7 +95,9 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToHelp = new Intent(ProfileActivity.this, HelpActivity.class);
+                moveToHelp.putExtra("id",_id);
                 startActivity(moveToHelp);
+
             }
         });
 
@@ -104,6 +106,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToSearch = new Intent(ProfileActivity.this, SearchActivity.class);
+                moveToSearch.putExtra("id",_id);
                 startActivity(moveToSearch);
             }
         });

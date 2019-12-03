@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.sred.eatright.SignUpLogIn.RegisterActivity;
 import com.sred.eatright.SignUpLogIn.WelcomeActivity;
+import com.sred.eatright.userDiary.HomeActivity;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -45,10 +46,20 @@ public class Main2Activity extends AppCompatActivity {
                 Boolean res = db.checkUser(username, password);
                 if (res == true) {
                     int _id = db.getid(username);
-                    Toast.makeText(Main2Activity.this, "Succesfully authenticated", Toast.LENGTH_SHORT).show();
-                    Intent moveToWelcome = new Intent(Main2Activity.this, WelcomeActivity.class);
-                    moveToWelcome.putExtra("id",_id);
-                    startActivity(moveToWelcome);
+
+
+                    if(db.GetDB(_id).getUserAge()==null) {
+                        Toast.makeText(Main2Activity.this, "Succesfully authenticated", Toast.LENGTH_SHORT).show();
+                        Intent moveToWelcome = new Intent(Main2Activity.this, WelcomeActivity.class);
+                        moveToWelcome.putExtra("id", _id);
+                        startActivity(moveToWelcome);
+                    }
+                    else{
+                        Toast.makeText(Main2Activity.this, "Succesfully authenticated", Toast.LENGTH_SHORT).show();
+                        Intent moveToHome = new Intent(Main2Activity.this, HomeActivity.class);
+                        moveToHome.putExtra("id", _id);
+                        startActivity(moveToHome);
+                    }
                 } else {
                     Toast.makeText(Main2Activity.this, "Login Error", Toast.LENGTH_SHORT).show();
                 }
