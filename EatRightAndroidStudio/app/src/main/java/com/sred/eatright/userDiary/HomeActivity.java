@@ -51,9 +51,10 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // add_breakfast.setVisibility(View.INVISIBLE);
-
+                Bundle bundle = new Bundle();
+                bundle.putString("id",String.valueOf(_id));
                 Search myfragent = new Search();
-
+                myfragent.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
             }
         });

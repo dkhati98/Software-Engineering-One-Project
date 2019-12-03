@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -51,8 +52,10 @@ public class Search extends Fragment
     SearchView searchBar;
     ImageButton scanButton;
     ListView searchResult;
+    Button customFood;
     String found = "N";
     static final int CONTACT_REQUEST =1;
+
 
     ArrayList<FoodForSearchBar> allFoods = new ArrayList<FoodForSearchBar>();
     ArrayList<FoodForSearchBar>filteredFoodList = new ArrayList<FoodForSearchBar>();
@@ -61,6 +64,10 @@ public class Search extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+
+        final String id = getArguments().getString("id");
+        final int _id = Integer.parseInt(id);
+
         final HomeActivity activity = (HomeActivity) getActivity();
 
         myView = inflater.inflate(R.layout.activity_search, container, false);
@@ -69,6 +76,16 @@ public class Search extends Fragment
         searchBar.setQueryHint("Search for food...");
         searchResult = (ListView)myView.findViewById(R.id.listview_search);
         scanButton =(ImageButton)myView.findViewById(R.id.scanner_button);
+        customFood = (Button)myView.findViewById(R.id.create_food);
+
+        customFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent customFoodIntent = new Intent(getActivity(),CustomFoodActivity.class);
+                customFoodIntent.putExtra("id",_id);
+                startActivity(customFoodIntent);
+            }
+        });
 
         scanButton.setOnClickListener(new View.OnClickListener() {
             @Override

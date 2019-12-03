@@ -54,4 +54,13 @@
         android:dividerHeight="5dp"
         android:divider="#E6E6E6"/>
 
+    <Button
+        android:id="@+id/create_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="250dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/custom_food"/>
+
 </RelativeLayout>
