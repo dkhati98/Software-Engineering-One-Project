@@ -38,8 +38,7 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 //                "location TEXT," +
                 "heightft INTEGER, " +
                 "heightin INTEGER, " +
-//                "firstName TEXT," +
-//                "lastName TEXT," +
+
                 "age INTEGER," +
                 "birthYear INTEGER," +
                 "birthMonth INTEGER," +
@@ -70,10 +69,10 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
                 "overAllProtein INTEGER," +
                 "overAllCarbohydrates INTEGER," +
                 "overAllCalories INTEGER," +
-                "PRIMARY KEY (_id, mealType,)," +
+                "PRIMARY KEY (_id, mealType)," +
                 "CONSTRAINT fk_FoodDiary " +
-                "FOREIGN KEY (_id,)" +
-                "REFERENCES Profile(_id,));";
+                "FOREIGN KEY (_id)" +
+                "REFERENCES Profile(_id));";
 
         String queryCreateFoods = "CREATE TABLE Foods (_Foodid INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "foodName TEXT," +
@@ -148,7 +147,7 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
                     new String[]{"_id", "userName", "emailAddress", "gender",
                             "birthMonth", "birthDate", "birthYear",
                             "heightft", "heightin", "fitnessGoal",
-                            "curWeight", "age"},
+                            "curWeight", "age", "activityLevel", "goalCalories"},
                     "_id = ?",
                     new String[]{Integer.toString(_id)},
                     null, null, "_id");
@@ -166,6 +165,8 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
                 profile.setUserFitnessGoal(cursor.getString(9));
                 profile.setUserWeight(cursor.getString(10));
                 profile.setUserAge(cursor.getString(11));
+                profile.setUserActivityLevel(cursor.getString(12));
+                profile.setUserGoalCalories(cursor.getString(13));
                 cursor.close();
                 db.close();
                 return profile;

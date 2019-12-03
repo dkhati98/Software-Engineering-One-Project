@@ -5,8 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:layout_gravity="center_horizontal">
-
-
     <!-- Calculate goal calories -->
     <ImageView
         android:id="@+id/imageView"
@@ -15,7 +13,6 @@
         android:contentDescription="@string/imageview_logo"
         app:srcCompat="@drawable/launcherlogo"
         android:layout_gravity="center_horizontal"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +20,6 @@
         android:textSize="22sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"/>
-
     <RadioGroup
         android:id="@+id/radio_activity_level"
         android:layout_width="wrap_content"
@@ -59,7 +55,6 @@
             android:layout_height="wrap_content"
             android:text="@string/radiobutton_very_active"
             android:textSize="18sp"/>
-
     </RadioGroup>
 
     <Button
@@ -71,5 +66,4 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="100dp"/>
-
 </LinearLayout>

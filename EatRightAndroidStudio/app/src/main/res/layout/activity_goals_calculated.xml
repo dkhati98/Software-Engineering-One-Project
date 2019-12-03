@@ -40,7 +40,13 @@
         android:layout_marginTop="75dp"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/activitylevel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
