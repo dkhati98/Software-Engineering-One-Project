@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,27 @@ public class CustomFoodActivity extends AppCompatActivity {
         final EditText custom_protein = (EditText) findViewById(R.id.custom_food_protein);
         final EditText custom_fat = (EditText) findViewById(R.id.custom_food_fat);
         final EditText custom_carbs = (EditText) findViewById(R.id.custom_food_carbs);
+        Log.d("lev2","I am here");
+        try {
+            Log.d("lev1","I am here");
+            Intent intent = getIntent();
+
+            final String foodName = intent.getStringExtra("foodName");
+            final String foodBrand = intent.getStringExtra("foodBrand");
+            final Double foodCal = intent.getDoubleExtra("foodCalorie",0.0);
+            final String foodCalorie = intent.getStringExtra("foodCalorie");
+            Log.d("dipin1","I am here");
+            Log.d("dipin",intent.getStringExtra("foodName"));
+
+
+            Log.d("dipin",foodBrand+foodName+foodCalorie+"nothing came up");
+            custom_name.setText(foodName);
+            custom_calorie.setText(String.valueOf(foodCal));
+
+        }catch (Exception e)
+        {
+            Log.d("errors",e.getMessage());
+        }
 
         //help button
         button_help.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +83,7 @@ public class CustomFoodActivity extends AppCompatActivity {
                 final int carbohydrate = Integer.parseInt(custom_carbs.getText().toString().trim());
 
                 //Insert code to save custom created food to DB, then add to home screen
+
                 int foodID = db.addFood(name,calories,carbohydrate, protein, fat);
                 if (foodID>0){
 

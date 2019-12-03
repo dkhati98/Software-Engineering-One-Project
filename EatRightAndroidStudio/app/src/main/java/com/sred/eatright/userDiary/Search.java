@@ -164,6 +164,18 @@ public class Search extends Fragment
                     {
 
                         Log.d("barResponse","Total"+barcodeResult.getHints().get(0).getFood().getNutrients().getENERCKCAL());
+                        FoodForSearchBar tempFood = new FoodForSearchBar();
+                        tempFood.setFoodName(barcodeResult.getHints().get(0).getFood().getLabel());
+                        tempFood.setBrandname(barcodeResult.getHints().get(0).getFood().getBrand());
+                        tempFood.setCalories(barcodeResult.getHints().get(0).getFood().getNutrients().getENERCKCAL());
+
+                        Intent goToCustomFood = new Intent(getContext(),CustomFoodActivity.class);
+                        goToCustomFood.putExtra("foodName",tempFood.getFoodName());
+                        goToCustomFood.putExtra("foodBrand",tempFood.getBrandname());
+                        goToCustomFood.putExtra("foodCalorie",tempFood.getCalories());
+                        goToCustomFood.putExtra("id",123);
+                        startActivity(goToCustomFood);
+
 
                     }
                     else
