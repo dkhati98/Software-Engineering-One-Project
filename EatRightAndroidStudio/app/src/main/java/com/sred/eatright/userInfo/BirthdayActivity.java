@@ -38,7 +38,7 @@ public class BirthdayActivity extends AppCompatActivity {
 
                 int age = Integer.parseInt(databaseHelper.getAge(year, month, day));
                 Log.d("ageHere",year+" "+month+" "+day);
-                long val = db.updateUserBirthday(_id, day, month, year, age);
+                long val = db.updateUserBirthday(_id, year, month, day, age);
                 if (val > 0) {
                     Intent moveToGetgoal = new Intent(BirthdayActivity.this, GetGoalActivity.class);
                     moveToGetgoal.putExtra("id",_id);

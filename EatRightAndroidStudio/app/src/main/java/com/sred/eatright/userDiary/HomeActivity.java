@@ -108,5 +108,15 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(moveToProfile);
             }
         });
+
+        //search screen button
+        button_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Search myfragent = new Search();
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+            }
+        });
     }
 }

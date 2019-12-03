@@ -32,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity {
             String userGender = profile.getUserGender();
             String userDOB_month = profile.getUserDOB_month();
             String userDOB_day = profile.getUserDOB_day();
-            String userDOB_year = profile.getUserAge();
+            String userDOB_year = profile.getUserDOB_year();
             String userHeightFeet = profile.getUserHeightFeet();
             String userHeightInches = profile.getUserHeightInches();
             String userGoal = profile.getUserFitnessGoal();

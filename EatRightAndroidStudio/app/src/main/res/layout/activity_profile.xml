@@ -115,9 +115,9 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <!-- Insert user DOB date-->
+
                 <TextView
-                    android:id="@+id/user_dob_day"
+                    android:id="@+id/user_dob_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="25dp"
@@ -131,9 +131,9 @@
                     android:paddingStart="25dp"
                     android:paddingEnd="25dp"
                     android:textSize="15sp" />
-                <!-- Insert user DOB year -->
+
                 <TextView
-                    android:id="@+id/user_dob_year"
+                    android:id="@+id/user_dob_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="25dp"
