@@ -1,6 +1,7 @@
 package com.sred.eatright;
 
 import android.content.Context;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class SearchResultAdapter extends BaseAdapter {
+//    DatabaseHelper db = new DatabaseHelper();
 
     private LayoutInflater layoutInflater;
     private ArrayList<FoodForSearchBar> foodDetail = new ArrayList<FoodForSearchBar>();
@@ -46,7 +48,7 @@ public class SearchResultAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder;
-        FoodForSearchBar tempFood = foodDetail.get(position);
+        final FoodForSearchBar tempFood = foodDetail.get(position);
 
 
         if(convertView ==null)
@@ -60,6 +62,14 @@ public class SearchResultAdapter extends BaseAdapter {
             holder.food_calorie_value =(TextView) convertView.findViewById(R.id.food_calories_value);
             holder.add_food =(Button)convertView.findViewById(R.id.add_cart);
          convertView.setTag(holder);
+         holder.add_food.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+//                 int foodID = db.addFood(tempFood.getFoodName(),tempFood.getCalories().intValue(),0, 0, 0);
+             }
+         });
+         //add on click listener to insert api info food to database.
+
         }
         else
         {
