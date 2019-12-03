@@ -20,7 +20,7 @@ public class BirthdayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_birthday);
         final DatabaseHelper db;
         db = new DatabaseHelper(this);
-         datePicker= (DatePicker)findViewById(R.id.datepicker);
+        datePicker= (DatePicker)findViewById(R.id.datepicker);
         datePicker.setSpinnersShown(false);
 
 
