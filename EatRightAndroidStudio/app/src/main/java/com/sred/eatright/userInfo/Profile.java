@@ -8,13 +8,12 @@ public class Profile {
 	private String userDOB_month;
 	private String userDOB_year;
 	private String userDOB_day;
-	private int userHeightFeet;
-	private int userHeightInches;
+	private String userHeightFeet;
+	private String userHeightInches;
 	private String userFitnessGoal;
-	private int userWeight;
-
-	private int userAge;
-	private int userGoalCalories;
+	private String userWeight;
+	private String userAge;
+	private String userGoalCalories;
 	private String userActivityLevel;
 
 	public String getUsersName() {
@@ -41,11 +40,11 @@ public class Profile {
 		return userDOB_day;
 	}
 
-	public int getUserHeightFeet() {
+	public String getUserHeightFeet() {
 		return userHeightFeet;
 	}
 
-	public int getUserHeightInches() {
+	public String getUserHeightInches() {
 		return userHeightInches;
 	}
 
@@ -53,15 +52,15 @@ public class Profile {
 		return userFitnessGoal;
 	}
 
-	public int getUserWeight() {
+	public String getUserWeight() {
 		return userWeight;
 	}
 
-	public int getUserGoalCalories() {
+	public String getUserGoalCalories() {
 		return userGoalCalories;
 	}
 
-	public int getUserAge() {
+	public String getUserAge() {
 		return userAge;
 	}
 
@@ -93,11 +92,11 @@ public class Profile {
 		this.userDOB_day = userDOB_day;
 	}
 
-	public void setUserHeightFeet(int userHeightFeet) {
+	public void setUserHeightFeet(String userHeightFeet) {
 		this.userHeightFeet = userHeightFeet;
 	}
 
-	public void setUserHeightInches(int userHeightInches) {
+	public void setUserHeightInches(String userHeightInches) {
 		this.userHeightInches = userHeightInches;
 	}
 
@@ -105,15 +104,15 @@ public class Profile {
 		this.userFitnessGoal = userGoal;
 	}
 
-	public void setUserWeight(int userWeight) {
+	public void setUserWeight(String userWeight) {
 		this.userWeight = userWeight;
 	}
 
-	public void setUserGoalCalories(int userGoalCalories) {
+	public void setUserGoalCalories(String userGoalCalories) {
 		this.userGoalCalories = userGoalCalories;
 	}
 
-	public void setUserAge(int userAge) {
+	public void setUserAge(String userAge) {
 		this.userAge = userAge;
 	}
 

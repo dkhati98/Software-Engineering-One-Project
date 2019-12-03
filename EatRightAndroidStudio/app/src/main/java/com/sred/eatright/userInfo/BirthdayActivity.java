@@ -25,13 +25,15 @@ public class BirthdayActivity extends AppCompatActivity {
         final int month = datePicker.getMonth();
         final int year = datePicker.getYear();
         final Button nextButton = (Button) findViewById(R.id.button_next);
-
+        final DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int _id = (Integer)getIntent().getExtras().get("id");
-                long val = db.updateUserBirthday(_id, day, month, year);
+
+                int age = Integer.parseInt(databaseHelper.getAge(day, month, year));
+                long val = db.updateUserBirthday(_id, day, month, year, age);
                 if (val > 0) {
                     Intent moveToGetgoal = new Intent(BirthdayActivity.this, GetGoalActivity.class);
                     moveToGetgoal.putExtra("id",_id);

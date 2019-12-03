@@ -36,11 +36,11 @@ public class ProfileActivity extends AppCompatActivity {
             String userGender = profile.getUserGender();
             String userDOB_month = profile.getUserDOB_month();
             String userDOB_day = profile.getUserDOB_day();
-            String userDOB_year = profile.getUserDOB_year();
-            int userHeightFeet = profile.getUserHeightFeet();
-            int userHeightInches = profile.getUserHeightInches();
+            String userDOB_year = profile.getUserAge();
+            String userHeightFeet = profile.getUserHeightFeet();
+            String userHeightInches = profile.getUserHeightInches();
             String userGoal = profile.getUserFitnessGoal();
-            int userWeight = profile.getUserWeight();
+            String userWeight = profile.getUserWeight();
 
 
             final TextView user_name = (TextView) findViewById(R.id.user_name);

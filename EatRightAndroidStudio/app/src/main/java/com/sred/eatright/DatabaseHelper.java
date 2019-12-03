@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 
 import com.sred.eatright.userInfo.Profile;
 
+import java.util.Calendar;
+
 public  class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="eatright.db";
     public static final String TABLE_NAME="Profile";
@@ -25,8 +27,6 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-//       db.execSQL("CREATE TABLE userTable (_id INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, emailAddress TEXT, password TEXT)");
-
 
         String queryCreateProfile = "CREATE TABLE Profile (_id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "userName TEXT," +
@@ -121,6 +121,9 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
+
+
+
     public int getid(String userName) {
         int returnvalue = 0;
 //        try {
@@ -146,7 +149,7 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
                     new String[]{"_id", "userName", "emailAddress", "gender",
                             "birthMonth", "birthDate", "birthYear",
                             "heightft", "heightin", "fitnessGoal",
-                            "curWeight"},
+                            "curWeight", "age"},
                     "_id = ?",
                     new String[]{Integer.toString(_id)},
                     null, null, "_id");
@@ -159,10 +162,11 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
                 profile.setUserDOB_month(cursor.getString(4));
                 profile.setUserDOB_day(cursor.getString(5));
                 profile.setUserDOB_year(cursor.getString(6));
-                profile.setUserHeightFeet(cursor.getInt(7));
-                profile.setUserHeightInches(cursor.getInt(8));
+                profile.setUserHeightFeet(cursor.getString(7));
+                profile.setUserHeightInches(cursor.getString(8));
                 profile.setUserFitnessGoal(cursor.getString(9));
-                profile.setUserWeight(cursor.getInt(10));
+                profile.setUserWeight(cursor.getString(10));
+                profile.setUserAge(cursor.getString(11));
                 cursor.close();
                 db.close();
                 return profile;
@@ -172,13 +176,30 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public String getAge(int year, int month, int day){
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
 
-    public  long updateUserBirthday(int _id, int birthYear, int birthMonth, int birthDate){
+        dob.set(year, month, day);
+
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
+            age--;
+        }
+
+        Integer ageInt = new Integer(age);
+        String ageS = ageInt.toString();
+
+        return ageS;
+    }
+    public  long updateUserBirthday(int _id, int birthYear, int birthMonth, int birthDate, int age){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues args = new ContentValues();
         args.put("birthYear", birthYear);
         args.put("birthMonth", birthMonth);
         args.put("birthDate", birthDate);
+        args.put("age", age);
 
         long res = db.update("Profile",
                 args,
@@ -277,6 +298,18 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
             return false;
 
 
+    }
+
+    public long updateUserGoalCalories(int _id, double goalCalories) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues args = new ContentValues();
+        args.put("goalCalories", (int)goalCalories);
+        long res = db.update("Profile",
+                args,"_id = ?",
+                new String[] {Integer.toString(_id)});
+        db.close();
+
+        return res;
     }
 
 

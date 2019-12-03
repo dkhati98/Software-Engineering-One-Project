@@ -1,3 +1,4 @@
+
 package com.sred.eatright.userInfo;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,23 +35,23 @@ public class GoalCalculatedActivity extends AppCompatActivity{
             Profile profile = dbGetter.GetDB(_id);
 
             String userGender = profile.getUserGender();
-            int userWeight = profile.getUserWeight();
-            int userHeightft = profile.getUserHeightFeet();
-            int userHeightin = profile.getUserHeightInches();
-            int userAge = profile.getUserAge();
+            int userWeight = Integer.parseInt(profile.getUserWeight());
+            int userHeightft = Integer.parseInt(profile.getUserHeightFeet());
+            int userHeightin = Integer.parseInt(profile.getUserHeightInches());
+            int userAge = Integer.parseInt(profile.getUserAge());
             String userActivityLevel = profile.getUserActivityLevel();
             String userFitnessGoal = profile.getUserFitnessGoal();
 
-            setBMR(userGender, userWeight, userHeightft, userHeightin, userAge);
-            setGoalCaloriesActivityLevel(userActivityLevel);
-            setGoalCaloriesFitnessGoal(userFitnessGoal);
-
-
-
-            String userGoalCalories = profile.getUserFitnessGoal();
+            //calculate goalCalories
+//            setBMR(userGender, userWeight, userHeightft, userHeightin, userAge);
+//            setGoalCaloriesActivityLevel(userActivityLevel);
+//            setGoalCaloriesFitnessGoal(userFitnessGoal);
+            //store goalCalories into DB
+            dbGetter.updateUserGoalCalories(_id, goalCalories);
 
             final TextView user_goal_calories = (TextView) findViewById(R.id.user_goal_calories);
-            user_goal_calories.setText(userGoalCalories);
+            String _goalCalories = Double.toString(goalCalories);
+            user_goal_calories.setText(_goalCalories);
 
         } catch (SQLiteException e) {
             Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);
@@ -77,48 +78,47 @@ public class GoalCalculatedActivity extends AppCompatActivity{
         });
     }
 
-    //calculate the BMR
-    private double setBMR(String gender, int weight, int heightft, int heightin, int age) {
-        int height = heightft + heightin / 12;
-
-        if(gender.equals("MALE" )|| gender.equals("PREFERNOTTOSAY"))
-        {
-            BMR = 66 + (6.3 * weight) + (12.9 * height) - (6.8 * age);
-        }
-        if (gender.equals("FEMALE"))
-        {
-            BMR = 655 + (4.3 * weight) + (4.7 * height) - (4.7 * age);
-        }
-        return BMR;
-    }
-
-    private void setGoalCaloriesActivityLevel(String activityLevel) {
-
-        if(activityLevel.equals("SEDENTARY")) {
-            goalCalories = BMR * 1.2;
-        }
-        else if(activityLevel.equals("SLIGHTLYACTIVE")) {
-            goalCalories = BMR * 1.375;
-        }
-        else if(activityLevel.equals("MODERATELYACIVE")) {
-            goalCalories = BMR * 1.55;
-        }
-        else if(activityLevel.equals("VERYACTIVE")) {
-            goalCalories = BMR * 1.725;
-        }
-        else {
-            goalCalories = BMR * 1.9;
-        }
-        goalCalories = (int)goalCalories;
-    }
-
-
-    private void setGoalCaloriesFitnessGoal(String fitnessGoal) {
-        if(fitnessGoal.equals("GAIN")) {
-            goalCalories = goalCalories + 500;
-        }
-        else if(fitnessGoal.equals("LOSE")) {
-            goalCalories = goalCalories - 500;
-        }
-    }
+//    //calculate the BMR
+//    private double setBMR(String gender, int weight, int heightft, int heightin, int age) {
+//        int height = heightft + heightin / 12;
+//
+//        if(gender.equals("MALE" )|| gender.equals("PREFERNOTTOSAY"))
+//        {
+//            BMR = 66 + (6.3 * weight) + (12.9 * height) - (6.8 * age);
+//        }
+//        if (gender.equals("FEMALE"))
+//        {
+//            BMR = 655 + (4.3 * weight) + (4.7 * height) - (4.7 * age);
+//        }
+//        return BMR;
+//    }
+//
+//    private void setGoalCaloriesActivityLevel(String activityLevel) {
+//
+//        if(activityLevel.equals("SEDENTARY")) {
+//            goalCalories = BMR * 1.2;
+//        }
+//        else if(activityLevel.equals("SLIGHTLYACTIVE")) {
+//            goalCalories = BMR * 1.375;
+//        }
+//        else if(activityLevel.equals("MODERATELYACIVE")) {
+//            goalCalories = BMR * 1.55;
+//        }
+//        else if(activityLevel.equals("VERYACTIVE")) {
+//            goalCalories = BMR * 1.725;
+//        }
+//        else {
+//            goalCalories = BMR * 1.9;
+//        }
+//        goalCalories = (int)goalCalories;
+//    }
+//
+//    private void setGoalCaloriesFitnessGoal(String fitnessGoal) {
+//        if(fitnessGoal.equals("GAIN")) {
+//            goalCalories = goalCalories + 500;
+//        }
+//        else if(fitnessGoal.equals("LOSE")) {
+//            goalCalories = goalCalories - 500;
+//        }
+//    }
 }
