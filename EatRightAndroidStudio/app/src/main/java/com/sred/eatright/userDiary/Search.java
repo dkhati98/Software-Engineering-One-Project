@@ -1,4 +1,4 @@
-package com.sred.eatright;
+package com.sred.eatright.userDiary;
 
 //import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,8 +17,9 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.sred.eatright.FoodForSearchBar;
+import com.sred.eatright.R;
 import com.sred.eatright.searchFood.Api;
-import com.sred.eatright.userDiary.HomeActivity;
 
 import java.util.ArrayList;
 
@@ -27,7 +28,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import com.sred.eatright.searchFood.Api;
+
 import com.sred.eatright.searchFood.Example;
 
 import static com.sred.eatright.searchFood.Api.BASE_URL;

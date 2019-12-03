@@ -1,13 +1,9 @@
 package com.sred.eatright.userInfo;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
@@ -18,7 +14,7 @@ import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
 import com.sred.eatright.userDiary.HelpActivity;
 import com.sred.eatright.userDiary.HomeActivity;
-import com.sred.eatright.Search;
+import com.sred.eatright.userDiary.Search;
 
 public class ProfileActivity extends AppCompatActivity {
 

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.sred.eatright.R;
-import com.sred.eatright.Search;
 import com.sred.eatright.userInfo.ProfileActivity;
 
 public class HelpActivity extends AppCompatActivity {

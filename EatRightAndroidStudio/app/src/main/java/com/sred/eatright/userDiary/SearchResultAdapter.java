@@ -1,4 +1,4 @@
-package com.sred.eatright;
+package com.sred.eatright.userDiary;
 
 import android.content.Context;
 import android.provider.ContactsContract;
@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.sred.eatright.FoodForSearchBar;
+import com.sred.eatright.R;
 
 import java.util.ArrayList;
 

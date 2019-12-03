@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
-import com.sred.eatright.Search;
 import com.sred.eatright.userInfo.Profile;
 import com.sred.eatright.userInfo.ProfileActivity;
 
@@ -28,11 +27,19 @@ public class HomeActivity extends AppCompatActivity {
         final Button add_lunch = (Button) findViewById(R.id.button_add_lunch);
         final Button add_dinner = (Button) findViewById(R.id.button_add_dinner);
         final Button add_snacks = (Button) findViewById(R.id.button_add_snacks);
-        DatabaseHelper dbGetter = new DatabaseHelper(this);
-        Profile profile = dbGetter.GetDB(_id);
+
+
+        final TextView calories_goal = (TextView) findViewById(R.id.calories_goal);
+        final TextView calories_consumed = (TextView) findViewById(R.id.calories_consumed);
+        final TextView calories_leftover = (TextView) findViewById(R.id.calories_leftover);
+
+        DatabaseHelper db = new DatabaseHelper(this);
+        Profile profile = db.GetDB(_id);
         int goalCalorie = Integer.parseInt(profile.getUserGoalCalories());
-        final TextView nutrition_goal = (android.widget.TextView) findViewById(R.id.nutrition_goal);
-        nutrition_goal.setText(Integer.toString(goalCalorie));
+        calories_goal.setText(Integer.toString(goalCalorie));
+
+
+
 
 
 //        int calorieConsumed = Integer.parseInt(profile.getUserGoalCalories());
