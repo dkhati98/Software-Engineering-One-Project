@@ -144,6 +144,7 @@ public class Search extends Fragment
         }
         else
         {
+            Log.d("lev3",barcode);
 
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
