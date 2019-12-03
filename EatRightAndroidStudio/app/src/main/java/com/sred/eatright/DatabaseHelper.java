@@ -87,8 +87,8 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
                 "calories INTEGER," +
                 "PRIMARY KEY(_id, mealType,_Foodid)," +
                 "CONSTRAINT fk_Meals " +
-                "FOREIGN KEY (_id, mealType,  calorie)" +
-                "REFERENCES users(_id, mealType,  calorie)," +
+                "FOREIGN KEY (_id, mealType,  calories)" +
+                "REFERENCES users(_id, mealType,  calories)," +
                 "CONSTRAINT fk_Foods " +
                 "FOREIGN KEY (_Foodid)" +
                 "REFERENCES Foods(_Foodid))";
