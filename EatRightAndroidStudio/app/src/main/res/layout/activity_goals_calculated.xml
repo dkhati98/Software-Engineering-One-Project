@@ -39,4 +39,10 @@
         android:layout_marginEnd="25dp"
         android:layout_marginTop="75dp"/>
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
 </LinearLayout>

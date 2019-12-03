@@ -29,21 +29,20 @@ public class GetGoalActivity extends AppCompatActivity {
         goal = (RadioButton)findViewById(selectedGoal);
 
         final String realGoal = goal.getText().toString().trim();
+        final int _id = (Integer)getIntent().getExtras().get("id");
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (realGoal != null) {
-                    int _id = (Integer)getIntent().getExtras().get("id");
+
                     long val = db.updateUserFitnessGoal(_id, realGoal);
                     if (val > 0) {
 //                        Intent moveToGoalsCalculated = new Intent(GetGoalActivity.this, GoalCalculatedActivity.class);
 //                        startActivity(moveToGoalsCalculated);
-
-                        Intent moveToGoalsCalculated = new Intent(GetGoalActivity.this, GoalCalculatedActivity.class);
-                        moveToGoalsCalculated.putExtra("id",_id);
-                        startActivity(moveToGoalsCalculated);
-
+                        Intent moveToActivityLevel = new Intent(GetGoalActivity.this, ActivityLevelActivity.class);
+                        moveToActivityLevel.putExtra("id",_id);
+                        startActivity(moveToActivityLevel);
                         Toast.makeText(GetGoalActivity.this, "Select a goal", Toast.LENGTH_SHORT).show();
 
                     } else {

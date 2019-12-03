@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -312,4 +313,16 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public Long updateUserActivityLevel(int _id, String activityLevel) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues args = new ContentValues();
+        args.put("activityLevel", activityLevel);
+        long res = db.update("Profile",
+                args,"_id = ?",
+                new String[] {Integer.toString(_id)});
+        db.close();
+
+        return res;
+    }
 }

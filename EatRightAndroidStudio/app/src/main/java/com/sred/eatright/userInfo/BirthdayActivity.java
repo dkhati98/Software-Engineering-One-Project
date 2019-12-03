@@ -13,19 +13,17 @@ import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
 
 public class BirthdayActivity extends AppCompatActivity {
-
+    DatePicker datePicker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_birthday);
         final DatabaseHelper db;
         db = new DatabaseHelper(this);
-        DatePicker datePicker = (DatePicker)findViewById(R.id.datepicker);
+         datePicker= (DatePicker)findViewById(R.id.datepicker);
         datePicker.setSpinnersShown(false);
 
-        final int day = datePicker.getDayOfMonth();
-        final int month = datePicker.getMonth()+1;
-        final int year = datePicker.getYear();
+
 
         final Button nextButton = (Button) findViewById(R.id.button_next);
         final DatabaseHelper databaseHelper = new DatabaseHelper(this);
@@ -33,6 +31,9 @@ public class BirthdayActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final int day = datePicker.getDayOfMonth();
+                final int month = datePicker.getMonth()+1;
+                final int year = datePicker.getYear();
                 int _id = (Integer)getIntent().getExtras().get("id");
 
                 int age = Integer.parseInt(databaseHelper.getAge(year, month, day));

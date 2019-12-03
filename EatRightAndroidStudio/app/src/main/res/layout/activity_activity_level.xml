@@ -36,7 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/radiobutton_not_active"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/radio_slightly_active"

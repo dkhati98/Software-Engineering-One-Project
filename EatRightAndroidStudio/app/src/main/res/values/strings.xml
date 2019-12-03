@@ -57,7 +57,7 @@
     <string name="radiobutton_slightly_active">Slightly active (6000 to 8000 steps/day)</string>
     <string name="radiobutton_active">Active (8000 to 10000 steps/day)</string>
     <string name="radiobutton_very_active">Very active (10000 or more steps/day)</string>
-    <string name="button_calculate">Calculate</string>
+    <string name="button_calculate">Next</string>
 
     <!-- Fragment Goals Calculated -->
     <string name="button_start_tracking">Start tracking!</string>
