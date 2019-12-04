@@ -186,11 +186,19 @@ public class Search extends Fragment
                         tempFood.setFoodName(barcodeResult.getHints().get(0).getFood().getLabel());
                         tempFood.setBrandname(barcodeResult.getHints().get(0).getFood().getBrand());
                         tempFood.setCalories(barcodeResult.getHints().get(0).getFood().getNutrients().getENERCKCAL());
+                        tempFood.setProtein(barcodeResult.getHints().get(0).getFood().getNutrients().getPROCNT());
+                        tempFood.setFats(barcodeResult.getHints().get(0).getFood().getNutrients().getFAT());
+                        tempFood.setCarbs(barcodeResult.getHints().get(0).getFood().getNutrients().getCHOCDF());
+
 
                         Intent goToCustomFood = new Intent(getContext(),CustomFoodActivity.class);
                         goToCustomFood.putExtra("foodName",tempFood.getFoodName());
                         goToCustomFood.putExtra("foodBrand",tempFood.getBrandname());
                         goToCustomFood.putExtra("foodCalorie",tempFood.getCalories());
+                        goToCustomFood.putExtra("protein",tempFood.getProtein());
+                        goToCustomFood.putExtra("carbs",tempFood.getCarbs());
+                        goToCustomFood.putExtra("fats",tempFood.getFats());
+
                         goToCustomFood.putExtra("id",123);
                         startActivity(goToCustomFood);
 
@@ -229,7 +237,7 @@ public class Search extends Fragment
             Log.d("bool", "boolval: "+ foodName.contains(toSearch.toLowerCase()));
             if(foodName.contains(toSearch.toLowerCase()))
             {
-                filteredFoodList.add(new FoodForSearchBar(allFoods.get(i).getFoodName(),allFoods.get(i).getBrandname(),allFoods.get(i).getCalories()));
+                filteredFoodList.add(new FoodForSearchBar(allFoods.get(i).getFoodName(),allFoods.get(i).getBrandname(),allFoods.get(i).getCalories(),allFoods.get(i).getProtein(),allFoods.get(i).getCarbs(),allFoods.get(i).getFats()));
             }
             Log.d("sizeinfunction",filteredFoodList.size()+" ");
         }
@@ -297,6 +305,9 @@ public class Search extends Fragment
                                 tempFood.setFoodName(searchResult.getHints().get(i).getFood().getLabel());
                                 tempFood.setCalories(searchResult.getHints().get(i).getFood().getNutrients().getENERCKCAL());
                                 tempFood.setBrandname(searchResult.getHints().get(i).getFood().getBrand());
+                                tempFood.setCarbs(searchResult.getHints().get(i).getFood().getNutrients().getCHOCDF());
+                                tempFood.setProtein(searchResult.getHints().get(i).getFood().getNutrients().getPROCNT());
+                                tempFood.setFats(searchResult.getHints().get(i).getFood().getNutrients().getFAT());
                                // foodList.add(searchResult.getHints().get(i).getFood().getLabel()+ "    "+ searchResult.getHints().get(i).getFood().getNutrients().getENERCKCAL());
                                String matchFound = "N";
                                 for (int j=0;j<allFoods.size();j++)
@@ -309,7 +320,7 @@ public class Search extends Fragment
                                 if (matchFound=="N")
                                 {
                                     Log.d("match","got to the point to add food to list");
-                                    allFoods.add(new FoodForSearchBar(tempFood.getFoodName(),tempFood.getBrandname(),tempFood.getCalories()));
+                                    allFoods.add(new FoodForSearchBar(tempFood.getFoodName(),tempFood.getBrandname(),tempFood.getCalories(),tempFood.getProtein(),tempFood.getCarbs(),tempFood.getFats()));
                                     Log.d("addedFOod",allFoods.size()+" ");
                                 }
                             }

@@ -40,6 +40,9 @@ public class CustomFoodActivity extends AppCompatActivity {
             final String foodBrand = intent.getStringExtra("foodBrand");
             final Double foodCal = intent.getDoubleExtra("foodCalorie",0.0);
             final String foodCalorie = intent.getStringExtra("foodCalorie");
+            final Double protein = intent.getDoubleExtra("protein",0.0);
+            final Double carbs = intent.getDoubleExtra("carbs",0.0);
+            final Double fats = intent.getDoubleExtra("fats",0.0);
             Log.d("dipin1","I am here");
             Log.d("dipin",intent.getStringExtra("foodName"));
 
@@ -47,6 +50,9 @@ public class CustomFoodActivity extends AppCompatActivity {
             Log.d("dipin",foodBrand+foodName+foodCalorie+"nothing came up");
             custom_name.setText(foodName);
             custom_calorie.setText(String.valueOf(foodCal));
+            custom_carbs.setText(String.valueOf(carbs));
+            custom_fat.setText(String.valueOf(fats));
+            custom_protein.setText(String.valueOf(protein));
 
         }catch (Exception e)
         {

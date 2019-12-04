@@ -88,6 +88,10 @@ public class SearchResultAdapter extends BaseAdapter {
                 goToCustomFood.putExtra("foodName",tempFood.getFoodName());
                 goToCustomFood.putExtra("foodBrand",tempFood.getBrandname());
                 goToCustomFood.putExtra("foodCalorie",tempFood.getCalories());
+                goToCustomFood.putExtra("protein",tempFood.getProtein());
+                goToCustomFood.putExtra("carbs",tempFood.getCarbs());
+                goToCustomFood.putExtra("fats",tempFood.getFats());
+
                 goToCustomFood.putExtra("id",123);
                 context.startActivity(goToCustomFood);
             }
