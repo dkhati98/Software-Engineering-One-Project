@@ -32,6 +32,7 @@ public class CustomFoodActivity extends AppCompatActivity {
         final EditText custom_fat = (EditText) findViewById(R.id.custom_food_fat);
         final EditText custom_carbs = (EditText) findViewById(R.id.custom_food_carbs);
         Log.d("lev2","I am here");
+
         try {
             Log.d("lev1","I am here");
             Intent intent = getIntent();
@@ -72,10 +73,10 @@ public class CustomFoodActivity extends AppCompatActivity {
         cancel_creation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(CustomFoodActivity.this, Search.class);
-                moveToSearch.putExtra("id",_id);
-                startActivity(moveToSearch);
-            }
+               Intent cancelintent = new Intent(CustomFoodActivity.this,HomeActivity.class);
+               cancelintent.putExtra("id",_id);
+               startActivity(cancelintent);
+                           }
         });
 
         //save food to DB
