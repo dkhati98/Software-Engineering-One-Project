@@ -42,10 +42,20 @@ public class GetGenderActivity extends AppCompatActivity {
                 gender = (RadioButton) findViewById(selectedGender);
 
                 final String Gender = gender.getText().toString().trim();
-                final int heightft = Integer.parseInt(heightFeet.getText().toString().trim());
-                final int heightin = Integer.parseInt(heightInches.getText().toString().trim());
-                final int curWeight = Integer.parseInt(weight.getText().toString().trim());
 
+                int heightft=0;
+                int heightin=0;
+                int curWeight=0;
+                try {
+
+
+                    heightft = Integer.parseInt(heightFeet.getText().toString().trim());
+                    heightin = Integer.parseInt(heightInches.getText().toString().trim());
+                    curWeight = Integer.parseInt(weight.getText().toString().trim());
+                }catch (Exception e)
+                {
+                    Toast.makeText(GetGenderActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                }
                 int _id = (Integer)getIntent().getExtras().get("id");
 
                 Log.d("genderHere", Gender+" ");
