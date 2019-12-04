@@ -41,7 +41,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-
 //        int calorieConsumed = Integer.parseInt(profile.getUserGoalCalories());
 //        final TextView goal_consumed = (android.widget.TextView) findViewById(R.id.goal_consumed);
 //        goal_consumed.setText(Integer.toString(calorieConsumed));
@@ -51,11 +50,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // add_breakfast.setVisibility(View.INVISIBLE);
-                Bundle bundle = new Bundle();
-                bundle.putString("id",String.valueOf(_id));
-                Search myfragent = new Search();
-                myfragent.setArguments(bundle);
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+                callFragment(_id);
             }
         });
 
@@ -63,8 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         add_lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Search myfragent = new Search();
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+               callFragment(_id);
 
             }
         });
@@ -73,8 +67,7 @@ public class HomeActivity extends AppCompatActivity {
         add_dinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Search myfragent = new Search();
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+                callFragment(_id);
 
             }
         });
@@ -83,9 +76,7 @@ public class HomeActivity extends AppCompatActivity {
         add_snacks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Search myfragent = new Search();
-
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+                callFragment(_id);
 
             }
         });
@@ -114,10 +105,18 @@ public class HomeActivity extends AppCompatActivity {
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Search myfragent = new Search();
-
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+                callFragment(_id);
             }
         });
+
     }
+    private void callFragment(int _id)
+    {
+        Bundle bundle = new Bundle();
+        bundle.putString("id",String.valueOf(_id));
+        Search myfragent = new Search();
+        myfragent.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
+    }
+
 }
