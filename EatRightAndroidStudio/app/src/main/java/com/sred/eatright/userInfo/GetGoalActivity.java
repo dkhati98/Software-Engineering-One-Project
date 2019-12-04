@@ -1,9 +1,11 @@
+
 package com.sred.eatright.userInfo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -22,20 +24,20 @@ public class GetGoalActivity extends AppCompatActivity {
         final DatabaseHelper db;
         db = new DatabaseHelper(this);
         final RadioGroup radioGoal = (RadioGroup) findViewById(R.id.radioGoals);
-        final RadioButton goal;
+
         final Button next = (Button) findViewById(R.id.button_next);
 
-        final int selectedGoal = radioGoal.getCheckedRadioButtonId();
-        goal = (RadioButton)findViewById(selectedGoal);
-
-        final String realGoal = goal.getText().toString().trim();
         final int _id = (Integer)getIntent().getExtras().get("id");
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final RadioButton goal;
+                final int selectedGoal = radioGoal.getCheckedRadioButtonId();
+                goal = (RadioButton)findViewById(selectedGoal);
+                final String realGoal = goal.getText().toString().trim();
                 if (realGoal != null) {
-
+                    Log.d("goalHere", realGoal+" ");
                     long val = db.updateUserFitnessGoal(_id, realGoal);
                     if (val > 0) {
 //                        Intent moveToGoalsCalculated = new Intent(GetGoalActivity.this, GoalCalculatedActivity.class);
