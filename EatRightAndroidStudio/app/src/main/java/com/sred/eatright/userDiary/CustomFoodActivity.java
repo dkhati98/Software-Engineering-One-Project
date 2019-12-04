@@ -1,3 +1,4 @@
+
 package com.sred.eatright.userDiary;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,9 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.sred.eatright.DatabaseHelper;
 import com.sred.eatright.R;
+import com.sred.eatright.userInfo.GetGenderActivity;
 
 public class CustomFoodActivity extends AppCompatActivity {
     DatabaseHelper db = new DatabaseHelper(this);
@@ -73,12 +76,10 @@ public class CustomFoodActivity extends AppCompatActivity {
         cancel_creation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent cancelintent = new Intent(CustomFoodActivity.this,HomeActivity.class);
-                Log.d("idinCustomFood",_id +" ");
-               cancelintent.putExtra("id",_id);
-               cancelintent.putExtra("mealType",mealType);
-               startActivity(cancelintent);
-                           }
+                Intent cancelintent = new Intent(CustomFoodActivity.this,HomeActivity.class);
+                cancelintent.putExtra("id",_id);
+                startActivity(cancelintent);
+            }
         });
 
         //save food to DB
@@ -86,7 +87,7 @@ public class CustomFoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String name = custom_name.getText().toString().trim();
-                final int calories = Integer.parseInt(custom_calorie.getText().toString().trim());
+                final String calories = custom_calorie.getText().toString().trim();
                 final int protein = Integer.parseInt(custom_protein.getText().toString().trim());
                 final int fat = Integer.parseInt(custom_fat.getText().toString().trim());
                 final int carbohydrate = Integer.parseInt(custom_carbs.getText().toString().trim());
@@ -94,9 +95,15 @@ public class CustomFoodActivity extends AppCompatActivity {
                 //Insert code to save custom created food to DB, then add to home screen
                 Log.d("FoodHere",name + " " + calories + " "+ protein+" "+fat+" "+carbohydrate);
 
-                int foodID = db.addFood(name,calories,carbohydrate, protein, fat);
+                int foodID = db.addFood(name,Integer.parseInt(calories),carbohydrate, protein, fat);
 
-                db.addFoodMeal(_id, foodID,mealType,calories);
+                long res=db.addFoodMeal(foodID,mealType,Integer.parseInt(calories));
+                if (res>0){
+                    Toast.makeText(CustomFoodActivity.this, "Successfully Saved", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(CustomFoodActivity.this, "Didn't Save", Toast.LENGTH_SHORT).show();
+                }
                 Log.d("FoodID", foodID+" "+mealType+" "+calories);
                 Intent moveToHome = new Intent(CustomFoodActivity.this, HomeActivity.class);
                 moveToHome.putExtra("id",_id);

@@ -1,3 +1,4 @@
+
 package com.sred.eatright;
 import android.content.ContentValues;
 import android.content.Context;
@@ -5,14 +6,22 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.sred.eatright.userDiary.Food;
+import com.sred.eatright.userDiary.FoodLogAdapter;
 import com.sred.eatright.userInfo.Profile;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public  class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="eatright.db";
@@ -21,9 +30,11 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_2="userName";
     public static final String COL_3="emailAddress";
     public static final String COL_4="password";
+    Context context;
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, 2);
+        super(context, DATABASE_NAME, null, 3);
+        this.context = context;
     }
 
     @Override
@@ -80,15 +91,14 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
                 "protein INTEGER," +
                 "fat INTEGER);";
 
-        String queryCreateMealFood = "CREATE TABLE MealFood(_id INTEGER," +
+        String queryCreateMealFood = "CREATE TABLE MealFoods (_id INTEGER," +
+                "_Foodid INTEGER," +
                 "mealType TEXT ," +
-
-                "_Foodid INTEGER ," +
                 "calories INTEGER," +
                 "PRIMARY KEY(_id, mealType,_Foodid)," +
-                "CONSTRAINT fk_Meals " +
-                "FOREIGN KEY (_id, mealType,  calories)" +
-                "REFERENCES users(_id, mealType,  calories)," +
+                "CONSTRAINT fk_Profile " +
+                "FOREIGN KEY (_id)" +
+                "REFERENCES Profile(_id)," +
                 "CONSTRAINT fk_Foods " +
                 "FOREIGN KEY (_Foodid)" +
                 "REFERENCES Foods(_Foodid))";
@@ -115,15 +125,15 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         return getFoodid(foodName);
     }
     int calories;
-    public long addFoodMeal(int _id, int foodID, String mealType, int calories){
+
+    public long addFoodMeal(int foodID, String mealType, int calories){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues =new ContentValues();
-        contentValues.put("foodID",foodID);
+        contentValues.put("_Foodid",foodID);
         contentValues.put("mealType", mealType);
-        calories+=calories;
         contentValues.put("calories", calories);
 
-        long res = db.insert("MealFood",null,contentValues);
+        long res = db.insert("MealFoods",null,contentValues);
         db.close();
         return res;
     }
@@ -149,11 +159,42 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 //    public long addFoodMeal()
+//    public int GetUserGoalCalories(int _id){
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor getidcursor = db.query("Profile",
+//                new String[]{"_id, userName"}, "userName = ?", new String[]{userName}, null, null, null);
+//        return GoalCalories;
+//        if (getidcursor.moveToFirst()) {
+//            returnvalue= getidcursor.getInt(0);
+//        }
+//    }
 
-
-    //get user goal Calorie
-
-
+    public List<Food> getFoodList(int _id, String mealType){
+        List<Food> foodList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor getFoodCursor = db.query("MealFoods"
+                ,new String[]{"_FoodID, calories"}, "_id = ? and mealType = ?",
+                new String[]{Integer.toString(_id),mealType},null,null,null);
+        Log.e("FOOD LOG", "  AASDSADSADASDSADASDSADSADSA");
+        if (getFoodCursor.moveToFirst())
+        {
+            Food food;
+            while (!getFoodCursor.isAfterLast()){
+                food = new Food();
+                food.setFoodID(Integer.parseInt(getFoodCursor.getString(2)));
+                food.setCalories((Integer.parseInt(getFoodCursor.getString(3))));
+                foodList.add(food);
+                Log.e("FOOD LOG", food.getName() + "  ABCD");
+                getFoodCursor.moveToNext();
+            }
+        }
+        Food food = new Food();
+        food.setName("asd");
+        food.setCalories(12);
+        foodList.add(food);
+        db.close();
+        return foodList;
+    }
     public int getid(String userName) {
         int returnvalue = 0;
 //        try {
@@ -187,38 +228,38 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Profile GetDB(int _id) {
-            Profile profile = new Profile();
+        Profile profile = new Profile();
 
-            SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
 
-            Cursor cursor = db.query("Profile",
-                    new String[]{"_id", "userName", "emailAddress", "gender",
-                            "birthMonth", "birthDate", "birthYear",
-                            "heightft", "heightin", "fitnessGoal",
-                            "curWeight", "age", "activityLevel", "goalCalories"},
-                    "_id = ?",
-                    new String[]{Integer.toString(_id)},
-                    null, null, "_id");
+        Cursor cursor = db.query("Profile",
+                new String[]{"_id", "userName", "emailAddress", "gender",
+                        "birthMonth", "birthDate", "birthYear",
+                        "heightft", "heightin", "fitnessGoal",
+                        "curWeight", "age", "activityLevel", "goalCalories"},
+                "_id = ?",
+                new String[]{Integer.toString(_id)},
+                null, null, "_id");
 
-            if (cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
 
-                profile.setUsersName(cursor.getString(1));
-                profile.setUserEmail(cursor.getString(2));
-                profile.setUserGender(cursor.getString(3));
-                profile.setUserDOB_month(cursor.getString(4));
-                profile.setUserDOB_day(cursor.getString(5));
-                profile.setUserDOB_year(cursor.getString(6));
-                profile.setUserHeightFeet(cursor.getString(7));
-                profile.setUserHeightInches(cursor.getString(8));
-                profile.setUserFitnessGoal(cursor.getString(9));
-                profile.setUserWeight(cursor.getString(10));
-                profile.setUserAge(cursor.getString(11));
-                profile.setUserActivityLevel(cursor.getString(12));
-                profile.setUserGoalCalories(cursor.getString(13));
-                cursor.close();
-                db.close();
-                return profile;
-            }
+            profile.setUsersName(cursor.getString(1));
+            profile.setUserEmail(cursor.getString(2));
+            profile.setUserGender(cursor.getString(3));
+            profile.setUserDOB_month(cursor.getString(4));
+            profile.setUserDOB_day(cursor.getString(5));
+            profile.setUserDOB_year(cursor.getString(6));
+            profile.setUserHeightFeet(cursor.getString(7));
+            profile.setUserHeightInches(cursor.getString(8));
+            profile.setUserFitnessGoal(cursor.getString(9));
+            profile.setUserWeight(cursor.getString(10));
+            profile.setUserAge(cursor.getString(11));
+            profile.setUserActivityLevel(cursor.getString(12));
+            profile.setUserGoalCalories(cursor.getString(13));
+            cursor.close();
+            db.close();
+            return profile;
+        }
         return profile;
     }
 
@@ -348,7 +389,6 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 
 
     }
-
 
     public long updateUserGoalCalories(int _id, double goalCalories) {
         SQLiteDatabase db = this.getWritableDatabase();

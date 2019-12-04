@@ -1,6 +1,9 @@
+
 package com.sred.eatright.userDiary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
@@ -8,6 +11,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sred.eatright.DatabaseHelper;
@@ -16,10 +20,19 @@ import com.sred.eatright.userInfo.Profile;
 import com.sred.eatright.userInfo.ProfileActivity;
 
 public class HomeActivity extends AppCompatActivity {
+    RecyclerView rv_lunch_log;
+    LinearLayoutManager lm_lunch;
+    FoodLogAdapter foodLogAdapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+        lm_lunch = new LinearLayoutManager(getApplicationContext());
+        foodLogAdapter = new FoodLogAdapter(db.getFoodList(1,"Lunch"),getApplicationContext());
+        rv_lunch_log = findViewById(R.id.rv_lunch);
+        rv_lunch_log.setAdapter(foodLogAdapter);
+        rv_lunch_log.setLayoutManager(lm_lunch);
         final int _id = (Integer) getIntent().getExtras().get("id");
         final Button button_help = (Button) findViewById(R.id.button_help);
         final Button button_search = (Button) findViewById(R.id.button_search);
@@ -33,13 +46,12 @@ public class HomeActivity extends AppCompatActivity {
         final TextView calories_goal = (TextView) findViewById(R.id.calories_goal);
         final TextView calories_consumed = (TextView) findViewById(R.id.calories_consumed);
         final TextView calories_leftover = (TextView) findViewById(R.id.calories_leftover);
-        Log.d("idinHome",_id +" ");
-        DatabaseHelper db = new DatabaseHelper(this);
-        Profile profile = db.GetDB(_id);
 
+        db = new DatabaseHelper(this);
+        Profile profile = db.GetDB(_id);
         int goalCalorie=0;
         try {
-            goalCalorie=Integer.parseInt(db.GetDB(_id).getUserGoalCalories());
+            goalCalorie=Integer.parseInt(profile.getUserGoalCalories());
 
         }catch (Exception e)
         {
@@ -131,7 +143,6 @@ public class HomeActivity extends AppCompatActivity {
     private void callFragment(int _id, String mealType)
     {
         Bundle bundle = new Bundle();
-       // bundle.putInt("id",_id);
         bundle.putString("id",String.valueOf(_id));
         bundle.putString("mealType",String.valueOf(mealType));
         Search myfragent = new Search();
@@ -140,3 +151,4 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 }
+
