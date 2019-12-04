@@ -50,7 +50,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // add_breakfast.setVisibility(View.INVISIBLE);
-                callFragment(_id);
+                String mealType = "Breakfast";
+                callFragment(_id,mealType);
             }
         });
 
@@ -58,7 +59,9 @@ public class HomeActivity extends AppCompatActivity {
         add_lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               callFragment(_id);
+
+                String mealType = "Lunch";
+                callFragment(_id,mealType);
 
             }
         });
@@ -67,7 +70,9 @@ public class HomeActivity extends AppCompatActivity {
         add_dinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callFragment(_id);
+
+                String mealType = "Dinner";
+                callFragment(_id,mealType);
 
             }
         });
@@ -76,7 +81,9 @@ public class HomeActivity extends AppCompatActivity {
         add_snacks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callFragment(_id);
+
+                String mealType = "Snacks";
+                callFragment(_id,mealType);
 
             }
         });
@@ -105,15 +112,16 @@ public class HomeActivity extends AppCompatActivity {
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callFragment(_id);
+                callFragment(_id,null);
             }
         });
 
     }
-    private void callFragment(int _id)
+    private void callFragment(int _id, String mealType)
     {
         Bundle bundle = new Bundle();
         bundle.putString("id",String.valueOf(_id));
+        bundle.putString("mealType",String.valueOf(mealType));
         Search myfragent = new Search();
         myfragent.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();

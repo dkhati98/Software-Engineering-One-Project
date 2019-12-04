@@ -83,11 +83,12 @@ public class CustomFoodActivity extends AppCompatActivity {
                 final int carbohydrate = Integer.parseInt(custom_carbs.getText().toString().trim());
 
                 //Insert code to save custom created food to DB, then add to home screen
+                Log.d("FoodHere",name + " " + calories + " "+ protein+" "+fat+" "+carbohydrate);
 
                 int foodID = db.addFood(name,calories,carbohydrate, protein, fat);
-                if (foodID>0){
 
-                }
+                db.addFoodMeal(_id, foodID,mealType,calories);
+                Log.d("FoodID", foodID+" "+mealType+" "+calories);
                 Intent moveToHome = new Intent(CustomFoodActivity.this, HomeActivity.class);
                 moveToHome.putExtra("id",_id);
                 startActivity(moveToHome);

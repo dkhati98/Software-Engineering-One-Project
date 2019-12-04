@@ -114,8 +114,8 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return getFoodid(foodName);
     }
-    int calories=0;
-    public long addFoodMeal(int foodID, String mealType, int calories){
+    int calories;
+    public long addFoodMeal(int _id, int foodID, String mealType, int calories){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues =new ContentValues();
         contentValues.put("foodID",foodID);
@@ -127,6 +127,7 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return res;
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

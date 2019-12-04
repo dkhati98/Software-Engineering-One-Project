@@ -68,6 +68,9 @@ public class Search extends Fragment
         final String id = getArguments().getString("id");
         final int _id = Integer.parseInt(id);
 
+        final String mealType = getArguments().getString("mealType");
+
+
         final HomeActivity activity = (HomeActivity) getActivity();
 
         myView = inflater.inflate(R.layout.activity_search, container, false);
@@ -83,6 +86,8 @@ public class Search extends Fragment
             public void onClick(View v) {
                 Intent customFoodIntent = new Intent(getActivity(),CustomFoodActivity.class);
                 customFoodIntent.putExtra("id",_id);
+                customFoodIntent.putExtra("mealType",mealType);
+
                 startActivity(customFoodIntent);
             }
         });
@@ -96,10 +101,6 @@ public class Search extends Fragment
             }
 
         });
-
-
-
-
 
         searchBar.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
