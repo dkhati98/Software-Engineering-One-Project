@@ -38,15 +38,21 @@ public class BirthdayActivity extends AppCompatActivity {
 
                 int age = Integer.parseInt(databaseHelper.getAge(year, month, day));
                 Log.d("ageHere",year+" "+month+" "+day);
-                long val = db.updateUserBirthday(_id, year, month, day, age);
-                if (val > 0) {
-                    Intent moveToGetgoal = new Intent(BirthdayActivity.this, GetGoalActivity.class);
-                    moveToGetgoal.putExtra("id",_id);
-                    startActivity(moveToGetgoal);
-                    Toast.makeText(BirthdayActivity.this, "Select your birthday", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(BirthdayActivity.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                if (age < 0) {
+                    Toast.makeText(BirthdayActivity.this, "You cant use this if you are from future", Toast.LENGTH_LONG).show();
+                } else if (age < 13) {
+                    Toast.makeText(BirthdayActivity.this, "Dont worry about diet yet. Come back when you are 14", Toast.LENGTH_LONG).show();
+                } else {
+                    Log.d("ageHere", year + " " + month + " " + day);
+                    long val = db.updateUserBirthday(_id, year, month, day, age);
+                    if (val > 0) {
+                        Intent moveToGetgoal = new Intent(BirthdayActivity.this, GetGoalActivity.class);
+                        moveToGetgoal.putExtra("id", _id);
+                        startActivity(moveToGetgoal);
+                        Toast.makeText(BirthdayActivity.this, "Select your birthday", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(BirthdayActivity.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
