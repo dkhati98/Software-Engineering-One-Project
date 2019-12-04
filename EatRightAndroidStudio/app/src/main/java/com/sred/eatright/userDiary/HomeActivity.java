@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,7 +36,15 @@ public class HomeActivity extends AppCompatActivity {
 
         DatabaseHelper db = new DatabaseHelper(this);
         Profile profile = db.GetDB(_id);
-        int goalCalorie = Integer.parseInt(profile.getUserGoalCalories());
+        int goalCalorie=0;
+        try {
+            goalCalorie=Integer.parseInt(profile.getUserGoalCalories());
+
+        }catch (Exception e)
+        {
+            Log.d("errors",e.getMessage());
+        }
+
         calories_goal.setText(Integer.toString(goalCalorie));
 
 
@@ -93,6 +102,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent moveToHelp = new Intent(HomeActivity.this, HelpActivity.class);
+                moveToHelp.putExtra("id",_id);
                 startActivity(moveToHelp);
             }
         });

@@ -68,10 +68,10 @@ public class Search extends Fragment
         final String id = getArguments().getString("id");
         final int _id = Integer.parseInt(id);
 
-        final String mealType = getArguments().getString("mealType");
+        final String mealType = getArguments().getString("mealType","non");
 
 
-        final HomeActivity activity = (HomeActivity) getActivity();
+      //  final HomeActivity activity = (HomeActivity) getActivity();
 
         myView = inflater.inflate(R.layout.activity_search, container, false);
 

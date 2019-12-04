@@ -36,9 +36,12 @@ public class HelpActivity extends AppCompatActivity {
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent moveToSearch = new Intent(HelpActivity.this, Search.class);
-                moveToSearch.putExtra("id",_id);
-                startActivity(moveToSearch);
+                Bundle bundle = new Bundle();
+                bundle.putString("id",String.valueOf(_id));
+                bundle.putString("mealType","non");
+                Search myfragent = new Search();
+                myfragent.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, myfragent, myfragent.getClass().getSimpleName()).addToBackStack(null).commit();
             }
         });
 
