@@ -13,11 +13,11 @@
         android:src="@drawable/launcherlogo" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="22sp"
         android:text="@string/calculated"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"/>
 
@@ -25,10 +25,12 @@
 
     <TextView
         android:id="@+id/user_goal_calories"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
-        android:layout_marginStart="50dp" />
+        android:layout_marginStart="50dp"
+        android:textSize="22sp"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         android:id="@+id/button_next"
