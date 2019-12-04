@@ -135,7 +135,7 @@
             android:textColor="#FFFCFC"
             android:textSize="15sp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"/>
+            android:layout_marginStart="45dp"/>
 
         <Button
             android:id="@+id/button_home"
@@ -145,7 +145,7 @@
             android:text="@string/button_home"
             android:textColor="#FFFCFC"
             android:textSize="15sp"
-            android:layout_marginStart="169dp"/>
+            android:layout_centerInParent="true"/>
 
         <Button
             android:id="@+id/button_profile"
@@ -156,7 +156,7 @@
             android:textColor="#FFFCFC"
             android:textSize="15sp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="30dp"/>
+            android:layout_marginEnd="45dp"/>
 
     </RelativeLayout>
 
