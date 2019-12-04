@@ -74,10 +74,11 @@ public class GetGenderActivity extends AppCompatActivity {
                         //fill in code to save to DB
                         Intent moveToBirthday = new Intent(GetGenderActivity.this, BirthdayActivity.class);
                         moveToBirthday.putExtra("id", _id);
+                        Toast.makeText(GetGenderActivity.this, "Please enter your birthday.", Toast.LENGTH_SHORT).show();
                         startActivity(moveToBirthday);
                         // Toast.makeText(GetGenderActivity.this, "Please enter your information", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(GetGenderActivity.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GetGenderActivity.this, "Unable to connect to Database.", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

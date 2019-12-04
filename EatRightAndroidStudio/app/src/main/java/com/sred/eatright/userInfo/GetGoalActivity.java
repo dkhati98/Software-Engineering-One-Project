@@ -45,10 +45,10 @@ public class GetGoalActivity extends AppCompatActivity {
                         Intent moveToActivityLevel = new Intent(GetGoalActivity.this, ActivityLevelActivity.class);
                         moveToActivityLevel.putExtra("id",_id);
                         startActivity(moveToActivityLevel);
-                        Toast.makeText(GetGoalActivity.this, "Select a goal", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GetGoalActivity.this, "Select your Activity Level", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Toast.makeText(GetGoalActivity.this, "Unable to connect to Internet", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GetGoalActivity.this, "Unable to connect to Database.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(GetGoalActivity.this, "Please Select an Option.", Toast.LENGTH_SHORT).show();

@@ -196,23 +196,24 @@
                     android:id="@+id/button_add_breakfast"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:background="@drawable/button_add_food"
                     android:layout_marginStart="150dp"
+                    android:background="@drawable/button_add_food"
                     android:text="@string/add"
                     android:textColor="@color/white"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
             <!-- Insert Breakfast views here -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_breakfast"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:scrollbars="vertical" />
 
 
             <!-- Lunch -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_breakfast"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scrollbars="vertical" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -243,7 +244,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_lunch"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:scrollbars="vertical" />
 
             <!-- Dinner -->
@@ -276,7 +277,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_dinner"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:scrollbars="vertical" />
 
             <!--            <TextView-->
@@ -314,7 +315,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_snacks"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:scrollbars="vertical" />
 
         </LinearLayout>

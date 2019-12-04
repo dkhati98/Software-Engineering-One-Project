@@ -43,10 +43,10 @@ public class BirthdayActivity extends AppCompatActivity {
                     Intent moveToGetgoal = new Intent(BirthdayActivity.this, GetGoalActivity.class);
                     moveToGetgoal.putExtra("id",_id);
                     startActivity(moveToGetgoal);
-                    Toast.makeText(BirthdayActivity.this, "Select your birthday", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BirthdayActivity.this, "Select your Goal.", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(BirthdayActivity.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BirthdayActivity.this, "Unable to connect to Database.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
