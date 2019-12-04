@@ -33,7 +33,7 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
     Context context;
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, 3);
+        super(context, DATABASE_NAME, null, 5);
         this.context = context;
     }
 
@@ -86,15 +86,15 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 
         String queryCreateFoods = "CREATE TABLE Foods (_Foodid INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "foodName TEXT," +
-                "calories INTEGER," +
-                "carbohydrates INTEGER," +
-                "protein INTEGER," +
-                "fat INTEGER);";
+                "calories TEXT," +
+                "carbohydrates TEXT," +
+                "protein TEXT," +
+                "fat TEXT);";
 
         String queryCreateMealFood = "CREATE TABLE MealFoods (_id INTEGER," +
                 "_Foodid INTEGER," +
                 "mealType TEXT ," +
-                "calories INTEGER," +
+                "calories TEXT," +
                 "PRIMARY KEY(_id, mealType,_Foodid)," +
                 "CONSTRAINT fk_Profile " +
                 "FOREIGN KEY (_id)" +
@@ -104,21 +104,21 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
                 "REFERENCES Foods(_Foodid))";
 
         db.execSQL(queryCreateProfile);
-        db.execSQL(queryCreateFoodDiary);
+//        db.execSQL(queryCreateFoodDiary);
         db.execSQL(queryCreateMeals);
         db.execSQL(queryCreateFoods);
         db.execSQL(queryCreateMealFood);
     }
 
-    public int addFood(String foodName, int calories, int carbohydrates, int protein, int fat)
+    public int addFood(String foodName, double calories, double carbohydrates, double protein, double fat)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues =new ContentValues();
-        contentValues.put("foodName",foodName);
-        contentValues.put("calories",calories);
-        contentValues.put("carbohydrates",carbohydrates);
-        contentValues.put("protein",protein);
-        contentValues.put("fat",fat);
+        contentValues.put("foodName",String.valueOf(foodName));
+        contentValues.put("calories",String.valueOf(calories));
+        contentValues.put("carbohydrates",String.valueOf(carbohydrates));
+        contentValues.put("protein",String.valueOf(protein));
+        contentValues.put("fat",String.valueOf(fat));
 
         long res = db.insert("Foods",null,contentValues);
         db.close();
@@ -126,14 +126,16 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
     }
     int calories;
 
-    public long addFoodMeal(int foodID, String mealType, int calories){
+    public long addFoodMeal(int _id, int foodID, String mealType, double calories){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues =new ContentValues();
+        contentValues.put("_id",_id);
         contentValues.put("_Foodid",foodID);
         contentValues.put("mealType", mealType);
-        contentValues.put("calories", calories);
-
+        contentValues.put("calories", String.valueOf(calories));
+        Log.d("FoodDB", foodID+" "+mealType + " "+calories);
         long res = db.insert("MealFoods",null,contentValues);
+        Log.d("FoodDB", res+" "+mealType + " "+calories);
         db.close();
         return res;
     }
@@ -141,6 +143,11 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS '" + TABLE_NAME +"'");
+        onCreate(db);
+    }
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS '" + TABLE_NAME +"'");
         onCreate(db);
     }
@@ -169,30 +176,100 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 //        }
 //    }
 
-    public List<Food> getFoodList(int _id, String mealType){
-        List<Food> foodList = new ArrayList<>();
+    public String getFoodName(int _FoodID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String FoodName = null;
+        Cursor cursor = db.query("Foods",
+                new String[]{"_Foodid", "foodName"},
+                "_Foodid = ?",
+                new String[]{Integer.toString(_FoodID)},
+                null, null, null);
+
+        if (cursor.moveToFirst()) {
+            FoodName= cursor.getString(1);
+        }
+
+        return FoodName;
+    }
+
+    public int getFoodCalories(int _id){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor getFoodCursor = db.query("MealFoods"
-                ,new String[]{"_FoodID, calories"}, "_id = ? and mealType = ?",
-                new String[]{Integer.toString(_id),mealType},null,null,null);
-        Log.e("FOOD LOG", "  AASDSADSADASDSADASDSADSADSA");
-        if (getFoodCursor.moveToFirst())
-        {
-            Food food;
-            while (!getFoodCursor.isAfterLast()){
-                food = new Food();
-                food.setFoodID(Integer.parseInt(getFoodCursor.getString(2)));
-                food.setCalories((Integer.parseInt(getFoodCursor.getString(3))));
-                foodList.add(food);
-                Log.e("FOOD LOG", food.getName() + "  ABCD");
-                getFoodCursor.moveToNext();
+//                , new String[]{"calories"}, "_id = ?",
+                , new String[]{"calories"}, null,
+                null,
+//                new String[]{Integer.toString(_id)},
+                null, null, null);
+        int mealCalories=0;
+        Log.d("Cursorcount ",getFoodCursor.getCount()+" ");
+        if(getFoodCursor.getCount()!=0) {
+            getFoodCursor.moveToFirst();
+            try {
+                while(!getFoodCursor.isAfterLast()) {
+                    mealCalories=mealCalories+getFoodCursor.getInt(calories);
+                    getFoodCursor.moveToNext();
+                    Log.d("Total Calories so far: ",mealCalories+"");
+                }
+            } finally {
+                getFoodCursor.close();
             }
         }
-        Food food = new Food();
-        food.setName("asd");
-        food.setCalories(12);
-        foodList.add(food);
-        db.close();
+        else {
+
+            db.close();
+        }
+        return mealCalories;
+    }
+//    public boolean checkUser(String userName, String password)
+//    {
+//        String[] columns ={COL_1};
+//        SQLiteDatabase db = getReadableDatabase();
+//        String selection = COL_2 + "=?" + "and "+ COL_4 + "=?";
+//        String[] selectionArgs = {userName, password};
+//        Cursor cursor = db.query(TABLE_NAME,columns,selection,selectionArgs,null,null,null);
+//        int count = cursor.getCount();
+//        cursor.close();
+//        db.close();
+//        if(count>0)
+//            return true;
+//        else
+//            return false;
+//
+//
+//    }
+    public List<Food> getFoodList(int _id, String mealType) {
+        List<Food> foodList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String tableName = "MealFoods";
+        String COL_2="mealType";
+
+        String selection = COL_2 + "=?";
+        String[] selectionArgs = {mealType};
+
+//        Cursor getFoodCursor = db.query("MealFoods"
+//                ,new String[]{"_FoodID, calories"}, null,
+//               null,null,null,null);
+        Cursor getFoodCursor = db.query(tableName,new String[]{"_FoodID, calories"},selection,selectionArgs,null,null,null);
+        Log.e("FOOD LOG", mealType +" "+String.valueOf(_id)+"  AASDSADSADASDSADASDSADSADSA");
+        Log.d("HowManyFoodByID", getFoodCursor.getCount() + " ");
+        if(getFoodCursor.getCount()!=0) {
+            getFoodCursor.moveToFirst();
+            Food food;
+            Log.d("Cursor count", getFoodCursor.getCount() + " ");
+            try {
+                while(!getFoodCursor.isAfterLast()) {
+                    food = new Food();
+                    Log.d("FoodName", getFoodName(getFoodCursor.getInt(0)) + " ");
+                    food.setName(getFoodName(getFoodCursor.getInt(0)));
+                    food.setCalories((Double.parseDouble(getFoodCursor.getString(1))));
+//                Log.e("ISFOODGOINGTODB", getFoodCursor.getString(0) + "  ABCD");
+                    foodList.add(food);
+                    getFoodCursor.moveToNext();
+                }
+            } finally {
+                getFoodCursor.close();
+            }
+        }
         return foodList;
     }
     public int getid(String userName) {

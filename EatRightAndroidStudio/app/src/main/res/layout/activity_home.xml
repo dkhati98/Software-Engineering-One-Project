@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
-        android:layout_marginTop="-5dp"
+        android:layout_marginTop="-3dp"
         android:background="#2A3C25">
 
         <Button
@@ -27,6 +27,13 @@
             android:text="\?"
             android:textColor="#FFFFFF"
             android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/button_log_out"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/log_out" />
 
     </RelativeLayout>
 
@@ -59,10 +66,10 @@
         <!-- Update with user goal calories -->
         <TextView
             android:id="@+id/calories_goal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="76dp"
+            android:layout_height="28dp"
             android:gravity="center"
-            android:textSize="25sp" />
+            android:textSize="15sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,12 +81,10 @@
 
         <TextView
             android:id="@+id/calories_consumed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="76dp"
+            android:layout_height="28dp"
             android:gravity="center"
-            android:paddingStart="10dp"
-            android:paddingEnd="5dp"
-            android:textSize="25sp" />
+            android:textSize="15sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,12 +96,10 @@
 
         <TextView
             android:id="@+id/calories_leftover"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="76dp"
+            android:layout_height="28dp"
             android:gravity="center"
-            android:paddingStart="10dp"
-            android:paddingEnd="5dp"
-            android:textSize="25sp" />
+            android:textSize="15sp" />
         <!-- text="@{String.valueOf(nutritionGoal.getGoalCalories)} -->
     </LinearLayout>
 
@@ -131,8 +134,8 @@
             android:text="@string/search"
             android:textColor="#FFFCFC"
             android:textSize="15sp"
-            android:layout_marginStart="45dp"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"/>
 
         <Button
             android:id="@+id/button_home"
@@ -142,7 +145,7 @@
             android:text="@string/button_home"
             android:textColor="#FFFCFC"
             android:textSize="15sp"
-            android:layout_centerInParent="true"/>
+            android:layout_marginStart="169dp"/>
 
         <Button
             android:id="@+id/button_profile"
@@ -152,8 +155,8 @@
             android:text="@string/profile"
             android:textColor="#FFFCFC"
             android:textSize="15sp"
-            android:layout_marginEnd="45dp"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"/>
 
     </RelativeLayout>
 
@@ -177,7 +180,7 @@
 
             <!-- Breakfast -->
 
-            <RelativeLayout
+            <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -194,27 +197,24 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/button_add_food"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="50dp"
-                    android:layout_centerVertical="true"
+                    android:layout_marginStart="150dp"
                     android:text="@string/add"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <!-- Insert Breakfast views here -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_breakfast"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scrollbars="vertical" />
 
-            <TextView
-                android:id="@+id/default_food_breakfast"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/default_food"
-                android:textSize="20sp"/>
 
             <!-- Lunch -->
 
-            <RelativeLayout
+            <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -232,25 +232,22 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/button_add_food"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="50dp"
-                    android:layout_centerVertical="true"
+                    android:layout_marginStart="195dp"
                     android:text="@string/add"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <!-- Insert lunch views here -->
-            <TextView
-                android:id="@+id/default_food_lunch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/default_food"
-                android:textSize="20sp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_lunch"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scrollbars="vertical" />
 
             <!-- Dinner -->
-            <RelativeLayout
+            <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -268,30 +265,27 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/button_add_food"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="50dp"
-                    android:layout_centerVertical="true"
+                    android:layout_marginStart="190dp"
                     android:text="@string/add"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <!-- Enter dinner view to be displayed here -->
-            <TextView
-                android:id="@+id/default_food_dinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/default_food"
-                android:textSize="20sp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_dinner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scrollbars="vertical" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/add_dinner"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"/>-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/add_dinner"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"/>-->
 
             <!-- Snacks -->
-            <RelativeLayout
+            <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -309,22 +303,19 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/button_add_food"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="50dp"
-                    android:layout_centerVertical="true"
+                    android:layout_marginStart="185dp"
                     android:text="@string/add"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <!-- Enter snacks view to be displayed here -->
-            <TextView
-                android:id="@+id/default_food_snacks"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/default_food"
-                android:textSize="20sp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_snacks"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scrollbars="vertical" />
 
         </LinearLayout>
 

@@ -113,5 +113,6 @@
     <string name="fat">Fat:</string>
     <string name="carbs">Carbs:</string>
     <string name="cancel">Cancel</string>
+    <string name="log_out">Log Out</string>
 
 </resources>

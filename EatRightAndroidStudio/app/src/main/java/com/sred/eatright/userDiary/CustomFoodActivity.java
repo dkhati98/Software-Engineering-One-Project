@@ -23,6 +23,7 @@ public class CustomFoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_custom_food);
         final int _id = (Integer)getIntent().getExtras().get("id");
         final String mealType = String.valueOf(getIntent().getExtras().get("mealType"));
+        Log.d("MEALTYPE?", mealType + " ");
         final Button button_help = (Button) findViewById(R.id.button_help);
 //        final Button button_home = (Button) findViewById(R.id.button_home);
 //        final Button button_profile = (Button) findViewById(R.id.button_profile);
@@ -88,16 +89,17 @@ public class CustomFoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String name = custom_name.getText().toString().trim();
                 final String calories = custom_calorie.getText().toString().trim();
-                final int protein = Integer.parseInt(custom_protein.getText().toString().trim());
-                final int fat = Integer.parseInt(custom_fat.getText().toString().trim());
-                final int carbohydrate = Integer.parseInt(custom_carbs.getText().toString().trim());
+                final String protein = custom_protein.getText().toString().trim();
+                final String fat = custom_fat.getText().toString().trim();
+                final String carbohydrate = custom_carbs.getText().toString().trim();
 
                 //Insert code to save custom created food to DB, then add to home screen
                 Log.d("FoodHere",name + " " + calories + " "+ protein+" "+fat+" "+carbohydrate);
 
-                int foodID = db.addFood(name,Integer.parseInt(calories),carbohydrate, protein, fat);
+                int foodID = db.addFood(name,Double.parseDouble(calories),Double.parseDouble(carbohydrate), Double.parseDouble(protein), Double.parseDouble(fat));
 
-                long res=db.addFoodMeal(foodID,mealType,Integer.parseInt(calories));
+                long res=db.addFoodMeal(_id,foodID,mealType,Double.parseDouble(calories));
+                Log.d("mealType",mealType+" ");
                 if (res>0){
                     Toast.makeText(CustomFoodActivity.this, "Successfully Saved", Toast.LENGTH_SHORT).show();
                 }

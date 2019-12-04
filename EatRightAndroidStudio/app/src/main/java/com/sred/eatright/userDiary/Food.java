@@ -1,7 +1,8 @@
 package com.sred.eatright.userDiary;
 
 public class Food {
-    int foodID, calories, protein, fat, carbs;
+    int foodID;
+    double calories, protein, fat, carbs;
     String name;
 
     public int getFoodID() {
@@ -12,35 +13,35 @@ public class Food {
         this.foodID = foodID;
     }
 
-    public int getCalories() {
+    public double getCalories() {
         return calories;
     }
 
-    public void setCalories(int calories) {
+    public void setCalories(double calories) {
         this.calories = calories;
     }
 
-    public int getProtein() {
+    public double getProtein() {
         return protein;
     }
 
-    public void setProtein(int protein) {
+    public void setProtein(double protein) {
         this.protein = protein;
     }
 
-    public int getFat() {
+    public double getFat() {
         return fat;
     }
 
-    public void setFat(int fat) {
+    public void setFat(double fat) {
         this.fat = fat;
     }
 
-    public int getCarbs() {
+    public double getCarbs() {
         return carbs;
     }
 
-    public void setCarbs(int carbs) {
+    public void setCarbs(double carbs) {
         this.carbs = carbs;
     }
 
