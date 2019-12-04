@@ -78,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+                Log.d("idatprofile",_id+" ");
                 Intent moveToGetGender = new Intent(ProfileActivity.this, GetGenderActivity.class);
                 moveToGetGender.putExtra("id",_id);
                 startActivity(moveToGetGender);
@@ -91,7 +91,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent moveToHelp = new Intent(ProfileActivity.this, HelpActivity.class);
                 moveToHelp.putExtra("id",_id);
-                Log.d("idatprofile",_id+" ");
+
                 startActivity(moveToHelp);
 
             }
