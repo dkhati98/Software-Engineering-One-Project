@@ -1,6 +1,7 @@
 package com.sred.eatright.userDiary;
 
 import android.content.Context;
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -65,12 +66,7 @@ public class SearchResultAdapter extends BaseAdapter {
             holder.food_calorie_value =(TextView) convertView.findViewById(R.id.food_calories_value);
             holder.add_food =(Button)convertView.findViewById(R.id.add_cart);
          convertView.setTag(holder);
-         holder.add_food.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-//                 int foodID = db.addFood(tempFood.getFoodName(),tempFood.getCalories().intValue(),0, 0, 0);
-             }
-         });
+
          //add on click listener to insert api info food to database.
 
         }
@@ -84,6 +80,18 @@ public class SearchResultAdapter extends BaseAdapter {
         holder.food_calorie_value.setText(String.valueOf(tempFood.getCalories()));
         holder.food_bvalue.setText(tempFood.getBrandname());
 
+        holder.add_food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                 int foodID = db.addFood(tempFood.getFoodName(),tempFood.getCalories().intValue(),0, 0, 0);
+                Intent goToCustomFood = new Intent(context,CustomFoodActivity.class);
+                goToCustomFood.putExtra("foodName",tempFood.getFoodName());
+                goToCustomFood.putExtra("foodBrand",tempFood.getBrandname());
+                goToCustomFood.putExtra("foodCalorie",tempFood.getCalories());
+                goToCustomFood.putExtra("id",123);
+                context.startActivity(goToCustomFood);
+            }
+        });
 
         return convertView;
     }
