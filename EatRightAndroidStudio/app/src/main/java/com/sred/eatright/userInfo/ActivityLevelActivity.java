@@ -39,6 +39,8 @@ public class ActivityLevelActivity extends AppCompatActivity {
                 final String realactivitylevel = activityLevel.getText().toString().trim();
                 final int _id = (Integer) getIntent().getExtras().get("id");
                 Long val = db.updateUserActivityLevel(_id, realactivitylevel);
+
+
                 Log.d("activityLevel", realactivitylevel + " ");
 
                 if (val > 0) {
