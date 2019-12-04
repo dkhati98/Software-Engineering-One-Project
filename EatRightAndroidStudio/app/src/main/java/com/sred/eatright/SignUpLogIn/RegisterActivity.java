@@ -34,19 +34,30 @@ public class RegisterActivity extends AppCompatActivity {
                 final String emailAddress = userEmail.getText().toString().trim();
                 final String password = userPassword.getText().toString().trim();
 
-                long val = db.addUser(username,emailAddress,password);
-
-                if (val>0) {
-                    Toast.makeText(RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
-                    Intent moveToLogin = new Intent(RegisterActivity.this, Main2Activity.class);
-                    startActivity(moveToLogin);
-                }
-                else
+                if(username.isEmpty()||emailAddress.isEmpty()||password.isEmpty())
                 {
-                    Toast.makeText(RegisterActivity.this, "Registration error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this,"Please fill out the entire form",Toast.LENGTH_LONG).show();
                 }
+                else if(!emailAddress.contains("@")&&!emailAddress.contains("."))
+                {
+                    Toast.makeText(RegisterActivity.this,"Email address is not valid",Toast.LENGTH_LONG).show();
+                }
+                else if(userPassword.length()<=5)
+                {
+                    Toast.makeText(RegisterActivity.this,"Password should be at least 6 character long",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    long val = db.addUser(username, emailAddress, password);
 
+                    if (val > 0) {
+                        Toast.makeText(RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
+                        Intent moveToLogin = new Intent(RegisterActivity.this, Main2Activity.class);
+                        startActivity(moveToLogin);
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Registration error", Toast.LENGTH_SHORT).show();
+                    }
 
+                }
                 /*
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
