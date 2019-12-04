@@ -119,7 +119,7 @@ public class Search extends Fragment
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (newText.length()>3)
+                if (newText.length()>2)
                 {
                     searchResult.setVisibility(myView.VISIBLE);
                     callAPIwithText caller = (callAPIwithText) new callAPIwithText().execute(newText);
