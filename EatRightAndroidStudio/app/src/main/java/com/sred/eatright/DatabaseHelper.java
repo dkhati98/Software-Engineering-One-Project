@@ -151,6 +151,9 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 //    public long addFoodMeal()
 
 
+    //get user goal Calorie
+
+
     public int getid(String userName) {
         int returnvalue = 0;
 //        try {
@@ -345,6 +348,7 @@ public  class DatabaseHelper extends SQLiteOpenHelper {
 
 
     }
+
 
     public long updateUserGoalCalories(int _id, double goalCalories) {
         SQLiteDatabase db = this.getWritableDatabase();

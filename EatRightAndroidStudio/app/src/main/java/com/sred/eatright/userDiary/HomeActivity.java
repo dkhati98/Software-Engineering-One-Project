@@ -33,12 +33,13 @@ public class HomeActivity extends AppCompatActivity {
         final TextView calories_goal = (TextView) findViewById(R.id.calories_goal);
         final TextView calories_consumed = (TextView) findViewById(R.id.calories_consumed);
         final TextView calories_leftover = (TextView) findViewById(R.id.calories_leftover);
-
+        Log.d("idinHome",_id +" ");
         DatabaseHelper db = new DatabaseHelper(this);
         Profile profile = db.GetDB(_id);
+
         int goalCalorie=0;
         try {
-            goalCalorie=Integer.parseInt(profile.getUserGoalCalories());
+            goalCalorie=Integer.parseInt(db.GetDB(_id).getUserGoalCalories());
 
         }catch (Exception e)
         {
@@ -130,6 +131,7 @@ public class HomeActivity extends AppCompatActivity {
     private void callFragment(int _id, String mealType)
     {
         Bundle bundle = new Bundle();
+       // bundle.putInt("id",_id);
         bundle.putString("id",String.valueOf(_id));
         bundle.putString("mealType",String.valueOf(mealType));
         Search myfragent = new Search();

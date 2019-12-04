@@ -56,6 +56,8 @@ public class Search extends Fragment
     String found = "N";
     static final int CONTACT_REQUEST =1;
 
+    int _id;
+    String mealType;
 
     ArrayList<FoodForSearchBar> allFoods = new ArrayList<FoodForSearchBar>();
     ArrayList<FoodForSearchBar>filteredFoodList = new ArrayList<FoodForSearchBar>();
@@ -65,12 +67,12 @@ public class Search extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
 
-        final String id = getArguments().getString("id");
-        final int _id = Integer.parseInt(id);
+        final String id = getArguments().getString("id","0");
 
-        final String mealType = getArguments().getString("mealType","non");
+        _id= Integer.parseInt(id);
+         mealType = getArguments().getString("mealType","non");
 
-
+        Log.d("idinSearch",_id +" ");
       //  final HomeActivity activity = (HomeActivity) getActivity();
 
         myView = inflater.inflate(R.layout.activity_search, container, false);
@@ -198,8 +200,9 @@ public class Search extends Fragment
                         goToCustomFood.putExtra("protein",tempFood.getProtein());
                         goToCustomFood.putExtra("carbs",tempFood.getCarbs());
                         goToCustomFood.putExtra("fats",tempFood.getFats());
-
-                        goToCustomFood.putExtra("id",123);
+                        Log.d("idinSearchCall",_id +" ");
+                        goToCustomFood.putExtra("id",_id);
+                        goToCustomFood.putExtra("mealType",mealType);
                         startActivity(goToCustomFood);
 
 
@@ -365,7 +368,7 @@ public class Search extends Fragment
                 Log.d("lev5",textToSearch);
                 Log.d("filteredSize",NewList.size() +" ");
 
-                searchResult.setAdapter(new SearchResultAdapter(getActivity(),NewList));
+                searchResult.setAdapter(new SearchResultAdapter(getActivity(),NewList,_id,mealType));
                 progressDialog.dismiss();
             }
         }

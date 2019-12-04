@@ -74,7 +74,9 @@ public class CustomFoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                Intent cancelintent = new Intent(CustomFoodActivity.this,HomeActivity.class);
+                Log.d("idinCustomFood",_id +" ");
                cancelintent.putExtra("id",_id);
+               cancelintent.putExtra("mealType",mealType);
                startActivity(cancelintent);
                            }
         });

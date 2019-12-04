@@ -23,13 +23,18 @@ public class SearchResultAdapter extends BaseAdapter {
     private ArrayList<FoodForSearchBar> foodDetail = new ArrayList<FoodForSearchBar>();
     int count;
     Context context;
+    int _id;
+    String mealType;
 
-    public SearchResultAdapter(Context context, ArrayList<FoodForSearchBar> foodDetails)
+    public SearchResultAdapter(Context context, ArrayList<FoodForSearchBar> foodDetails, int id, String mealtype)
     {
         layoutInflater = LayoutInflater.from(context);
         this.foodDetail = foodDetails;
         this.count = foodDetails.size();
         this.context = context;
+        _id= id;
+        mealType=mealtype;
+
         Log.d("adapterList",foodDetails.size()+" ");
 
     }
@@ -91,8 +96,9 @@ public class SearchResultAdapter extends BaseAdapter {
                 goToCustomFood.putExtra("protein",tempFood.getProtein());
                 goToCustomFood.putExtra("carbs",tempFood.getCarbs());
                 goToCustomFood.putExtra("fats",tempFood.getFats());
-
-                goToCustomFood.putExtra("id",123);
+                goToCustomFood.putExtra("id",_id);
+                goToCustomFood.putExtra("mealType",mealType);
+                goToCustomFood.putExtra("id",_id);
                 context.startActivity(goToCustomFood);
             }
         });
