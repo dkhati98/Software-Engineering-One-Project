@@ -47,18 +47,28 @@ public class GetGenderActivity extends AppCompatActivity {
                 final int curWeight = Integer.parseInt(weight.getText().toString().trim());
 
                 int _id = (Integer)getIntent().getExtras().get("id");
-                long val = db.updateUserInfo(_id, Gender, heightft, heightin, curWeight);
-                Log.d("genderHere", Gender+" ");
 
-                if (val > 0) {
-                    //fill in code to save to DB
-                    Intent moveToBirthday = new Intent(GetGenderActivity.this, BirthdayActivity.class);
-                    moveToBirthday.putExtra("id",_id);
-                    startActivity(moveToBirthday);
-                    Toast.makeText(GetGenderActivity.this, "Please enter your information", Toast.LENGTH_SHORT).show();
-                }
+                Log.d("genderHere", Gender+" ");
+                Log.d("idatgender",_id+" ");
+
+                if(heightft==0)
+                    Toast.makeText(GetGenderActivity.this, "Please enter your height", Toast.LENGTH_SHORT).show();
+                else if(heightin==0||heightin>=12)
+                    Toast.makeText(GetGenderActivity.this, "Please enter appropriate value for height in inches", Toast.LENGTH_SHORT).show();
+                else if(curWeight==0)
+                    Toast.makeText(GetGenderActivity.this, "Please enter your weight", Toast.LENGTH_SHORT).show();
                 else {
-                    Toast.makeText(GetGenderActivity.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                    long val = db.updateUserInfo(_id, Gender, heightft, heightin, curWeight);
+
+                    if (val > 0) {
+                        //fill in code to save to DB
+                        Intent moveToBirthday = new Intent(GetGenderActivity.this, BirthdayActivity.class);
+                        moveToBirthday.putExtra("id", _id);
+                        startActivity(moveToBirthday);
+                        // Toast.makeText(GetGenderActivity.this, "Please enter your information", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(GetGenderActivity.this, "Unable to connect to the internet", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
